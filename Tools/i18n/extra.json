@@ -2286,5 +2286,18 @@
   "ro": "Versiunea Direct și codul sursă pe GitHub",
   "hr": "Verzija Direct i izvorni kod na GitHubu",
   "el": "Έκδοση Direct και πηγαίος κώδικας στο GitHub"
+ },
+ "von %@": {
+  "en": "of %@",
+  "fr": "sur %@",
+  "es": "de %@",
+  "it": "di %@",
+  "pt-PT": "de %@",
+  "cs": "z %@",
+  "sk": "z %@",
+  "hu": "/ %@",
+  "ro": "din %@",
+  "hr": "od %@",
+  "el": "από %@"
  }
 }

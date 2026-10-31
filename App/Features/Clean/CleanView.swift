@@ -308,7 +308,21 @@ private struct CategoryRow: View {
                 Text("\(chosen.count)/\(cleanable.count) ausgewählt").font(.caption).foregroundStyle(.secondary)
             }
             Spacer(minLength: 4)
-            Text(DiskSize.format(cleanable.reduce(0) { $0 + $1.bytes })).font(.headline).monospacedDigit()
+            // The big number is what "Clean" would remove from this category, so the column adds up to the
+            // total in the action bar; the category's full size follows in small type when it differs.
+            let total = (cleanable.isEmpty ? items : cleanable).reduce(0) { $0 + $1.bytes }
+            let chosenBytes = chosen.reduce(0) { $0 + $1.bytes }
+            if cleanable.isEmpty {
+                Text(DiskSize.format(total)).font(.headline).monospacedDigit().foregroundStyle(.secondary)
+            } else {
+                VStack(alignment: .trailing, spacing: 1) {
+                    Text(DiskSize.format(chosenBytes)).font(.headline).monospacedDigit()
+                        .foregroundStyle(chosenBytes > 0 ? .primary : .secondary)
+                    if chosenBytes != total {
+                        Text("von \(DiskSize.format(total))").font(.caption).monospacedDigit().foregroundStyle(.secondary)
+                    }
+                }
+            }
         }
         .padding(.horizontal, 10).padding(.vertical, 8)
         .background(selected ? AnyShapeStyle(.background) : AnyShapeStyle(.clear), in: .rect(cornerRadius: 12, style: .continuous))
