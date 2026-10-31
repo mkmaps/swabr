@@ -21,11 +21,11 @@ public struct Cleaner: Sendable {
     /// Asked again right before removal: an app started since the scan may have its cache open.
     public let isAppRunning: @Sendable (String) -> Bool
     /// Root step for items the user may not remove (they belong to root); nil in the App Store edition.
-    public let runPrivileged: (@Sendable (String) -> String?)?
+    public let runPrivileged: RootRunner?
 
     public init(home: String = UserHome.path, whitelist: Whitelist, mode: Mode, log: OperationLog,
                 isAppRunning: @escaping @Sendable (String) -> Bool = { _ in false },
-                runPrivileged: (@Sendable (String) -> String?)? = nil) {
+                runPrivileged: RootRunner? = nil) {
         self.home = home
         self.whitelist = whitelist
         self.mode = mode

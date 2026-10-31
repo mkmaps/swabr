@@ -256,7 +256,7 @@ public enum OptimizeCatalog {
         guard let interface = defaultInterface(ctx) else { return .done(.unchanged(text("Keine Standardroute, offline"))) }
         if isTunnel(interface) { return .done(.skipped(text("VPN aktiv (\(interface)), DNS bleibt unverändert"))) }
         // dscacheutil(1) -flushcache, then mDNSResponder re-reads its configuration on SIGHUP.
-        return .admin(AdminStep(command: "/usr/bin/dscacheutil -flushcache && /usr/bin/killall -HUP mDNSResponder") { status, output in
+        return .admin(AdminStep(command: .flushDNS) { status, output in
             status == 0 ? .applied(text("DNS-Cache geleert")) : .failed(failure(text("DNS-Cache konnte nicht aufgefrischt werden"), output))
         })
     }
@@ -277,8 +277,7 @@ public enum OptimizeCatalog {
         if let manual = interfaces.first(where: { !usesDHCP($0, ctx) }) {
             return .done(.skipped(text("Schnittstelle \(manual) ist manuell eingerichtet, Routen bleiben unverändert")))
         }
-        let renew = interfaces.map { "/usr/sbin/ipconfig set \($0) DHCP" }.joined(separator: " && ")
-        return .admin(AdminStep(command: "/sbin/route -n flush >/dev/null && " + renew) { status, output in
+        return .admin(AdminStep(command: .flushRoutes(interfaces: interfaces)) { status, output in
             status == 0 ? .applied(text("Routen geleert, Adressen neu angefordert")) : .failed(failure(text("Netzwerk-Routen konnten nicht geleert werden"), output))
         })
     }
@@ -346,7 +345,7 @@ public enum OptimizeCatalog {
     ) { ctx in
         guard hasPermissionProblems(home: ctx.home, uid: ctx.uid) else { return .done(.unchanged(text("Zugriffsrechte sind in Ordnung"))) }
         // diskutil(8): resetUserPermissions <mount point> <uid>, root only.
-        return .admin(AdminStep(command: "/usr/sbin/diskutil resetUserPermissions / \(ctx.uid)") { status, output in
+        return .admin(AdminStep(command: .resetUserPermissions) { status, output in
             status == 0 ? .applied(text("Zugriffsrechte zurückgesetzt")) : .failed(failure(text("Zugriffsrechte konnten nicht zurückgesetzt werden"), output))
         })
     }
@@ -394,7 +393,7 @@ public enum OptimizeCatalog {
             return .done(.unchanged(text("Spotlight-Index ist eingeschaltet")))
         }
         // -E erases the store; Spotlight rebuilds it.
-        return .admin(AdminStep(command: "/usr/bin/mdutil -E /") { code, output in
+        return .admin(AdminStep(command: .rebuildSpotlightIndex) { code, output in
             code == 0 ? .applied(text("Spotlight-Index wird neu aufgebaut")) : .failed(failure(text("Neuaufbau konnte nicht gestartet werden"), output))
         })
     }
@@ -410,11 +409,7 @@ public enum OptimizeCatalog {
             return .done(spotlightReport(exclusions, ctx))
         }
         // The volume configuration is readable by root only: read it in the admin step, change nothing.
-        let tries = ctx.spotlightConfigs.map { path in
-            let q = Uninstaller.quote(path)
-            return "if [ -r \(q) ]; then /usr/bin/plutil -convert xml1 -o - \(q); exit $?; fi"
-        }
-        return .admin(AdminStep(command: "(" + tries.joined(separator: "; ") + "; exit 1)") { status, output in
+        return .admin(AdminStep(command: .readSpotlightConfiguration) { status, output in
             guard status == 0,
                   let plist = try? PropertyListSerialization.propertyList(from: Data(output.utf8), format: nil) as? [String: Any]
             else { return .unavailable(text("Spotlight-Einstellungen nicht lesbar")) }
@@ -464,7 +459,7 @@ public enum OptimizeCatalog {
             return ctx.now.timeIntervalSince(last) > days * 86_400
         }.map(\.0)
         guard !due.isEmpty else { return .done(.unchanged(text("Wartung ist auf dem aktuellen Stand"))) }
-        return .admin(AdminStep(command: ctx.periodicTool + " " + due.joined(separator: " ")) { status, output in
+        return .admin(AdminStep(command: .periodic(names: due)) { status, output in
             status == 0 ? .applied(text("Wartungsskripte ausgeführt")) : .failed(failure(text("Fehlgeschlagen"), output))
         })
     }

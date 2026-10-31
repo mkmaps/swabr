@@ -163,8 +163,6 @@ final class FallbackSpy: @unchecked Sendable {
     #expect(!LeftoverFinder.isSafeSystemPath("/Library/LaunchDaemons/com.apple.foo.plist"))
     #expect(!LeftoverFinder.isSafeSystemPath("/System/Library/Foo"))
     #expect(!LeftoverFinder.isSafeSystemPath("/Library/Application Support/Apple"))
-    #expect(Uninstaller.quote("/Library/It's here") == "'/Library/It'\\''s here'")
-    #expect(Shell.run("/bin/sh", ["-c", "echo " + Uninstaller.quote("a'b c")]).output == "a'b c\n")
 }
 
 @Test func iPhoneAppsOnTheMacAreListed() throws {
@@ -219,11 +217,11 @@ final class FallbackSpy: @unchecked Sendable {
         [UninstallPlan(app: a, leftovers: []), UninstallPlan(app: b, leftovers: [])], home: h.path,
         log: OperationLog(home: h.path),
         privilegedTrash: { _ in Issue.record("no per-item prompt expected"); return "x" },
-        runPrivileged: { script in
+        runPrivileged: { ops in
             calls.count += 1
-            // Stand-in for root: make the bundles movable, then run the script as given.
+            // Stand-in for root: make the bundles movable, then carry out the operations.
             for app in [a, b] { chmod(app.path, 0o755) }
-            return Shell.run("/bin/sh", ["-c", script]).status == 0 ? nil : "failed"
+            return rootAsUser(home: h.path)(ops)
         })
     #expect(calls.count == 1)
     #expect(report.failures.isEmpty)

@@ -1,23 +1,32 @@
 import Foundation
+import SwabrCore
 
-/// Runs fixed shell commands as root: through the approved helper without a prompt, otherwise after one
-/// standard macOS password prompt.
+/// Runs fixed root operations: through the approved helper without a prompt, otherwise after one standard
+/// macOS password prompt, by running the same helper program once. Either way the helper checks every
+/// operation itself and never runs a script.
 enum Privileged {
-    /// Returns the output, or nil when the user cancelled the prompt or the script failed.
-    static let run: @Sendable (String) -> String? = { script in
-        if let result = PrivilegedHelper.run(script) {
-            return result.status == 0 ? result.output : nil
-        }
-        let escaped = script.replacingOccurrences(of: "\\", with: "\\\\").replacingOccurrences(of: "\"", with: "\\\"")
-        // The prompt text is shown in the password dialog, so it is localized; the script around it is not.
+    /// One result per operation, or nil when the user cancelled the prompt or nothing could run.
+    static let run: RootRunner = { operations in
+        if let results = PrivilegedHelper.perform(operations) { return results }
+        guard let request = try? JSONEncoder().encode(RootRequest(operations)) else { return nil }
+        let helper = Bundle.main.bundleURL.appending(path: "Contents/MacOS/SwabrHelper").path
+        guard FileManager.default.isExecutableFile(atPath: helper) else { return nil }
+        // Only fixed characters reach the shell: the quoted helper path, base64 text and a number.
+        let command = "'" + helper.replacingOccurrences(of: "'", with: "'\\''") + "' --perform "
+            + request.base64EncodedString() + " --uid \(getuid())"
+        let escaped = command.replacingOccurrences(of: "\\", with: "\\\\").replacingOccurrences(of: "\"", with: "\\\"")
+        // The prompt text is shown in the password dialog, so it is localized; the command around it is not.
         let prompt = String(localized: "Swabr möchte Wartungsaufgaben ausführen.").replacingOccurrences(of: "\"", with: "'")
-        let source = "do shell script \"\(escaped)\" with prompt \"\(prompt)\" with administrator privileges without altering line endings"
-        return DispatchQueue.main.sync {
+        let source = "do shell script \"\(escaped)\" with prompt \"\(prompt)\" with administrator privileges"
+        let output: String? = DispatchQueue.main.sync {
             var error: NSDictionary?
             let result = NSAppleScript(source: source)?.executeAndReturnError(&error)
-            if error != nil { return nil }
-            return result?.stringValue ?? ""
+            return error == nil ? result?.stringValue : nil
         }
+        guard let output, let data = Data(base64Encoded: output.trimmingCharacters(in: .whitespacesAndNewlines)),
+              let results = try? JSONDecoder().decode([RootResult].self, from: data), results.count == operations.count
+        else { return nil }
+        return results
     }
 }
 

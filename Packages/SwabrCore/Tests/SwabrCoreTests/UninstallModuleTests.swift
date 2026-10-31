@@ -13,20 +13,6 @@ private func writePlist(_ dict: [String: Any], to path: String) throws {
     try PropertyListSerialization.data(fromPropertyList: dict, format: .xml, options: 0).write(to: URL(fileURLWithPath: path))
 }
 
-/// Runs a script with /bin/sh as the current user (stand-in for the root shell); nil on success. No output
-/// pipe, so processes other tests start at the same time cannot inherit and hold it open.
-private func shell(_ script: String) -> String? {
-    let process = Process()
-    process.executableURL = URL(fileURLWithPath: "/bin/sh")
-    process.arguments = ["-c", script]
-    process.standardOutput = FileHandle.nullDevice
-    process.standardError = FileHandle.nullDevice
-    process.standardInput = FileHandle.nullDevice
-    let exited = DispatchSemaphore(value: 0)
-    process.terminationHandler = { _ in exited.signal() }
-    guard (try? process.run()) != nil, exited.wait(timeout: .now() + 30) == .success else { return "failed" }
-    return process.terminationStatus == 0 ? nil : "failed"
-}
 
 /// Records calls from the code under test.
 private final class Recorder: @unchecked Sendable {
@@ -281,10 +267,10 @@ private func logText(_ h: FakeHome) -> String {
          UninstallPlan(app: b, leftovers: [Leftover(path: root + "com.acme.beta", kind: .system, bytes: 1)])],
         h, env: testEnv(h, systemRoot: root),
         privilegedTrash: { _ in Issue.record("no per-item prompt expected"); return "x" },
-        runPrivileged: { script in
-            scripts.add(script)
+        runPrivileged: { ops in
+            scripts.add("\(ops)")
             for app in [a, b] { chmod(app.path, 0o755) }
-            return shell(script)
+            return rootAsUser(home: h.path, roots: [root])(ops)
         })
     #expect(scripts.all.count == 1)
     #expect(report.failures.isEmpty)
@@ -308,7 +294,7 @@ private func logText(_ h: FakeHome) -> String {
         [UninstallPlan(app: app, leftovers: [Leftover(path: root + "com.acme.stuck", kind: .system, bytes: 1),
                                              Leftover(path: h.path + "/Library/Caches/com.acme.stuck", kind: .disposable, bytes: 1)])],
         h, env: testEnv(h, systemRoot: root),
-        runPrivileged: { script in shell(script) })   // still locked: the app move is refused
+        runPrivileged: rootAsUser(home: h.path, roots: [root]))   // still locked: the app move fails
     #expect(report.removedApps.isEmpty)
     #expect(report.failures.map(\.path) == [app.path])
     #expect(report.failures.first?.kind == .permission)
@@ -316,23 +302,19 @@ private func logText(_ h: FakeHome) -> String {
     #expect(h.exists("Library/Caches/com.acme.stuck/x"))
 }
 
-@Test func rootScriptStopsDaemonsAndMovesFilesOnlyAfterTheApp() {
+@Test func rootOperationsStopDaemonsAndMoveFilesOnlyAfterTheApp() {
     let groups = [
         Uninstaller.RootGroup(app: .init(source: "/Applications/A.app", target: "/Users/u/.Trash/A.app"),
                               files: [.init(source: "/Library/LaunchDaemons/com.a.d.plist", target: "/Users/u/.Trash/com.a.d.plist")]),
         Uninstaller.RootGroup(app: nil, files: [.init(source: "/Library/Caches/com.b", target: "/Users/u/.Trash/com.b")]),
     ]
-    let script = Uninstaller.rootScript(groups, roots: RootScript.roots(home: "/Users/u"), uid: 501, gid: 20)
-    let lines = script.split(separator: "\n").map { $0.trimmingCharacters(in: .whitespaces) }
-    let ifLine = lines.firstIndex { $0.hasPrefix("if ss_mv '/Applications/A.app'") }
-    let bootout = lines.firstIndex { $0 == "/bin/launchctl bootout system '/Library/LaunchDaemons/com.a.d.plist' >/dev/null 2>&1" }
-    let daemonMove = lines.firstIndex { $0.hasPrefix("ss_mv '/Library/LaunchDaemons/com.a.d.plist'") }
-    let fi = lines.firstIndex(of: "fi")
-    #expect(ifLine != nil && bootout != nil && daemonMove != nil && fi != nil)
-    if let ifLine, let bootout, let daemonMove, let fi { #expect(ifLine < bootout && bootout < daemonMove && daemonMove < fi) }
-    #expect(script.contains("/usr/sbin/chown -R 501:20 '/Users/u/.Trash/A.app'"))
-    #expect(script.contains(RootScript.move("/Library/Caches/com.b", to: "/Users/u/.Trash/com.b")))
-    #expect(script.hasPrefix(RootScript.prelude(roots: RootScript.roots(home: "/Users/u"))))
+    let ops = Uninstaller.rootOperations(groups)
+    #expect(ops == [
+        .group(first: .trash(source: "/Applications/A.app", target: "/Users/u/.Trash/A.app"),
+               then: [.stopDaemon(plist: "/Library/LaunchDaemons/com.a.d.plist"),
+                      .trash(source: "/Library/LaunchDaemons/com.a.d.plist", target: "/Users/u/.Trash/com.a.d.plist")]),
+        .trash(source: "/Library/Caches/com.b", target: "/Users/u/.Trash/com.b"),
+    ])
 }
 
 @Test func permissionErrorFallsBackToPrivilegedTrash() throws {

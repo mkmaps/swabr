@@ -496,13 +496,13 @@ public enum ProjectPurge {
     /// `runPrivileged` removes artifacts the user may not delete (they belong to root, e.g. made by Docker).
     public static func delete(_ artifacts: [ProjectArtifact], roots: [String], home: String = UserHome.path,
                               toTrash: Bool = false, log: OperationLog = OperationLog(),
-                              runPrivileged: (@Sendable (String) -> String?)? = nil) -> CleanReport {
+                              runPrivileged: RootRunner? = nil) -> CleanReport {
         delete(artifacts, roots: roots, home: home, toTrash: toTrash, log: log, volumes: volumes, runPrivileged: runPrivileged)
     }
 
     static func delete(_ artifacts: [ProjectArtifact], roots: [String], home: String, toTrash: Bool, log: OperationLog,
                        volumes: String, git: String? = gitExecutable, gitTimeout: TimeInterval = gitTimeout,
-                       runPrivileged: (@Sendable (String) -> String?)? = nil) -> CleanReport {
+                       runPrivileged: RootRunner? = nil) -> CleanReport {
         let usable = roots.compactMap { usableRoot($0, home: home, volumes: volumes) }
         var report = CleanReport()
         var needRoot: [(path: String, name: String, bytes: Int64, error: ProtectedPath)] = []

@@ -32,7 +32,7 @@ public enum Uninstaller {
     /// a password). Returns nil on success, otherwise the reason.
     public typealias PrivilegedTrash = @Sendable (String) -> String?
     /// Runs a shell script as root after one password prompt.
-    public typealias RunPrivileged = @Sendable (String) -> String?
+    public typealias RunPrivileged = RootRunner
 
     /// Why the app may not be uninstalled, or nil.
     public static func refusal(forApp app: InstalledApp, home: String = UserHome.path) -> String? {
@@ -59,7 +59,6 @@ public enum Uninstaller {
         token.range(of: #"^[a-z0-9][a-z0-9@._+-]*$"#, options: .regularExpression) != nil
     }
 
-    public static func quote(_ s: String) -> String { RootScript.quote(s) }
 
     // MARK: Run
 
@@ -235,7 +234,7 @@ public enum Uninstaller {
                     }
                     groups.append(RootGroup(app: app, files: files))
                 }
-                _ = runPrivileged(rootScript(groups, roots: env.rootRoots, uid: env.uid, gid: env.gid))
+                _ = runPrivileged(rootOperations(groups))
                 for i in rootWorks {
                     if works[i].needsRoot {
                         if exists(works[i].app.path) {
@@ -332,31 +331,24 @@ public enum Uninstaller {
         let files: [RootItem]
     }
 
-    /// One shell run as root: each guarded move into the user's Trash is handed back to the user. A group's
-    /// files move only after its app did; daemons are stopped right before their plist moves.
-    static func rootScript(_ groups: [RootGroup], roots: [String], uid: uid_t, gid: gid_t) -> String {
-        var lines = [RootScript.prelude(roots: roots)]
-        func chown(_ path: String) -> String { "/usr/sbin/chown -R \(uid):\(gid) \(RootScript.quote(path))" }
-        func fileLines(_ item: RootItem) -> [String] {
-            var out: [String] = []
+    /// One root run: each move into the user's Trash is handed back to the user. A group's files move only
+    /// after its app did; daemons and agents are stopped right before their plist moves.
+    static func rootOperations(_ groups: [RootGroup]) -> [RootOperation] {
+        func fileOperations(_ item: RootItem) -> [RootOperation] {
+            var out: [RootOperation] = []
             if item.source.hasPrefix("/Library/LaunchDaemons/") {
-                out.append("/bin/launchctl bootout system \(RootScript.quote(item.source)) >/dev/null 2>&1")
+                out.append(.stopDaemon(plist: item.source))
             } else if item.source.hasPrefix("/Library/LaunchAgents/") {
-                out.append("/bin/launchctl bootout gui/\(uid) \(RootScript.quote(item.source)) >/dev/null 2>&1")
+                out.append(.stopAgent(plist: item.source))
             }
-            out.append(RootScript.move(item.source, to: item.target) + " && " + chown(item.target))
+            out.append(.trash(source: item.source, target: item.target))
             return out
         }
-        for group in groups {
+        return groups.flatMap { group -> [RootOperation] in
             if let app = group.app {
-                lines.append("if " + RootScript.move(app.source, to: app.target) + "; then")
-                lines.append("  " + chown(app.target))
-                lines += group.files.flatMap(fileLines).map { "  " + $0 }
-                lines.append("fi")
-            } else {
-                lines += group.files.flatMap(fileLines)
+                return [.group(first: .trash(source: app.source, target: app.target), then: group.files.flatMap(fileOperations))]
             }
+            return group.files.flatMap(fileOperations)
         }
-        return lines.joined(separator: "\n") + "\n"
     }
 }

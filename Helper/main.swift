@@ -1,7 +1,11 @@
 import Foundation
 
-/// Swabr's privileged helper. launchd starts it on demand as root; it serves the Mach service named in its
-/// launchd plist and accepts connections only from the Swabr app signed by the same team.
+/// Swabr's privileged helper. It runs as root in two ways and accepts nothing but fixed `RootOperation`s,
+/// each checked again here (`RootExecutor`), never a script:
+/// - launchd starts it on demand for the Mach service in its launchd plist; it then accepts connections only
+///   from Swabr OP signed by the same team and works for the user of the connecting process;
+/// - after the macOS password prompt (no helper set up) the app runs it once with
+///   `--perform <base64 request> --uid <uid>` and reads the base64 results from standard output.
 final class Helper: NSObject, NSXPCListenerDelegate, SwabrHelperProtocol, @unchecked Sendable {
     private let lock = NSLock()
     private var lastUse = Date()
@@ -14,35 +18,12 @@ final class Helper: NSObject, NSXPCListenerDelegate, SwabrHelperProtocol, @unche
         return true
     }
 
-    func run(_ script: String, reply: @escaping (Int32, String) -> Void) {
+    func perform(_ request: Data, reply: @escaping (Data) -> Void) {
         touch()
-        let process = Process()
-        process.executableURL = URL(fileURLWithPath: "/bin/sh")
-        process.arguments = ["-c", script]
-        process.environment = ["PATH": "/usr/bin:/bin:/usr/sbin:/sbin", "LANG": "en_US.UTF-8"]
-        let pipe = Pipe()
-        // Standard output only, as `do shell script` returns it: callers parse it line by line.
-        process.standardOutput = pipe
-        process.standardError = FileHandle.nullDevice
-        process.standardInput = FileHandle.nullDevice
-        // A termination handler, not waitUntilExit: that can miss the exit off the main run loop.
-        let exited = DispatchSemaphore(value: 0)
-        process.terminationHandler = { _ in exited.signal() }
-        do { try process.run() } catch {
-            reply(-1, error.localizedDescription)
-            return
-        }
-        // Read on a thread of its own so a full pipe never stalls the script.
-        let output = Output()
-        let drained = DispatchSemaphore(value: 0)
-        Thread.detachNewThread {
-            output.data = pipe.fileHandleForReading.readDataToEndOfFile()
-            drained.signal()
-        }
-        exited.wait()
-        _ = drained.wait(timeout: .now() + 5)
+        // The work is done for the user of the connecting app, not for a user id the request names.
+        let uid = NSXPCConnection.current()?.effectiveUserIdentifier ?? 0
+        reply(Self.handle(request, uid: uid))
         touch()
-        reply(process.terminationStatus, String(decoding: output.data, as: UTF8.self))
     }
 
     func version(reply: @escaping (String) -> Void) {
@@ -50,8 +31,11 @@ final class Helper: NSObject, NSXPCListenerDelegate, SwabrHelperProtocol, @unche
         reply(HelperIdentity.version)
     }
 
-    private final class Output: @unchecked Sendable {
-        var data = Data()
+    /// Decodes, checks and carries out a request; empty data for an unreadable request or an unknown user.
+    static func handle(_ request: Data, uid: uid_t) -> Data {
+        guard let decoded = try? JSONDecoder().decode(RootRequest.self, from: request),
+              let executor = RootExecutor.forUser(uid) else { return Data() }
+        return (try? JSONEncoder().encode(executor.perform(decoded.operations))) ?? Data()
     }
 
     private func touch() { lock.withLock { lastUse = Date() } }
@@ -68,6 +52,16 @@ final class Helper: NSObject, NSXPCListenerDelegate, SwabrHelperProtocol, @unche
     }
 
     private var idleTimer: DispatchSourceTimer?
+}
+
+let arguments = CommandLine.arguments
+if let i = arguments.firstIndex(of: "--perform"), i + 1 < arguments.count,
+   let j = arguments.firstIndex(of: "--uid"), j + 1 < arguments.count, let uid = uid_t(arguments[j + 1]),
+   let request = Data(base64Encoded: arguments[i + 1]) {
+    // One-off run after the password prompt: only as root, and never on behalf of root.
+    guard getuid() == 0 || geteuid() == 0, uid != 0 else { exit(64) }
+    print(Helper.handle(request, uid: uid).base64EncodedString())
+    exit(0)
 }
 
 let helper = Helper()

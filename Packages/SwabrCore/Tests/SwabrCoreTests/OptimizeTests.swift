@@ -23,22 +23,23 @@ import Testing
     }
 }
 
-@Test func adminStepsRunAsOneScriptAndAreSplitPerTask() {
+@Test func adminStepsRunInOneRootRunAndAreSplitPerTask() {
     let ok = OptimizeTask(id: "a", title: "A", summary: "s", impact: "i", needsAdmin: true, noticeable: false) { _ in
-        .admin(AdminStep(command: "echo hello") { status, out in status == 0 && out == "hello" ? .applied("ok") : .failed(out) })
+        .admin(AdminStep(command: .flushDNS) { status, out in status == 0 && out == "hello" ? .applied("ok") : .failed(out) })
     }
     let bad = OptimizeTask(id: "b", title: "B", summary: "s", impact: "i", needsAdmin: true, noticeable: false) { _ in
-        .admin(AdminStep(command: "echo oops; exit 3") { status, out in status == 3 && out == "oops" ? .failed("rc3") : .applied("?") })
+        .admin(AdminStep(command: .rebuildSpotlightIndex) { status, out in status == 3 && out == "oops" ? .failed("rc3") : .applied("?") })
     }
     let local = OptimizeTask(id: "c", title: "C", summary: "s", impact: "i", needsAdmin: false, noticeable: false) { _ in
         .done(.unchanged("nothing"))
     }
     let ctx = OptimizeContext(isAppRunning: { _ in false })
-    // Run the combined script with an ordinary /bin/sh instead of a privileged prompt.
+    // One root run with both commands, in order; each result goes to its task.
     let calls = Counter()
-    let results = Optimizer.run([ok, bad, local], context: ctx) { script in
+    let results = Optimizer.run([ok, bad, local], context: ctx) { ops in
         calls.add()
-        return Shell.run("/bin/sh", ["-c", script]).output
+        #expect(ops == [.command(.flushDNS), .command(.rebuildSpotlightIndex)])
+        return [RootResult(status: 0, output: "hello\n"), RootResult(status: 3, output: "oops")]
     }
     #expect(calls.value == 1)
     #expect(results["a"] == .applied("ok"))

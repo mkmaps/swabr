@@ -209,22 +209,19 @@ private func agent(_ label: String, kind: StartupItem.Kind = .userAgent, program
     #expect(Set(failures.keys) == Set(items.map(\.path)))
 }
 
-@Test func systemScriptStopsDaemonsAndUsesGuardedMoves() throws {
+@Test func systemOperationsStopDaemonsAndMoveIntoFreeTrashNames() throws {
     let h = try FakeHome()
     try FileManager.default.createDirectory(atPath: h.path + "/.Trash", withIntermediateDirectories: true)
     try h.file(".Trash/com.a.helper.plist")
     let gone = "/nonexistent/helper"
     let daemon = agent("com.a.helper", kind: .daemon, program: gone, path: "/Library/LaunchDaemons/com.a.helper.plist")
     let other = agent("com.a.helper", kind: .systemAgent, program: gone, path: "/Library/LaunchAgents/com.a.helper.plist")
-    let script = StartupItems.systemScript(for: [daemon, other], home: h.path, uid: 501, gid: 20)
-    #expect(script.hasPrefix(RootScript.prelude(roots: RootScript.roots(home: h.path))))
-    #expect(script.contains("/bin/launchctl bootout system '/Library/LaunchDaemons/com.a.helper.plist'"))
-    #expect(!script.contains("bootout system '/Library/LaunchAgents/"))
-    // The existing Trash file and the first move's target are both avoided.
-    #expect(script.contains(RootScript.move(daemon.path, to: h.path + "/.Trash/com.a.helper 2.plist")))
-    #expect(script.contains(RootScript.move(other.path, to: h.path + "/.Trash/com.a.helper 3.plist")))
-    #expect(script.contains("/usr/sbin/chown -h 501:20 '\(h.path)/.Trash/com.a.helper 2.plist'"))
-    #expect(script.components(separatedBy: "ss_mv '").count == 3)
+    // The existing Trash file and the first move's target are both avoided; agents are not booted out of system.
+    #expect(StartupItems.systemOperations(for: [daemon, other], home: h.path) == [
+        .stopDaemon(plist: daemon.path),
+        .trash(source: daemon.path, target: h.path + "/.Trash/com.a.helper 2.plist"),
+        .trash(source: other.path, target: h.path + "/.Trash/com.a.helper 3.plist"),
+    ])
 }
 
 @Test func storeEditionShowsOnlyAgentsOfGrantedApps() {

@@ -101,7 +101,7 @@ final class AnalyzeModel {
     }
 
     func moveToTrash(_ paths: [String]) async {
-        let privileged: (@Sendable (String) -> String?)? = Edition.isStore ? nil : Privileged.run
+        let privileged: RootRunner? = Edition.isStore ? nil : Privileged.run
         let failed = await Task.detached { AnalyzeTrash.moveToTrash(paths, runPrivileged: privileged) }.value
         failures = failed
         selection = []

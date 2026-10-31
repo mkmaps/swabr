@@ -79,7 +79,7 @@ final class StartupModel {
             // Only through the helper: run any other way, sfltool makes macOS ask for authorization each time.
             if PrivilegedHelper.state == .enabled {
                 let found = await Task.detached {
-                    AppLoginItems.list { script in PrivilegedHelper.run(script).flatMap { $0.status == 0 ? $0.output : nil } }
+                    AppLoginItems.list(runAsRoot: { PrivilegedHelper.perform($0) })
                 }.value
                 appItems = found ?? []
                 appItemsKnown = found != nil

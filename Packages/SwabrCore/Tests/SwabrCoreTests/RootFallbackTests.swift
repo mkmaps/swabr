@@ -2,12 +2,12 @@ import Foundation
 import Testing
 @testable import SwabrCore
 
-/// Stand-in for root: first lifts the lock the user could not get past, then runs the script as given.
-private func rootStandIn(unlocking folder: String, calls: Calls) -> @Sendable (String) -> String? {
-    { script in
+/// Stand-in for root: first lifts the lock the user could not get past, then carries out the operations.
+private func rootStandIn(unlocking folder: String, calls: Calls, home: String, roots: [String] = []) -> RootRunner {
+    { ops in
         calls.count += 1
         chmod(folder, 0o755)
-        return Shell.run("/bin/sh", ["-c", script]).status == 0 ? "" : nil
+        return rootAsUser(home: home, roots: roots)(ops)
     }
 }
 
@@ -35,7 +35,7 @@ private func lockedFolder(_ h: FakeHome, _ rel: String, file: String) throws -> 
         #expect(report.removedCount == 0 && report.failures.map(\.kind) == [.permission])
 
         report = await Cleaner(home: h.path, whitelist: whitelist(h), mode: mode, log: OperationLog(home: h.path),
-                               runPrivileged: rootStandIn(unlocking: folder, calls: calls)).clean(items)
+                               runPrivileged: rootStandIn(unlocking: folder, calls: calls, home: h.path)).clean(items)
         #expect(calls.count == 1)
         #expect(report.removedCount == 1 && report.failures.isEmpty)
         #expect(!h.exists("Library/Caches/com.acme.locked/blob"))
@@ -56,7 +56,7 @@ private func lockedFolder(_ h: FakeHome, _ rel: String, file: String) throws -> 
     let calls = Calls()
     let report = ProjectPurge.delete([artifact], roots: [h.path + "/dev"], home: h.path, toTrash: false,
                                      log: OperationLog(home: h.path), volumes: "/Volumes",
-                                     runPrivileged: rootStandIn(unlocking: locked, calls: calls))
+                                     runPrivileged: rootStandIn(unlocking: locked, calls: calls, home: h.path))
     #expect(calls.count == 1)
     #expect(report.removedCount == 1 && report.failures.isEmpty)
     #expect(!h.exists("dev/web/node_modules"))
@@ -72,9 +72,9 @@ private func lockedFolder(_ h: FakeHome, _ rel: String, file: String) throws -> 
                            bytes: 20_000, lastUsed: nil, fromAppStore: false, protection: nil)
     let calls = Calls()
     let outcome = AppSlimmer.rootSwap(app: app, copy: h.path + "/work/Tool.app", home: h.path, saved: 10_000,
-                                      log: OperationLog(home: h.path), runPrivileged: { script in
+                                      log: OperationLog(home: h.path), runPrivileged: { ops in
         calls.count += 1
-        return Shell.run("/bin/sh", ["-c", script]).status == 0 ? "" : nil
+        return rootAsUser(home: h.path)(ops)
     })
     #expect(outcome.ok)
     #expect(calls.count == 1)

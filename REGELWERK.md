@@ -184,25 +184,25 @@ Ein Symlink als Ziel wird als Link entfernt, nie sein Ziel. Das ist bereits so, 
 
 **Ist-Stand** ✅
 - Alle Punkte sind umgesetzt.
-- Jeder root-Schritt läuft über `ss_mv` aus `RootScript.prelude` (`Uninstall/RootScript.swift`). Die erlaubten Wurzeln sind dieselben wie in `LeftoverFinder.systemRoots`, dazu die App-Ordner.
-- `ss_mv` prüft Wurzel, `..`, `com.apple.`, Links an Quelle und Elternordner sowie den physischen Elternordner (`cd -P`/`pwd -P`). Es verschiebt aus dem festgehaltenen Elternordner heraus und nie auf ein bestehendes Ziel (M-05).
+- Jeder root-Schritt ist eine feste `RootOperation` (`Privileged/RootOperation.swift`) und wird vom `RootExecutor` ausgeführt; ein Shell-Skript als root gibt es nicht mehr (seit 31.10.2026, Abnahme A-01). Erlaubte Wurzeln: `RootExecutor.systemRoots` (= `LeftoverFinder.systemRoots`), die App-Ordner, der Benutzerordner und `/Volumes/` (mindestens zwei Ebenen unter dem Volume).
+- Der `RootExecutor` prüft Wurzel, `..`, `com.apple.`, Steuerzeichen, Links an Quelle und Elternordner sowie den physischen Elternordner (`realpath`). Er verschiebt per `renameatx_np` relativ zu den mit `O_NOFOLLOW` geöffneten Ordnern, nie auf ein bestehendes Ziel (`RENAME_EXCL`), und nur direkt in den Papierkorb des anfragenden Benutzers (M-05).
 - Genutzt wird es von Deinstallieren (Apps von root, Systemdateien) und von Startobjekte (verwaiste Systemdienste).
 
 **Hilfsdienst (Direct, seit 25.10.2026)**
 - `SwabrHelper` wird per `SMAppService.daemon` angemeldet und einmal unter Anmeldeobjekte erlaubt. Danach führt er Admin-Schritte ohne Passwort aus, auf Wunsch des Nutzers ohne Rückfrage.
 - Er nimmt nur Verbindungen der App mit der Kennung `io.github.mkmaps.swabr` und Team `Y94QZAZZ45` an. Umgekehrt verbindet sich die App nur mit dem gleich signierten Dienst.
-- Er führt dieselben Skripte aus wie bisher die Passwortabfrage, also mit allen Prüfungen aus `RootScript`.
-- Ohne Freigabe fragt macOS wie bisher nach dem Passwort.
+- Er nimmt nur feste `RootOperation`s an (Papierkorb, Dienst stoppen, App ersetzen, sieben Wartungsbefehle), prüft jede selbst und startet Programme ohne Shell mit festen Argumenten und Zeitlimit (Abnahme A-01/A-02). Für wen er arbeitet, entnimmt er der XPC-Verbindung, nicht der Anfrage.
+- Ohne Freigabe fragt macOS nach dem Passwort und startet dann dasselbe Helferprogramm einmal (`--perform`), mit denselben Prüfungen.
 - Entfernen geht unter Einstellungen → Verhalten → Administratorrechte.
 
 **Root-Weg für Einträge, die root gehören (seit 25.10.2026)**
 - Scheitert Speicher, Aufräumen, Projekte oder Installer am Papierkorb, weil der Nutzer keine Rechte hat, legt `RootTrash.move` die Einträge in einem einzigen Root-Schritt in den Papierkorb.
   - Jeder Eintrag hat vorher alle Prüfungen des Moduls bestanden.
   - Danach gehören die Einträge per `chown` wieder dem Nutzer.
-  - Erlaubte Wurzeln: beim Aufräumen nur der Benutzerordner, bei Projekten nur die Suchorte, im Speicher nur die Wurzeln von `RootScript`.
+  - Erlaubte Wurzeln: beim Aufräumen nur der Benutzerordner, bei Projekten nur die Suchorte, im Speicher nur die Wurzeln von `RootScript.roots`. Der Helfer prüft zusätzlich gegen seine eigenen Wurzeln.
   - „Endgültig löschen“ löscht anschließend als Nutzer im Papierkorb. Als root läuft nie ein `rm`.
 - Verschlanken ersetzt Apps, die root gehören, ebenfalls über einen Root-Schritt (`AppSlimmer.rootSwap`):
-  1. Original per `ss_mv` in den Papierkorb.
+  1. Original per `RootOperation.replaceApp` in den Papierkorb (nur aus den App-Ordnern, Kopie gleichen Namens aus einem Arbeitsordner).
   2. Geprüfte Kopie an seinen Platz.
   3. Eigentümer des Originals übernehmen.
   4. Schlägt Schritt 2 fehl, kommt das Original zurück.

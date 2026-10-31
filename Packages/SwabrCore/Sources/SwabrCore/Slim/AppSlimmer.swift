@@ -77,7 +77,7 @@ public enum AppSlimmer {
         /// lipo, or nil to cut the slice out directly.
         var lipo: String?
         /// Root step for apps the user may not replace (they belong to root); nil skips those apps.
-        var runPrivileged: (@Sendable (String) -> String?)? = nil
+        var runPrivileged: RootRunner? = nil
 
         static let live = Environment(
             appleSilicon: { AppSlimmer.isAppleSilicon },
@@ -100,7 +100,7 @@ public enum AppSlimmer {
 
     /// `home` is part of the caller's interface; the checks here only look at the bundles themselves.
     public static func scan(_ apps: [InstalledApp], home: String = UserHome.path,
-                            runPrivileged: (@Sendable (String) -> String?)? = nil) async
+                            runPrivileged: RootRunner? = nil) async
         -> (candidates: [SlimCandidate], skipped: [SlimSkip]) {
         var env = Environment.live
         env.runPrivileged = runPrivileged
@@ -181,7 +181,7 @@ public enum AppSlimmer {
     // MARK: Slim
 
     public static func slim(_ c: SlimCandidate, home: String = UserHome.path, log: OperationLog = OperationLog(),
-                            runPrivileged: (@Sendable (String) -> String?)? = nil) -> Outcome {
+                            runPrivileged: RootRunner? = nil) -> Outcome {
         var env = Environment.live
         env.runPrivileged = runPrivileged
         return slim(c, home: home, log: log, env: env)
@@ -275,24 +275,16 @@ public enum AppSlimmer {
         return Outcome(ok: true, message: String(localized: "\(DiskSize.format(saved)) Intel-Code entfernt", bundle: .module))
     }
 
-    /// The swap as one root step: the original into the user's Trash (checked by `ss_mv`), the slimmed copy into
+    /// The swap as one root step: the original into the user's Trash (checked by the helper), the slimmed copy into
     /// its place with the original's owner, and the original put back if the copy cannot be moved.
     static func rootSwap(app: InstalledApp, copy: String, home: String, saved: Int64, log: OperationLog,
-                         runPrivileged: @Sendable (String) -> String?) -> Outcome {
+                         runPrivileged: RootRunner) -> Outcome {
         var st = stat()
         guard lstat(app.path, &st) == 0, !PathSafety.hasControlCharacters(copy) else {
             return Outcome(ok: false, message: String(localized: "nicht mehr vorhanden oder verändert", bundle: .module))
         }
-        let original = RootScript.quote(app.path), clone = RootScript.quote(copy)
-        let trash = RootScript.quote("\(home)/.Trash/\((app.path as NSString).lastPathComponent) \(Int(Date().timeIntervalSince1970))")
-        let script = RootScript.prelude(roots: RootScript.roots(home: home)) + """
-
-        if ss_mv \(original) \(trash); then
-          if /bin/mv \(clone) \(original); then /usr/sbin/chown -R \(st.st_uid):\(st.st_gid) \(original); else /bin/mv \(trash) \(original); fi
-          [ -e \(trash) ] && /usr/sbin/chown -R \(getuid()):\(getgid()) \(trash)
-        fi
-        """
-        _ = runPrivileged(script)
+        let trash = "\(home)/.Trash/\((app.path as NSString).lastPathComponent) \(Int(Date().timeIntervalSince1970))"
+        _ = runPrivileged([.replaceApp(original: app.path, replacement: copy, trash: trash)])
         let fm = FileManager.default
         if fm.fileExists(atPath: app.path), !fm.fileExists(atPath: copy) {
             log.record(action: "TRASH", path: app.path, bytes: saved, label: "Verschlanken: \(app.name)")

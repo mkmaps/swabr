@@ -87,14 +87,7 @@ public struct Leftover: Identifiable, Sendable, Hashable {
 public enum LeftoverFinder {
     /// `/Library` folders whose entries may be removed with administrator rights (REGELWERK S7). Audio
     /// plug-ins only in the per-format folders, never their shared parent.
-    public static let systemRoots: [String] = [
-        "/Library/Application Support/", "/Library/Caches/", "/Library/Logs/", "/Library/Preferences/",
-        "/Library/LaunchAgents/", "/Library/LaunchDaemons/", "/Library/PrivilegedHelperTools/", "/Library/Receipts/",
-        "/Library/Frameworks/", "/Library/Internet Plug-Ins/", "/Library/Input Methods/",
-        "/Library/Audio/Plug-Ins/HAL/", "/Library/Audio/Plug-Ins/Components/", "/Library/Audio/Plug-Ins/VST/",
-        "/Library/Audio/Plug-Ins/VST3/", "/Library/QuickLook/", "/Library/PreferencePanes/", "/Library/Screen Savers/",
-        "/Library/Extensions/", "/Library/StartupItems/",
-    ]
+    public static let systemRoots: [String] = RootExecutor.systemRoots
 
     /// Below an allowed root (never the root itself), no empty, `.` or `..` part, nothing of Apple's and no
     /// control characters.

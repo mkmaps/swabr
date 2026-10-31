@@ -76,16 +76,18 @@ final class RunningSwitch: @unchecked Sendable {
     #expect(items.first?.skipRunningOwner == true)
 }
 
-// MARK: M-05 root script
+// MARK: M-05 root steps (the helper's own checks)
 
-/// Runs the guarded move as the current user with test roots; returns the shell's exit status.
+/// Runs the helper's move as the current user, allowing only `roots`; returns the result status.
 @discardableResult
 func guardedMove(_ src: String, to dst: String, roots: [String]) -> Int32 {
-    let script = RootScript.prelude(roots: roots) + "\n" + RootScript.move(src, to: dst)
-    return Shell.run("/bin/sh", ["-c", script], timeout: 10).status
+    let home = ((dst as NSString).deletingLastPathComponent as NSString).deletingLastPathComponent
+    var executor = RootExecutor(uid: getuid(), gid: getgid(), home: home, timeout: 10)
+    executor.sourceRoots = roots
+    return executor.perform([.trash(source: src, target: dst)])[0].status
 }
 
-@Test func rootScriptMovesOnlyCheckedPaths() throws {
+@Test func rootStepMovesOnlyCheckedPaths() throws {
     let h = try FakeHome()
     let root = h.path + "/Library/Caches/"
     let trash = h.path + "/.Trash"
@@ -124,7 +126,7 @@ func guardedMove(_ src: String, to dst: String, roots: [String]) -> Int32 {
     #expect(guardedMove(String(root.dropLast()), to: trash + "/Caches", roots: [root]) != 0)
 }
 
-@Test func rootScriptQuotesAwkwardNames() throws {
+@Test func rootStepTakesAwkwardNamesLiterally() throws {
     let h = try FakeHome()
     let root = h.path + "/Library/Caches/"
     try FileManager.default.createDirectory(atPath: h.path + "/.Trash", withIntermediateDirectories: true)

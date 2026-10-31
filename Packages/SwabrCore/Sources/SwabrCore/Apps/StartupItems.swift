@@ -335,10 +335,10 @@ public enum StartupItems {
 
     // MARK: Orphaned system-wide items
 
-    /// Moves orphaned system-wide plists to the user's Trash: with a root shell under one password prompt,
+    /// Moves orphaned system-wide plists to the user's Trash: in one root run (at most one password prompt),
     /// otherwise one by one through `privilegedTrash`. Returns path → reason for every item still there.
     public static func removeSystem(_ items: [StartupItem], home: String = UserHome.path, log: OperationLog = OperationLog(),
-                                    runPrivileged: (@Sendable (String) -> String?)?,
+                                    runPrivileged: RootRunner?,
                                     privilegedTrash: (@Sendable (String) -> String?)? = nil) -> [String: String] {
         var failures: [String: String] = [:]
         var eligible: [StartupItem] = []
@@ -350,7 +350,7 @@ public enum StartupItems {
 
         var reasons: [String: String] = [:]
         if let runPrivileged {
-            _ = runPrivileged(systemScript(for: eligible, home: home, uid: getuid(), gid: getgid()))
+            _ = runPrivileged(systemOperations(for: eligible, home: home))
         } else if let privilegedTrash {
             for item in eligible { if let why = privilegedTrash(item.path) { reasons[item.path] = why } }
         }
@@ -372,18 +372,15 @@ public enum StartupItems {
             && LeftoverFinder.isSafeSystemPath(item.path) && !isLink(item.path)
     }
 
-    /// One root shell run: stop daemons, then each guarded move into the user's Trash, handed back to the user.
-    static func systemScript(for items: [StartupItem], home: String, uid: uid_t, gid: gid_t) -> String {
-        var lines = [RootScript.prelude(roots: RootScript.roots(home: home))]
+    /// One root run: stop daemons, then move each plist into the user's Trash, handed back to the user.
+    static func systemOperations(for items: [StartupItem], home: String) -> [RootOperation] {
         var taken = Set<String>()
+        var out: [RootOperation] = []
         for item in items {
-            if item.kind == .daemon {
-                lines.append("/bin/launchctl bootout system \(RootScript.quote(item.path)) >/dev/null 2>&1")
-            }
-            let target = trashTarget(for: item.path, home: home, taken: &taken)
-            lines.append(RootScript.move(item.path, to: target) + " && /usr/sbin/chown -h \(uid):\(gid) \(RootScript.quote(target))")
+            if item.kind == .daemon { out.append(.stopDaemon(plist: item.path)) }
+            out.append(.trash(source: item.path, target: trashTarget(for: item.path, home: home, taken: &taken)))
         }
-        return lines.joined(separator: "\n") + "\n"
+        return out
     }
 
     /// A free name in `~/.Trash` (`name.plist`, `name 2.plist`, …), also free of names used earlier in the same run.

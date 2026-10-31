@@ -128,7 +128,7 @@ extension URL {
 
 // MARK: Runner
 
-@Test func runnerCombinesCatalogStepsAndParsesEndMarkers() throws {
+@Test func runnerHandsCatalogStepsToRootAsFixedCommands() throws {
     let h = try quietHome()
     let online = FakeTools(home: h.path, [
         "/sbin/route -n get default": (0, "   route to: default\n  interface: en0\n"),
@@ -136,31 +136,37 @@ extension URL {
     ])
     let ctx = testContext(h, online)
     let tasks = OptimizeCatalog.all.filter { ["dns.flush", "spotlight.check", "finder.dsstore"].contains($0.id) }
-    let script = ScriptBox()
-    let results = Optimizer.run(tasks, context: ctx) { s in
-        script.value = s
-        // As the root shell would answer: both steps print something, the second fails.
-        return "flushed\n\n__SWABR_STEP dns.flush 0\r\nmdutil: error\n__SWABR_STEP spotlight.check 1\n"
+    let sent = OpsBox()
+    let results = Optimizer.run(tasks, context: ctx) { ops in
+        sent.value = ops
+        // As the helper would answer: both steps print something, the second fails.
+        return [RootResult(status: 0, output: "flushed\n"), RootResult(status: 1, output: "mdutil: error\n")]
     }
-    #expect(script.value.contains("/usr/bin/dscacheutil -flushcache && /usr/bin/killall -HUP mDNSResponder"))
-    #expect(script.value.contains("/usr/bin/mdutil -E /"))
-    #expect(script.value.contains("__SWABR_STEP %s %d") && script.value.contains("'dns.flush'"))
-    #expect(script.value.hasSuffix("exit 0\n"))
+    #expect(sent.value == [.command(.flushDNS), .command(.rebuildSpotlightIndex)])
     #expect(results["dns.flush"] == .applied(L("DNS-Cache geleert")))
     #expect(results["spotlight.check"] == .failed(L("Neuaufbau konnte nicht gestartet werden") + ": mdutil: error"))
     #expect(results["finder.dsstore"] == .unchanged(L("Bereits eingestellt")))
-    // No killall ran outside the (fake) root script.
+    // No killall ran outside the (fake) root step.
     #expect(!online.calls.contains { $0.contains("killall") })
 }
 
-@Test func missingEndMarkerAndDeclinedPasswordAreReported() throws {
+@Test func missingResultAndDeclinedPasswordAreReported() throws {
     let h = try quietHome()
     let ctx = testContext(h, FakeTools(home: h.path, ["/sbin/route -n get default": (0, "interface: en0\n")]))
     let dns = OptimizeCatalog.all.filter { $0.id == "dns.flush" }
-    let cut = Optimizer.run(dns, context: ctx) { _ in "half the output" }
+    let cut = Optimizer.run(dns, context: ctx) { _ in [] }
     #expect(cut["dns.flush"] == .failed(L("Ergebnis nicht erkannt")))
     let declined = Optimizer.run(dns, context: ctx) { _ in nil }
     #expect(declined["dns.flush"] == .skipped(L("Administratorrechte nicht erteilt")))
+}
+
+final class OpsBox: @unchecked Sendable {
+    private let lock = NSLock()
+    private var ops: [RootOperation] = []
+    var value: [RootOperation] {
+        get { lock.withLock { ops } }
+        set { lock.withLock { ops = newValue } }
+    }
 }
 
 @Test func withoutRootRunnerAdminTasksDoNotRun() throws {
@@ -170,7 +176,7 @@ extension URL {
         return .done(.applied("?"))
     }
     let sneaky = OptimizeTask(id: "y", title: "Y", summary: "s", impact: "i", needsAdmin: false, noticeable: false) { _ in
-        .admin(AdminStep(command: "true") { _, _ in .applied("ran") })
+        .admin(AdminStep(command: .flushDNS) { _, _ in .applied("ran") })
     }
     let local = OptimizeTask(id: "z", title: "Z", summary: "s", impact: "i", needsAdmin: false, noticeable: false) { _ in .done(.unchanged("z")) }
     let results = Optimizer.run([probe, sneaky, local], context: testContext(h, FakeTools(home: h.path)))
@@ -179,14 +185,6 @@ extension URL {
     #expect(results["z"] == .unchanged("z"))
 }
 
-final class ScriptBox: @unchecked Sendable {
-    private let lock = NSLock()
-    private var text = ""
-    var value: String {
-        get { lock.withLock { text } }
-        set { lock.withLock { text = newValue } }
-    }
-}
 
 // MARK: Store
 
@@ -401,7 +399,7 @@ final class ScriptBox: @unchecked Sendable {
 
     let dhcp = testContext(h, FakeTools(home: h.path, lan.merging(["/usr/sbin/ipconfig getpacket en1": (0, "op = BOOTREPLY\n")]) { $1 }))
     let step = try #require(adminStep("net.routes", dhcp))
-    #expect(step.command == "/sbin/route -n flush >/dev/null && /usr/sbin/ipconfig set en0 DHCP && /usr/sbin/ipconfig set en1 DHCP")
+    #expect(step.command == .flushRoutes(interfaces: ["en0", "en1"]))
     #expect(step.interpret(0, "") == .applied(L("Routen geleert, Adressen neu angefordert")))
 }
 
@@ -410,7 +408,7 @@ final class ScriptBox: @unchecked Sendable {
     try setDate(h.path + "/log/weekly.out", daysAgo: 8)
     try FileManager.default.removeItem(atPath: h.path + "/log/monthly.out")
     let ctx = testContext(h, FakeTools(home: h.path))
-    #expect(adminStep("system.periodic", ctx)?.command == h.path + "/bin/periodic weekly monthly")
+    #expect(adminStep("system.periodic", ctx)?.command == .periodic(names: ["weekly", "monthly"]))
     try FileManager.default.removeItem(atPath: h.path + "/bin/periodic")
     #expect(outcome("system.periodic", ctx) == .unavailable(L("Gibt es seit macOS 26 nicht mehr, das System erledigt das selbst")))
 }
@@ -428,7 +426,7 @@ final class ScriptBox: @unchecked Sendable {
     // Not readable as the user (the real file belongs to root): read in the admin step instead.
     ctx.spotlightConfigs = [h.path + "/nothing.plist"]
     let step = try #require(adminStep("spotlight.orphans", ctx))
-    #expect(step.command.contains("/usr/bin/plutil -convert xml1 -o - '\(h.path)/nothing.plist'"))
+    #expect(step.command == .readSpotlightConfiguration)
     let xml = """
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -445,7 +443,8 @@ final class ScriptBox: @unchecked Sendable {
     defer { try? FileManager.default.setAttributes([.posixPermissions: 0o644], ofItemAtPath: copy) }
     let read = try #require(adminStep("spotlight.orphans", ctx))
     try FileManager.default.setAttributes([.posixPermissions: 0o644], ofItemAtPath: copy)
-    let run = Shell.run("/bin/sh", ["-c", read.command])
+    // The root step prints the configuration as XML; the same conversion on the readable copy:
+    let run = Shell.run("/usr/bin/plutil", ["-convert", "xml1", "-o", "-", copy])
     #expect(run.status == 0)
     #expect(read.interpret(run.status, run.output) == .attention(L("\(1) Ausschlüsse ohne Ort: ") + "~/gone"))
 }
@@ -469,5 +468,5 @@ final class ScriptBox: @unchecked Sendable {
     defer { try? FileManager.default.setAttributes([.posixPermissions: 0o755], ofItemAtPath: h.path + "/Documents") }
     #expect(OptimizeCatalog.hasPermissionProblems(home: h.path, uid: getuid()))
     let step = try #require(adminStep("home.permissions", testContext(h, FakeTools(home: h.path))))
-    #expect(step.command == "/usr/sbin/diskutil resetUserPermissions / \(getuid())")
+    #expect(step.command == .resetUserPermissions)
 }

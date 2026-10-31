@@ -27,7 +27,7 @@ final class SlimModel {
         results = [:]
         if let protection = try? RuleStore.protection() {
             let apps = await AppCatalog.installedApps(protection: protection)
-            let privileged: (@Sendable (String) -> String?)? = Edition.isStore ? nil : Privileged.run
+            let privileged: RootRunner? = Edition.isStore ? nil : Privileged.run
             (candidates, skipped) = await AppSlimmer.scan(apps, runPrivileged: privileged)
         }
         selected = []
@@ -39,7 +39,7 @@ final class SlimModel {
     func slimSelected() async {
         for c in chosen {
             working = c.app.name
-            let privileged: (@Sendable (String) -> String?)? = Edition.isStore ? nil : Privileged.run
+            let privileged: RootRunner? = Edition.isStore ? nil : Privileged.run
             let outcome = await Task.detached { AppSlimmer.slim(c, runPrivileged: privileged) }.value
             results[c.id] = outcome
             if outcome.ok { selected.remove(c.id) }

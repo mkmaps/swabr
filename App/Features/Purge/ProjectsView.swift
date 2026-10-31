@@ -48,7 +48,7 @@ final class ProjectsModel {
 
     func delete() async {
         let items = chosen, roots = roots, trash = toTrash
-        let privileged: (@Sendable (String) -> String?)? = Edition.isStore ? nil : Privileged.run
+        let privileged: RootRunner? = Edition.isStore ? nil : Privileged.run
         result = await Task.detached { ProjectPurge.delete(items, roots: roots, toTrash: trash, runPrivileged: privileged) }.value
         artifacts.removeAll { a in items.contains(a) && !(result?.failures.contains { $0.path == a.path } ?? false) }
         selected = []

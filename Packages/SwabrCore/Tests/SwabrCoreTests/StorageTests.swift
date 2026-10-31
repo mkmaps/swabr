@@ -292,10 +292,10 @@ private final class Seen: @unchecked Sendable {
     #expect(failed.map(\.kind) == [.permission])
     #expect(FileManager.default.fileExists(atPath: target))
 
-    // Stand-in for root: run the script as given; RootScript checks every move itself.
-    failed = AnalyzeTrash.moveToTrash([target], home: h.path, log: log, runPrivileged: { script in
+    // Stand-in for root: the helper's executor, run as the user; it checks every move itself.
+    failed = AnalyzeTrash.moveToTrash([target], home: h.path, log: log, runPrivileged: { ops in
         calls.count += 1
-        return Shell.run("/bin/sh", ["-c", script]).status == 0 ? "" : nil
+        return rootAsUser(home: h.path)(ops)
     }, trash: denied)
     #expect(calls.count == 2)
     #expect(failed.isEmpty)
@@ -305,7 +305,7 @@ private final class Seen: @unchecked Sendable {
 
     // Outside the places RootScript allows, nothing is handed to root.
     try FileManager.default.createDirectory(atPath: h.path + "/opt/tool", withIntermediateDirectories: true)
-    failed = AnalyzeTrash.moveToTrash([h.path + "/opt/tool"], home: h.path, log: log, runPrivileged: { _ in calls.count += 1; return "" }, trash: denied)
+    failed = AnalyzeTrash.moveToTrash([h.path + "/opt/tool"], home: h.path, log: log, runPrivileged: { _ in calls.count += 1; return [] }, trash: denied)
     #expect(calls.count == 2)
     #expect(failed.map(\.kind) == [.protectedPath])
 

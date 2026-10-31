@@ -53,14 +53,14 @@ public enum AnalyzeTrash {
     /// belongs to root, like `/Applications/Utilities`) go through `runPrivileged` in one step, if given.
     /// Returns what was not moved.
     public static func moveToTrash(_ paths: [String], home: String = UserHome.path, log: OperationLog = OperationLog(),
-                                   runPrivileged: (@Sendable (String) -> String?)? = nil) -> [ProtectedPath] {
+                                   runPrivileged: RootRunner? = nil) -> [ProtectedPath] {
         moveToTrash(paths, home: home, log: log, runPrivileged: runPrivileged) {
             try FileManager.default.trashItem(at: $0, resultingItemURL: nil)
         }
     }
 
     static func moveToTrash(_ paths: [String], home: String, log: OperationLog,
-                            runPrivileged: (@Sendable (String) -> String?)? = nil, trash: (URL) throws -> Void) -> [ProtectedPath] {
+                            runPrivileged: RootRunner? = nil, trash: (URL) throws -> Void) -> [ProtectedPath] {
         var failed: [ProtectedPath] = []
         var needRoot: [(path: String, bytes: Int64, error: ProtectedPath)] = []
         for path in paths {

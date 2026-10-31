@@ -1,5 +1,6 @@
 import Foundation
 import ServiceManagement
+import SwabrCore
 
 /// Swabr's privileged helper (Direct edition only): approved once in System Settings → Login Items, then
 /// administrator steps run without a password prompt. Without it, `Privileged.run` asks for the password.
@@ -39,15 +40,13 @@ enum PrivilegedHelper {
     static func openApproval() { SMAppService.openSystemSettingsLoginItems() }
 
     private final class Result: @unchecked Sendable {
-        var status: Int32 = -1
-        var output = ""
-        var reached = false
+        var data: Data?
     }
 
-    /// Runs `script` as root through the helper. Nil when the helper is not enabled or could not be reached,
-    /// so the caller can fall back to the password prompt.
-    static func run(_ script: String, timeout: TimeInterval = 1800) -> (status: Int32, output: String)? {
-        guard state == .enabled else { return nil }
+    /// Carries out root operations through the helper. Nil when the helper is not enabled, could not be reached
+    /// or did not answer in time, so the caller can fall back to the password prompt.
+    static func perform(_ operations: [RootOperation], timeout: TimeInterval = 1800) -> [RootResult]? {
+        guard state == .enabled, let request = try? JSONEncoder().encode(RootRequest(operations)) else { return nil }
         let connection = NSXPCConnection(machServiceName: HelperIdentity.machService, options: .privileged)
         // Talk only to the helper signed by the same team, never to something registered under its name.
         connection.setCodeSigningRequirement(HelperIdentity.helperRequirement)
@@ -59,13 +58,13 @@ enum PrivilegedHelper {
         let done = DispatchSemaphore(value: 0)
         let proxy = connection.remoteObjectProxyWithErrorHandler { _ in done.signal() } as? SwabrHelperProtocol
         guard let proxy else { return nil }
-        proxy.run(script) { status, output in
-            result.status = status
-            result.output = output
-            result.reached = true
+        proxy.perform(request) { data in
+            result.data = data
             done.signal()
         }
-        guard done.wait(timeout: .now() + timeout) == .success, result.reached else { return nil }
-        return (result.status, result.output)
+        guard done.wait(timeout: .now() + timeout) == .success, let data = result.data,
+              let results = try? JSONDecoder().decode([RootResult].self, from: data), results.count == operations.count
+        else { return nil }
+        return results
     }
 }

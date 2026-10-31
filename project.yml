@@ -48,6 +48,8 @@ targets:
     sources:
       - path: Helper/main.swift
       - path: App/Shared/HelperProtocol.swift
+      # The fixed root operations and their checks, shared with SwabrCore (tested there).
+      - path: Packages/SwabrCore/Sources/SwabrCore/Privileged/RootOperation.swift
     settings:
       base:
         PRODUCT_NAME: SwabrHelper

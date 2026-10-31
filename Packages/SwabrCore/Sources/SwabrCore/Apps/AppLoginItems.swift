@@ -18,16 +18,14 @@ public struct AppLoginItem: Sendable, Hashable {
 
 /// Reads the per-user records of the Background Task Management database from `sfltool dumpbtm`. Started from
 /// an app, the tool makes macOS ask for authorization every time, so it only runs as root through
-/// Swabr's helper (`runAsRoot`), which asks nothing. Only registered login items count: records of apps
-/// that merely can register themselves stay out.
+/// Swabr's helper, which asks nothing. Only registered login items count: records of apps that merely can
+/// register themselves stay out.
 public enum AppLoginItems {
-    /// The command for the root step.
-    public static let command = "/usr/bin/sfltool dumpbtm"
-
     /// Nil when the root step is not available or failed.
-    public static func list(uid: uid_t = getuid(), runAsRoot: (String) -> String?) -> [AppLoginItem]? {
-        guard let output = runAsRoot(command), output.contains("Records for UID") else { return nil }
-        return parse(output, uid: uid)
+    public static func list(uid: uid_t = getuid(), runAsRoot: RootRunner) -> [AppLoginItem]? {
+        guard let result = runAsRoot([.command(.listBackgroundItems)])?.first, result.ok,
+              result.output.contains("Records for UID") else { return nil }
+        return parse(result.output, uid: uid)
     }
 
     struct Record {

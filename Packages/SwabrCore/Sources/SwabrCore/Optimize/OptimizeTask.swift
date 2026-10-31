@@ -21,10 +21,10 @@ public enum OptimizeOutcome: Equatable, Sendable {
 /// A shell command that needs root. All steps of a run share one password prompt; `interpret` turns the
 /// step's exit status and output into the task's outcome.
 public struct AdminStep: Sendable {
-    public let command: String
+    public let command: RootCommand
     public let interpret: @Sendable (Int32, String) -> OptimizeOutcome
 
-    public init(command: String, interpret: @escaping @Sendable (Int32, String) -> OptimizeOutcome) {
+    public init(command: RootCommand, interpret: @escaping @Sendable (Int32, String) -> OptimizeOutcome) {
         self.command = command
         self.interpret = interpret
     }
@@ -129,10 +129,10 @@ public struct OptimizeContext: Sendable {
 }
 
 public enum Optimizer {
-    /// Checks every task, then runs all root steps as one script under a single password prompt.
+    /// Checks every task, then runs all root steps in one privileged run (at most one password prompt).
     /// Without `runPrivileged` (App Store edition) tasks that need root are not run.
     public static func run(_ tasks: [OptimizeTask], context: OptimizeContext,
-                           runPrivileged: (@Sendable (String) -> String?)? = nil,
+                           runPrivileged: RootRunner? = nil,
                            progress: @escaping @Sendable (String) -> Void = { _ in }) -> [String: OptimizeOutcome] {
         var results: [String: OptimizeOutcome] = [:]
         var pending: [(id: String, step: AdminStep)] = []
@@ -152,56 +152,19 @@ public enum Optimizer {
         guard !pending.isEmpty, let runPrivileged else { return results }
 
         progress(String(localized: "Aufgaben mit Administratorrechten", bundle: .module))
-        guard let output = runPrivileged(AdminScript.build(pending.map { ($0.id, $0.step.command) })) else {
+        guard let finished = runPrivileged(pending.map { .command($0.step.command) }) else {
             let declined = String(localized: "Administratorrechte nicht erteilt", bundle: .module)
             for p in pending { results[p.id] = .skipped(declined) }
             return results
         }
-        let finished = AdminScript.parse(output)
-        for p in pending {
-            if let r = finished[p.id] {
-                results[p.id] = p.step.interpret(r.status, r.output)
+        for (n, p) in pending.enumerated() {
+            if n < finished.count {
+                let r = finished[n]
+                results[p.id] = p.step.interpret(r.status, r.output.trimmingCharacters(in: .whitespacesAndNewlines))
             } else {
                 results[p.id] = .failed(String(localized: "Ergebnis nicht erkannt", bundle: .module))
             }
         }
         return results
-    }
-}
-
-/// The combined root script. Each step runs in its own subshell, so `exit` or a failure ends only that
-/// step, and is followed by an end marker with its exit status. The script itself always exits 0:
-/// a non-zero exit would make the password prompt report an error and hide the markers.
-enum AdminScript {
-    static let marker = "__SWABR_STEP"
-
-    static func build(_ steps: [(id: String, command: String)]) -> String {
-        var lines = ["PATH=/usr/bin:/bin:/usr/sbin:/sbin; export PATH"]
-        for step in steps {
-            lines.append("(\n\(step.command)\n) </dev/null 2>&1")
-            lines.append("printf '\\n\(marker) %s %d\\n' '\(step.id.replacingOccurrences(of: "'", with: ""))' \"$?\"")
-        }
-        lines.append("exit 0")
-        return lines.joined(separator: "\n") + "\n"
-    }
-
-    /// Output of each step: everything printed after the previous marker.
-    static func parse(_ output: String) -> [String: (status: Int32, output: String)] {
-        var out: [String: (status: Int32, output: String)] = [:]
-        var collected: [Substring] = []
-        // `\r\n` is one Character in Swift, so split on anything that counts as a line break.
-        for line in output.split(omittingEmptySubsequences: false, whereSeparator: \.isNewline) {
-            if line.hasPrefix(marker + " "), let space = line.lastIndex(of: " "),
-               let status = Int32(line[line.index(after: space)...]) {
-                let id = String(line[line.index(line.startIndex, offsetBy: marker.count + 1)..<space])
-                if out[id] == nil {
-                    out[id] = (status, collected.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines))
-                }
-                collected = []
-            } else {
-                collected.append(line)
-            }
-        }
-        return out
     }
 }
