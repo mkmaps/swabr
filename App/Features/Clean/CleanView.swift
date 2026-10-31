@@ -303,13 +303,15 @@ private struct CategoryRow: View {
     var body: some View {
         let cleanable = items.filter(\.isCleanable)
         let figures = model.selection.category(section)
-        let allOn = figures?.isFullySelected ?? false
         let colors = SectionNames.colors(section)
         HStack(spacing: 10) {
             // Only the entries shown: while searching, hidden entries of the category keep their state.
-            Toggle("", isOn: Binding(get: { allOn }, set: { on in
-                for item in cleanable { if on { model.selected.insert(item.id) } else { model.selected.remove(item.id) } }
-            }))
+            // One box per entry as the sources: all ticked shows a tick, some a dash (mixed), none an empty box.
+            // Clicking a mixed or empty box ticks every entry, clicking a ticked one clears them.
+            Toggle(sources: cleanable.map { item in
+                Binding(get: { model.selected.contains(item.id) },
+                        set: { on in if on { model.selected.insert(item.id) } else { model.selected.remove(item.id) } })
+            }, isOn: \.self) { EmptyView() }
                 .labelsHidden().toggleStyle(.checkbox).disabled(cleanable.isEmpty)
             IconTile(SectionNames.symbol(section),
                      gradient: LinearGradient(colors: [Color(hex: colors.0), Color(hex: colors.1)], startPoint: .topLeading, endPoint: .bottomTrailing),

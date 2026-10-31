@@ -261,8 +261,10 @@ struct StartPanel: View {
                 .shadow(color: module.tint.opacity(0.35), radius: 18, y: 8)
             Text(title).font(.title2.bold())
             Text(text).foregroundStyle(.secondary).multilineTextAlignment(.center).frame(maxWidth: 440)
+            // Return starts it, like the default button of a dialog.
             Button(action: start) { Label(action, systemImage: symbol) }
                 .buttonStyle(.prominent).padding(.top, 4)
+                .keyboardShortcut(.defaultAction)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
