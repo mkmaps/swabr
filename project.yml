@@ -74,6 +74,8 @@ targets:
       path: App/Direct/Info.plist
       properties:
         CFBundleDisplayName: Swabr
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSApplicationCategoryType: public.app-category.utilities
         NSHumanReadableCopyright: "© 2026 Michael Knieriem · MIT-Lizenz"
         NSAppleEventsUsageDescription: "Swabr bittet den Finder, Apps in den Papierkorb zu legen, die einem anderen Benutzer oder dem System gehören, und liest über System Events die Anmeldeobjekte."
@@ -97,6 +99,8 @@ targets:
       path: App/Store/Info.plist
       properties:
         CFBundleDisplayName: Swabr
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSApplicationCategoryType: public.app-category.utilities
         NSHumanReadableCopyright: "© 2026 Michael Knieriem · MIT-Lizenz"
         ITSAppUsesNonExemptEncryption: false

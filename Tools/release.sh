@@ -51,7 +51,7 @@ if has_identity "Developer ID Application"; then
     if xcrun notarytool history --keychain-profile "$PROFILE" >/dev/null 2>&1; then
         NOTARIZE=true
     else
-        echo "Hinweis: keine notarytool-Zugangsdaten „$PROFILE“, App wird nicht notarisiert."
+        echo "Hinweis: keine notarytool-Zugangsdaten „${PROFILE}“, App wird nicht notarisiert."
     fi
 else
     echo "Hinweis: kein „Developer ID Application“-Zertifikat. Die App wird mit dem Entwicklungszertifikat"
