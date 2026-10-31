@@ -38,9 +38,11 @@ final class CleanModel {
         }
     }
 
+    /// All figures of the page, the sidebar and the overview come from here (tested in SwabrCore).
+    var selection: CleanSelection { CleanSelection(items: items, selected: selected) }
     var selectedItems: [CleanItem] { items.filter { selected.contains($0.id) && $0.isCleanable } }
-    var selectedBytes: Int64 { selectedItems.reduce(0) { $0 + $1.bytes } }
-    var selectedCount: Int { selectedItems.reduce(0) { $0 + $1.paths.count } }
+    var selectedBytes: Int64 { selection.selectedBytes }
+    var selectedCount: Int { selection.selectedPaths }
 
     struct ProtectionUndo {
         let title: String
@@ -144,7 +146,8 @@ final class CleanModel {
     var cleanableBytes: Int64 { items.filter(\.isCleanable).reduce(0) { $0 + $1.bytes } }
 
     private func recordSummary() {
-        ScanSummary.shared.record(.clean, bytes: selectedBytes, count: selectedItems.count)
+        let s = selection
+        ScanSummary.shared.record(.clean, bytes: s.selectedBytes, count: s.selectedEntries)
     }
 
     /// Only items rated safe: the "recommended" preset.

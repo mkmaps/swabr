@@ -189,17 +189,16 @@ struct CleanView: View {
             if current == Self.largeDataID {
                 largeDataList
             } else if let name = current, let section = sections.first(where: { $0.name == name }) {
-                let cleanable = section.items.filter(\.isCleanable)
-                let chosen = cleanable.filter { model.selected.contains($0.id) }
+                let figures = model.selection.category(name)
                 // The category's own figures: its full size, and what is ticked in it.
                 HStack(spacing: 8) {
                     Text(SectionNames.german(name)).font(.headline)
-                    Text("\(section.items.count) Einträge · \(DiskSize.format(cleanable.reduce(0) { $0 + $1.bytes })) gesamt")
+                    Text("\(section.items.count) Einträge · \(DiskSize.format(figures?.total ?? 0)) gesamt")
                         .font(.callout).foregroundStyle(.secondary)
                     Spacer()
-                    Text("\(chosen.count) ausgewählt · \(DiskSize.format(chosen.reduce(0) { $0 + $1.bytes }))")
+                    Text("\(figures?.selectedEntries ?? 0) ausgewählt · \(DiskSize.format(figures?.selectedBytes ?? 0))")
                         .font(.callout.weight(.medium)).monospacedDigit()
-                        .foregroundStyle(chosen.isEmpty ? Color.secondary : Color.accentColor)
+                        .foregroundStyle((figures?.selectedEntries ?? 0) == 0 ? Color.secondary : Color.accentColor)
                 }
                 .padding(.horizontal, 18).padding(.top, 14).padding(.bottom, 8)
                 Label("Geschützt bleiben: laufende Apps, deine Ausnahmen und alles unter /System.", systemImage: "checkmark.shield")
@@ -260,8 +259,7 @@ struct CleanView: View {
     }
 
     private var selectionCaption: String {
-        let names = sections.filter { section in section.items.contains { model.selected.contains($0.id) && $0.isCleanable } }
-            .map { SectionNames.german($0.name) }
+        let names = model.selection.selectedCategoryNames.map(SectionNames.german)
         guard !names.isEmpty else { return String(localized: "Nichts ausgewählt") }
         return String(localized: "Auswahl aus: \(names.joined(separator: ", "))")
     }
@@ -304,8 +302,8 @@ private struct CategoryRow: View {
 
     var body: some View {
         let cleanable = items.filter(\.isCleanable)
-        let allOn = !cleanable.isEmpty && cleanable.allSatisfy { model.selected.contains($0.id) }
-        let chosen = cleanable.filter { model.selected.contains($0.id) }
+        let figures = model.selection.category(section)
+        let allOn = figures?.isFullySelected ?? false
         let colors = SectionNames.colors(section)
         HStack(spacing: 10) {
             // Only the entries shown: while searching, hidden entries of the category keep their state.
@@ -318,13 +316,13 @@ private struct CategoryRow: View {
                      size: 30)
             VStack(alignment: .leading, spacing: 1) {
                 Text(SectionNames.german(section)).font(.headline).lineLimit(1)
-                Text("\(chosen.count)/\(cleanable.count) ausgewählt").font(.caption).foregroundStyle(.secondary)
+                Text("\(figures?.selectedEntries ?? 0)/\(cleanable.count) ausgewählt").font(.caption).foregroundStyle(.secondary)
             }
             Spacer(minLength: 4)
             // The big number is what "Clean" would remove from this category, so the column adds up to the
             // total in the action bar; the category's full size follows in small type when it differs.
-            let total = (cleanable.isEmpty ? items : cleanable).reduce(0) { $0 + $1.bytes }
-            let chosenBytes = chosen.reduce(0) { $0 + $1.bytes }
+            let total = figures?.total ?? 0
+            let chosenBytes = figures?.selectedBytes ?? 0
             if cleanable.isEmpty {
                 Text(DiskSize.format(total)).font(.headline).monospacedDigit().foregroundStyle(.secondary)
             } else {
