@@ -7,7 +7,7 @@ import SwiftUI
 @MainActor @Observable
 final class InstallerModel {
     var files: [InstallerFile] = []
-    var selected: Set<String> = []
+    var selected: Set<String> = [] { didSet { if scanned { recordSummary() } } }
     var scanning = false
     var scanned = false
     var message: String?
@@ -15,7 +15,7 @@ final class InstallerModel {
     var chosen: [InstallerFile] { files.filter { selected.contains($0.id) } }
 
     private func recordSummary() {
-        ScanSummary.shared.record(.installer, bytes: files.reduce(0) { $0 + $1.bytes }, count: files.count)
+        ScanSummary.shared.record(.installer, bytes: chosen.reduce(0) { $0 + $1.bytes }, count: chosen.count)
     }
 
     func scan() async {

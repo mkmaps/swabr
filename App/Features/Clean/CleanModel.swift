@@ -15,7 +15,8 @@ final class CleanModel {
     var phase: Phase = .idle
     var currentStep = ""
     var items: [CleanItem] = []
-    var selected: Set<String> = []
+    /// The sidebar, overview and menu bar show what is ticked, so they follow every change of the selection.
+    var selected: Set<String> = [] { didSet { if !items.isEmpty { recordSummary() } } }
     var errorMessage: String?
     /// Big data sets listed for review only, never cleaned.
     var largeData: [DynamicRules.LargeData] = []
@@ -143,7 +144,7 @@ final class CleanModel {
     var cleanableBytes: Int64 { items.filter(\.isCleanable).reduce(0) { $0 + $1.bytes } }
 
     private func recordSummary() {
-        ScanSummary.shared.record(.clean, bytes: cleanableBytes, count: items.filter(\.isCleanable).count)
+        ScanSummary.shared.record(.clean, bytes: selectedBytes, count: selectedItems.count)
     }
 
     /// Only items rated safe: the "recommended" preset.

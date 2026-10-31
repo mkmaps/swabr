@@ -8,7 +8,7 @@ final class ProjectsModel {
     /// Direct edition: config file (with defaults); App Store edition: the folders the user granted.
     var roots: [String] = Edition.isStore ? FolderAccess.paths : ProjectPurge.roots()
     var artifacts: [ProjectArtifact] = []
-    var selected: Set<String> = []
+    var selected: Set<String> = [] { didSet { if scanned { recordSummary() } } }
     var scanning = false
     var scanned = false
     var toTrash = false
@@ -55,10 +55,9 @@ final class ProjectsModel {
         recordSummary()
     }
 
-    var removableBytes: Int64 { artifacts.filter { !$0.inUse }.reduce(0) { $0 + $1.bytes } }
 
     private func recordSummary() {
-        ScanSummary.shared.record(.purge, bytes: removableBytes, count: artifacts.filter { !$0.inUse }.count)
+        ScanSummary.shared.record(.purge, bytes: chosenBytes, count: chosen.count)
     }
 }
 
