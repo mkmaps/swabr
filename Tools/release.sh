@@ -68,13 +68,13 @@ if [[ "$NOTARIZE" == true ]]; then
 fi
 
 echo "== Erzeuge DMG"
-DMG="$OUT/Swabr-$VERSION.dmg"
+DMG="$OUT/Swabr-OP-$VERSION.dmg"
 STAGE="$BUILD/dmg"
 rm -rf "$STAGE" "$DMG"
 mkdir -p "$STAGE"
 ditto "$APP" "$STAGE/Swabr OP.app"
 ln -s /Applications "$STAGE/Programme"
-hdiutil create -volname "Swabr $VERSION" -srcfolder "$STAGE" -fs APFS -format ULFO -ov "$DMG" >/dev/null
+hdiutil create -volname "Swabr OP $VERSION" -srcfolder "$STAGE" -fs APFS -format ULFO -ov "$DMG" >/dev/null
 SIGNER="$(security find-identity -v -p codesigning | awk -F'"' '/Developer ID Application/ {print $2; exit}')"
 [[ -n "$SIGNER" ]] && codesign --sign "$SIGNER" --timestamp "$DMG"
 
