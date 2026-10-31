@@ -190,11 +190,16 @@ struct CleanView: View {
                 largeDataList
             } else if let name = current, let section = sections.first(where: { $0.name == name }) {
                 let cleanable = section.items.filter(\.isCleanable)
+                let chosen = cleanable.filter { model.selected.contains($0.id) }
+                // The category's own figures: its full size, and what is ticked in it.
                 HStack(spacing: 8) {
                     Text(SectionNames.german(name)).font(.headline)
-                    Text("\(section.items.count) Einträge · \(cleanable.filter { model.selected.contains($0.id) }.count) ausgewählt")
+                    Text("\(section.items.count) Einträge · \(DiskSize.format(cleanable.reduce(0) { $0 + $1.bytes })) gesamt")
                         .font(.callout).foregroundStyle(.secondary)
                     Spacer()
+                    Text("\(chosen.count) ausgewählt · \(DiskSize.format(chosen.reduce(0) { $0 + $1.bytes }))")
+                        .font(.callout.weight(.medium)).monospacedDigit()
+                        .foregroundStyle(chosen.isEmpty ? Color.secondary : Color.accentColor)
                 }
                 .padding(.horizontal, 18).padding(.top, 14).padding(.bottom, 8)
                 Label("Geschützt bleiben: laufende Apps, deine Ausnahmen und alles unter /System.", systemImage: "checkmark.shield")
@@ -254,10 +259,18 @@ struct CleanView: View {
         }
     }
 
+    private var selectionCaption: String {
+        let names = sections.filter { section in section.items.contains { model.selected.contains($0.id) && $0.isCleanable } }
+            .map { SectionNames.german($0.name) }
+        guard !names.isEmpty else { return String(localized: "Nichts ausgewählt") }
+        return String(localized: "Auswahl aus: \(names.joined(separator: ", "))")
+    }
+
     private var actionBar: some View {
         ActionBar {
-            AmountLabel(amount: DiskSize.format(model.selectedBytes),
-                        caption: String(localized: "\(model.selectedCount) Elemente · \(model.selectedItems.count) Kategorien"))
+            // Everything ticked in all categories: exactly what the button removes. The caption names the
+            // categories it comes from, so a total that is not in the open category is not a mystery.
+            AmountLabel(amount: DiskSize.format(model.selectedBytes), caption: selectionCaption)
             if model.protectedCount > 0 {
                 Label("\(model.protectedCount) geschützt", systemImage: "shield")
                     .font(.caption).foregroundStyle(.secondary)

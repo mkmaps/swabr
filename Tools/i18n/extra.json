@@ -2299,5 +2299,44 @@
   "ro": "din %@",
   "hr": "od %@",
   "el": "από %@"
+ },
+ "%lld Einträge · %@ gesamt": {
+  "en": "%lld items · %@ in total",
+  "fr": "%lld éléments · %@ au total",
+  "es": "%lld elementos · %@ en total",
+  "it": "%lld elementi · %@ in totale",
+  "pt-PT": "%lld itens · %@ no total",
+  "cs": "%lld položek · celkem %@",
+  "sk": "%lld položiek · celkom %@",
+  "hu": "%lld elem · összesen %@",
+  "ro": "%lld elemente · %@ în total",
+  "hr": "%lld stavki · %@ ukupno",
+  "el": "%lld στοιχεία · %@ συνολικά"
+ },
+ "Nichts ausgewählt": {
+  "en": "Nothing selected",
+  "fr": "Aucun élément sélectionné",
+  "es": "No hay nada seleccionado",
+  "it": "Niente selezionato",
+  "pt-PT": "Nada selecionado",
+  "cs": "Nic není vybráno",
+  "sk": "Nič nie je vybrané",
+  "hu": "Nincs kijelölve semmi",
+  "ro": "Nimic selectat",
+  "hr": "Ništa nije odabrano",
+  "el": "Δεν έχει επιλεγεί τίποτα"
+ },
+ "Auswahl aus: %@": {
+  "en": "Selected from: %@",
+  "fr": "Sélection dans : %@",
+  "es": "Seleccionado de: %@",
+  "it": "Selezionato da: %@",
+  "pt-PT": "Selecionado de: %@",
+  "cs": "Vybráno z: %@",
+  "sk": "Vybrané z: %@",
+  "hu": "Kiválasztva innen: %@",
+  "ro": "Selectat din: %@",
+  "hr": "Odabrano iz: %@",
+  "el": "Επιλεγμένα από: %@"
  }
 }
