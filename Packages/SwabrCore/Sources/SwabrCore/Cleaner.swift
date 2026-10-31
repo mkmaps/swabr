@@ -53,6 +53,8 @@ public struct Cleaner: Sendable {
                     report.failures.append(.init(path: path, reason: String(localized: "\(owner) wurde nach der Prüfung gestartet", bundle: .module), kind: .running))
                     continue
                 }
+                // Measured first, so the checks below sit right before the change (A-03).
+                let bytes = DiskSize.allocatedSize(of: path)
                 if case .refused(let why) = PathSafety.check(path, home: home) {
                     report.failures.append(.init(path: path, reason: why, kind: .protectedPath))
                     continue
@@ -61,7 +63,12 @@ public struct Cleaner: Sendable {
                     report.failures.append(.init(path: path, reason: "Whitelist: \(w)", kind: .whitelist))
                     continue
                 }
-                let bytes = DiskSize.allocatedSize(of: path)
+                // Last look: the folder still resolves to itself, so no part of the way became a link meanwhile.
+                let parent = (path as NSString).deletingLastPathComponent
+                guard RootExecutor.realPath(parent) == parent else {
+                    report.failures.append(.init(path: path, reason: String(localized: "Symlink im Pfad", bundle: .module), kind: .protectedPath))
+                    continue
+                }
                 do {
                     // Items already in the Trash are always removed for good.
                     if mode == .trash && !path.hasPrefix(trashRoot) {

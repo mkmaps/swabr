@@ -209,20 +209,21 @@ public enum AppUpdateChecker {
 
     /// Newest `<item>` of an appcast: its version and enclosure download.
     static func parseAppcastItem(_ xml: String) -> (version: String, url: URL?)? {
-        func first(_ pattern: String, in text: String) -> String? {
-            let re = try! NSRegularExpression(pattern: pattern, options: [.dotMatchesLineSeparators])
+        func first(_ re: NSRegularExpression, in text: String) -> String? {
             guard let m = re.firstMatch(in: text, range: NSRange(text.startIndex..., in: text)),
                   let r = Range(m.range(at: 1), in: text) else { return nil }
             return String(text[r])
         }
-        let itemRE = try! NSRegularExpression(pattern: "<item>(.*?)</item>", options: [.dotMatchesLineSeparators])
+        let p = AppcastPatterns.shared
+        guard let itemRE = p.item, let shortAttr = p.shortAttribute, let shortTag = p.shortTag, let versionAttr = p.versionAttribute,
+              let versionTag = p.versionTag, let enclosure = p.enclosure else { return nil }
         let items = itemRE.matches(in: xml, range: NSRange(xml.startIndex..., in: xml)).compactMap { Range($0.range(at: 1), in: xml).map { String(xml[$0]) } }
         var best: (String, URL?)?
         for item in items.isEmpty ? [xml] : items {
-            guard let v = first(#"sparkle:shortVersionString="([^"]+)""#, in: item) ?? first(#"<sparkle:shortVersionString>([^<]+)<"#, in: item)
-                ?? first(#"sparkle:version="([^"]+)""#, in: item) ?? first(#"<sparkle:version>([^<]+)<"#, in: item) else { continue }
+            guard let v = first(shortAttr, in: item) ?? first(shortTag, in: item)
+                ?? first(versionAttr, in: item) ?? first(versionTag, in: item) else { continue }
             // Delta updates need the old build; take the full download only.
-            let url = first(#"<enclosure[^>]*\surl="([^"]+)""#, in: item).flatMap(URL.init(string:))
+            let url = first(enclosure, in: item).flatMap(URL.init(string:))
             if best == nil || Version.isNewer(v, than: best!.0) { best = (v, url) }
         }
         return best
@@ -248,4 +249,19 @@ public enum AppUpdateChecker {
         let r = Shell.run(mas, ["upgrade", String(id)], timeout: 900)
         return r.status == 0 ? (true, "Aktualisiert") : (false, r.output.split(separator: "\n").last.map(String.init) ?? String(localized: "App-Store-Fehler", bundle: .module))
     }
+}
+
+/// The appcast patterns, compiled once (A-06). Fixed patterns, so `try?` never fails in practice; a failure
+/// would only mean "no update information", never a crash.
+final class AppcastPatterns: @unchecked Sendable {
+    static let shared = AppcastPatterns()
+    private static func re(_ pattern: String) -> NSRegularExpression? {
+        try? NSRegularExpression(pattern: pattern, options: [.dotMatchesLineSeparators])
+    }
+    let item = re("<item>(.*?)</item>")
+    let shortAttribute = re(#"sparkle:shortVersionString="([^"]+)""#)
+    let shortTag = re(#"<sparkle:shortVersionString>([^<]+)<"#)
+    let versionAttribute = re(#"sparkle:version="([^"]+)""#)
+    let versionTag = re(#"<sparkle:version>([^<]+)<"#)
+    let enclosure = re(#"<enclosure[^>]*\surl="([^"]+)""#)
 }

@@ -98,7 +98,12 @@ public enum DiskWalker {
     public static let datalessFlag = UInt32(SF_DATALESS)
 
     /// Seconds one entry of a listing may take before its partial total is shown (set from the settings).
-    nonisolated(unsafe) public static var timeout: TimeInterval = 30
+    public static var timeout: TimeInterval {
+        get { timeoutSetting.withLock { $0 } }
+        set { timeoutSetting.withLock { $0 = newValue } }
+    }
+    /// Written by the settings, read by background walks (A-07).
+    private static let timeoutSetting = Mutex<TimeInterval>(30)
 
     /// Folders that are never entered: volume bookkeeping and backup stores whose content is not the
     /// user's files, or which appear a second time somewhere else.

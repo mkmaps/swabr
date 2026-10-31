@@ -1,5 +1,6 @@
 import Darwin
 import Foundation
+import Synchronization
 
 /// A folder inside a development project that the project's own tools can recreate.
 public struct ProjectArtifact: Identifiable, Sendable, Hashable {
@@ -36,9 +37,17 @@ public struct ProjectArtifact: Identifiable, Sendable, Hashable {
 /// Finds and removes regenerable folders (dependencies, build output, tool caches) in development projects.
 public enum ProjectPurge {
     /// Projects changed within this many days are not preselected.
-    nonisolated(unsafe) public static var recentDays = 7
+    public static var recentDays: Int {
+        get { settings.withLock { $0.recentDays } }
+        set { settings.withLock { $0.recentDays = newValue } }
+    }
     /// How deep below a search location artifacts are looked for.
-    nonisolated(unsafe) public static var maxDepth = 6
+    public static var maxDepth: Int {
+        get { settings.withLock { $0.maxDepth } }
+        set { settings.withLock { $0.maxDepth = newValue } }
+    }
+    /// Written by the app's settings on the main thread, read by scans in the background (A-07).
+    private static let settings = Mutex((recentDays: 7, maxDepth: 6))
     /// Longest wait for `git ls-files`; a slower answer counts as "tracked".
     static let gitTimeout: TimeInterval = 20
     /// Mount point of external volumes.
@@ -541,6 +550,13 @@ public enum ProjectPurge {
             }
             if inUse(project: project, root: root.path, workingDirectories: Processes.workingDirectories()) {
                 refuse(String(localized: "ein Prozess läuft im Projekt", bundle: .module), .running)
+                continue
+            }
+            // Last look right before the change (A-03): the project folder still resolves to itself and the
+            // artifact is no link, so nothing was swapped while the slower checks ran.
+            var st = stat()
+            guard RootExecutor.realPath(project) == project, lstat(path, &st) == 0, (st.st_mode & S_IFMT) != S_IFLNK else {
+                refuse(String(localized: "Symlink im Pfad", bundle: .module))
                 continue
             }
             do {
