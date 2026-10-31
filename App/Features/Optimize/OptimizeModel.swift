@@ -27,8 +27,17 @@ final class OptimizeModel {
     }
 
     init() {
-        let disabled = Set(UserDefaults.standard.stringArray(forKey: Self.disabledKey) ?? [])
-        selected = Set(OptimizeCatalog.all.map(\.id).filter { !disabled.contains($0) })
+        if let disabled = UserDefaults.standard.stringArray(forKey: Self.disabledKey) {
+            // The user's own choice from earlier runs.
+            selected = Set(OptimizeCatalog.all.map(\.id).filter { !Set(disabled).contains($0) })
+        } else {
+            // First run: the preselection setting; "recommended" leaves out tasks with a noticeable effect.
+            switch Prefs.preselect {
+            case .none: selected = []
+            case .recommended: selected = Set(OptimizeCatalog.all.filter { !$0.noticeable }.map(\.id))
+            case .all: selected = Set(OptimizeCatalog.all.map(\.id))
+            }
+        }
     }
 
     var chosen: [OptimizeTask] { tasks.filter { selected.contains($0.id) } }

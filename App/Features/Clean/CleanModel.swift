@@ -152,7 +152,7 @@ final class CleanModel {
 
     /// After a scan: what the setting says, nothing by default.
     func applyPreselection() {
-        switch Prefs.cleanPreselect {
+        switch Prefs.preselect {
         case .none: selected = []
         case .recommended: selectRecommended()
         case .all: selectAll()

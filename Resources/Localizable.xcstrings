@@ -7069,82 +7069,6 @@
         }
       }
     },
-    "Alle (auch „Prüfen“)": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vše (i „Zkontrolovat“)"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alle (auch „Prüfen“)"
-          }
-        },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Όλα (και «Έλεγχος»)"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "All (including “Check”)"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todo (también «Revisar»)"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tout (y compris « À vérifier »)"
-          }
-        },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sve (i „Provjeri“)"
-          }
-        },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mind (a „Ellenőrzés” is)"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tutto (anche “Da verificare”)"
-          }
-        },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tudo (também «Rever»)"
-          }
-        },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toate (și „Verifică”)"
-          }
-        },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Všetko (aj „Skontrolovať“)"
-          }
-        }
-      }
-    },
     "Alle Anmeldeobjekte sind vorhanden": {
       "localizations": {
         "cs": {
@@ -11245,6 +11169,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Odkladanie"
+          }
+        }
+      }
+    },
+    "Auswahl": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Výběr"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auswahl"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλογή"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selection"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selección"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sélection"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odabir"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiválasztás"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selezione"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleção"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecție"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Výber"
           }
         }
       }
@@ -18773,82 +18773,6 @@
         }
       }
     },
-    "Empfohlen (nur „Sicher“)": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Doporučené (jen „Bezpečné“)"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empfohlen (nur „Sicher“)"
-          }
-        },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Συνιστώμενα (μόνο «Ασφαλές»)"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recommended (“Safe” only)"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recomendado (solo «Seguro»)"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recommandé (« Sûr » uniquement)"
-          }
-        },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preporučeno (samo „Sigurno“)"
-          }
-        },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajánlott (csak „Biztonságos”)"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consigliato (solo “Sicuro”)"
-          }
-        },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recomendado (apenas «Seguro»)"
-          }
-        },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recomandat (doar „Sigur”)"
-          }
-        },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Odporúčané (len „Bezpečné“)"
-          }
-        }
-      }
-    },
     "Empfohlene Reihenfolge": {
       "localizations": {
         "cs": {
@@ -23709,6 +23633,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Zmenené"
+          }
+        }
+      }
+    },
+    "Gilt für Aufräumen, Projekte, Installer und Optimieren. Empfohlen: in Aufräumen nur „Sicher“, in Projekten nur unbenutzte, in Optimieren nur unauffällige Aufgaben. Alle: alles außer Geschütztem und Laufendem.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Platí pro sekce Úklid, Projekty, Instalátory a Optimalizovat. Doporučeno: v sekci Úklid pouze položky označené jako „Bezpečné“, v sekci Projekty pouze nepoužívané projekty, v sekci Optimalizovat pouze nenápadné úlohy. Vše: vše kromě chráněných a spuštěných položek."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gilt für Aufräumen, Projekte, Installer und Optimieren. Empfohlen: in Aufräumen nur „Sicher“, in Projekten nur unbenutzte, in Optimieren nur unauffällige Aufgaben. Alle: alles außer Geschütztem und Laufendem."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ισχύει για τις ενότητες «Καθαρισμός», «Έργα», «Εγκαταστάτες» και «Βελτιστοποίηση». Συνιστάται: στην ενότητα «Καθαρισμός» μόνο το «Ασφαλές», στην ενότητα «Έργα» μόνο τα αχρησιμοποίητα, στην ενότητα «Βελτιστοποίηση» μόνο οι εργασίες που δεν παρεμβαίνουν στη λειτουργία του συστήματος. Σε όλες τις ενότητες: όλα εκτός από τα προστατευμένα και τα τρέχοντα στοιχεία."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Applies to Clean Up, Projects, Installers and Optimize. Recommended: in Clean Up only “Safe”, in Projects only unused ones, in Optimize only unobtrusive tasks. All: everything except protected and running items."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se aplica a «Limpiar», «Proyectos», «Instaladores» y «Optimizar». Recomendación: en «Limpiar», solo «Seguro»; en «Proyectos», solo los que no se usan; en «Optimizar», solo tareas que no molesten. En todos: todo menos los elementos protegidos y los que se están ejecutando."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "S'applique aux sections « Nettoyer », « Projets », « Installateurs » et « Optimiser ». Recommandation : dans « Nettoyer », uniquement les éléments « Sécurisés » ; dans « Projets », uniquement ceux qui ne sont pas utilisés ; dans « Optimiser », uniquement les tâches non intrusives. Pour toutes les sections : tout sauf les éléments protégés et ceux en cours d'exécution."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primjenjuje se na Čišćenje, Projekte, Instalatere i Optimizaciju. Preporučeno: u Čišćenju samo \"Sigurno\", u Projektima samo neiskorišteni, u Optimizaciji samo neometajući zadaci. Sve: sve osim zaštićenih i aktivnih stavki."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vonatkozik a Tisztítás, Projektek, Telepítők és Optimalizálás menüpontokra. Ajánlott: a Tisztítás menüpontban csak a „Biztonságos” elemeket, a Projektek menüpontban csak a nem használtakat, az Optimalizálás menüpontban csak a nem zavaró feladatokat. Minden: minden, kivéve a védett és futó elemeket."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si applica alle sezioni Pulisci, Progetti, Programmi di installazione e Ottimizzazione. Consigli: nella sezione Pulisci solo “Sicuro”, nella sezione Progetti solo quelli inutilizzati, nella sezione Ottimizzazione solo le attività non invadenti. In tutte le sezioni: tutto tranne gli elementi protetti e quelli in esecuzione."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplica-se às secções «Limpar», «Projetos», «Instaladores» e «Otimizar». Recomendação: na secção «Limpar», apenas «Seguro»; na secção «Projetos», apenas os que não estão a ser utilizados; na secção «Otimizar», apenas tarefas não intrusivas. Em todas as secções: tudo, exceto itens protegidos e em execução."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se aplică secțiunilor Curățare, Proiecte, Instalatori și Optimizare. Recomandare: în secțiunea Curățare, selectați doar opțiunea „Sigur”; în secțiunea Proiecte, selectați doar cele neutilizate; în secțiunea Optimizare, selectați doar sarcinile care nu deranjează. Pentru toate secțiunile: selectați totul, cu excepția elementelor protejate și a celor care rulează."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Platí pre sekcie Upratanie, Projekty, Inštalátory a Optimalizovať. Odporúčanie: v sekcii Upratanie iba položky označené ako „Bezpečné“, v sekcii Projekty iba nepoužívané projekty, v sekcii Optimalizovať iba nenápadné úlohy. Všetko: všetko okrem chránených a spustených položiek."
           }
         }
       }

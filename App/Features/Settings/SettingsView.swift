@@ -131,7 +131,7 @@ struct GeneralSettingsView: View {
 struct BehaviorSettingsView: View {
     @AppStorage("cleanMode") private var cleanMode = Cleaner.Mode.permanent.rawValue
     @AppStorage(Prefs.Key.cleanEmptyTrash) private var emptyTrash = true
-    @AppStorage(Prefs.Key.cleanPreselect) private var preselect = CleanPreselect.none
+    @AppStorage(Prefs.Key.cleanPreselect) private var preselect = Preselect.none
     @AppStorage(Prefs.Key.orphanAgeDays) private var orphanDays = DynamicRules.defaultOrphanAgeDays
     @AppStorage(Prefs.Key.largeDataMinMB) private var largeMB = 500
     @AppStorage(Prefs.Key.uninstallPersonalData) private var personalData = false
@@ -145,14 +145,21 @@ struct BehaviorSettingsView: View {
     var body: some View {
         Form {
             Section {
+                Picker("Nach dem Scan vorauswählen", selection: $preselect) {
+                    ForEach(Preselect.allCases) { Text($0.title).tag($0) }
+                }
+            } header: {
+                Text("Auswahl")
+            } footer: {
+                Text("Gilt für Aufräumen, Projekte, Installer und Optimieren. Empfohlen: in Aufräumen nur „Sicher“, in Projekten nur unbenutzte, in Optimieren nur unauffällige Aufgaben. Alle: alles außer Geschütztem und Laufendem.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
+            Section {
                 Picker("Gelöschtes", selection: $cleanMode) {
                     Text("Endgültig löschen").tag(Cleaner.Mode.permanent.rawValue)
                     Text("In den Papierkorb legen").tag(Cleaner.Mode.trash.rawValue)
                 }
                 Toggle("Papierkorb beim Aufräumen mit leeren", isOn: $emptyTrash)
-                Picker("Nach dem Scan vorauswählen", selection: $preselect) {
-                    ForEach(CleanPreselect.allCases) { Text($0.title).tag($0) }
-                }
                 Stepper(value: $orphanDays, in: 7...365, step: 7) {
                     LabeledContent("Reste entfernter Apps nach", value: String(localized: "\(orphanDays) Tagen"))
                 }

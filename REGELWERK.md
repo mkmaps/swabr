@@ -101,7 +101,7 @@ Pflicht für *Prüfen*:
 
 **Ist-Stand** ✅
 - *Sicher* und *Prüfen* sind als `Safety` umgesetzt. *Hinweis* ist die Gruppe „Große Datenbestände (nur Hinweis)“. *Gesperrt* erscheint aufgeklappt mit Grund und als Zahl „Geschützt und übersprungen“ (M-08).
-- Einstellung „Nach dem Scan vorauswählen“ (`Prefs.cleanPreselect`, seit 31.10.2026): **Nichts** (Standard) / Empfohlen (nur „Sicher“) / Alle (auch „Prüfen“). Die Auswahl bleibt in „Auswahl ansehen“ und in der Prüfansicht vor dem Löschen sichtbar.
+- Einstellung „Nach dem Scan vorauswählen“ (`Prefs.preselect`, seit 31.10.2026) für Aufräumen, Projekte, Installer und Optimieren: **Nichts** (Standard) / Empfohlen (Aufräumen nur „Sicher“, Projekte nur unbenutzte, Optimieren nur unauffällige Aufgaben) / Alle (alles außer Geschütztem und Laufendem). Optimieren merkt sich eine einmal getroffene Auswahl. Die Auswahl bleibt in „Auswahl ansehen“ und in der Prüfansicht vor dem Löschen sichtbar.
 - Test `catalogueNeverLoosensSafety` (M-07): Keine Regel setzt `safety: "safe"`, und die Pflicht-*Prüfen*-Regeln sind festgehalten.
 
 ### S3 – Pfadprüfung (letzte Sperre)
@@ -287,7 +287,7 @@ Geprüft wird sowohl der bereinigte als auch der aufgelöste Pfad.
    - `vendor` außer Composer
    - das globale Xcode-DerivedData
 3. Was nicht innerhalb von 20 s geprüft werden konnte, gilt als geschützt.
-4. Projekte mit Aktivität in den letzten 7 Tagen werden nicht vorausgewählt.
+4. Vorausgewählt wird nur mit der Einstellung „Empfohlen“ (Projekte ohne Aktivität in den letzten 7 Tagen) oder „Alle“; Standard ist nichts.
 5. Läuft ein Prozess im Projekt, wird es übersprungen, auch noch direkt vor dem Löschen.
 6. Außerhalb des Benutzerordners nur unter konfigurierten Wurzeln auf `/Volumes`, ohne Symlink.
 

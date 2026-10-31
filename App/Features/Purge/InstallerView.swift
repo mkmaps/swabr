@@ -21,8 +21,9 @@ final class InstallerModel {
     func scan() async {
         scanning = true
         files = await Task.detached { InstallerFinder.scan() }.value
-        // Every installer starts ticked: software that is already installed no longer needs its installer.
-        selected = Set(files.map(\.id))
+        // The preselection setting: nothing by default; otherwise every installer (software that is already
+        // installed no longer needs its installer).
+        selected = Prefs.preselect == .none ? [] : Set(files.map(\.id))
         scanning = false
         scanned = true
         recordSummary()

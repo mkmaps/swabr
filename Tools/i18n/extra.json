@@ -2547,30 +2547,30 @@
   "hr": "Ništa",
   "el": "Τίποτα"
  },
- "Empfohlen (nur „Sicher“)": {
-  "en": "Recommended (“Safe” only)",
-  "fr": "Recommandé (« Sûr » uniquement)",
-  "es": "Recomendado (solo «Seguro»)",
-  "it": "Consigliato (solo “Sicuro”)",
-  "pt-PT": "Recomendado (apenas «Seguro»)",
-  "cs": "Doporučené (jen „Bezpečné“)",
-  "sk": "Odporúčané (len „Bezpečné“)",
-  "hu": "Ajánlott (csak „Biztonságos”)",
-  "ro": "Recomandat (doar „Sigur”)",
-  "hr": "Preporučeno (samo „Sigurno“)",
-  "el": "Συνιστώμενα (μόνο «Ασφαλές»)"
+ "Auswahl": {
+  "en": "Selection",
+  "fr": "Sélection",
+  "es": "Selección",
+  "it": "Selezione",
+  "pt-PT": "Seleção",
+  "cs": "Výběr",
+  "sk": "Výber",
+  "hu": "Kiválasztás",
+  "ro": "Selecție",
+  "hr": "Odabir",
+  "el": "Επιλογή"
  },
- "Alle (auch „Prüfen“)": {
-  "en": "All (including “Check”)",
-  "fr": "Tout (y compris « À vérifier »)",
-  "es": "Todo (también «Revisar»)",
-  "it": "Tutto (anche “Da verificare”)",
-  "pt-PT": "Tudo (também «Rever»)",
-  "cs": "Vše (i „Zkontrolovat“)",
-  "sk": "Všetko (aj „Skontrolovať“)",
-  "hu": "Mind (a „Ellenőrzés” is)",
-  "ro": "Toate (și „Verifică”)",
-  "hr": "Sve (i „Provjeri“)",
-  "el": "Όλα (και «Έλεγχος»)"
+ "Gilt für Aufräumen, Projekte, Installer und Optimieren. Empfohlen: in Aufräumen nur „Sicher“, in Projekten nur unbenutzte, in Optimieren nur unauffällige Aufgaben. Alle: alles außer Geschütztem und Laufendem.": {
+  "en": "Applies to Clean Up, Projects, Installers and Optimize. Recommended: in Clean Up only “Safe”, in Projects only unused ones, in Optimize only unobtrusive tasks. All: everything except protected and running items.",
+  "fr": "S'applique aux sections « Nettoyer », « Projets », « Installateurs » et « Optimiser ». Recommandation : dans « Nettoyer », uniquement les éléments « Sécurisés » ; dans « Projets », uniquement ceux qui ne sont pas utilisés ; dans « Optimiser », uniquement les tâches non intrusives. Pour toutes les sections : tout sauf les éléments protégés et ceux en cours d'exécution.",
+  "es": "Se aplica a «Limpiar», «Proyectos», «Instaladores» y «Optimizar». Recomendación: en «Limpiar», solo «Seguro»; en «Proyectos», solo los que no se usan; en «Optimizar», solo tareas que no molesten. En todos: todo menos los elementos protegidos y los que se están ejecutando.",
+  "it": "Si applica alle sezioni Pulisci, Progetti, Programmi di installazione e Ottimizzazione. Consigli: nella sezione Pulisci solo “Sicuro”, nella sezione Progetti solo quelli inutilizzati, nella sezione Ottimizzazione solo le attività non invadenti. In tutte le sezioni: tutto tranne gli elementi protetti e quelli in esecuzione.",
+  "pt-PT": "Aplica-se às secções «Limpar», «Projetos», «Instaladores» e «Otimizar». Recomendação: na secção «Limpar», apenas «Seguro»; na secção «Projetos», apenas os que não estão a ser utilizados; na secção «Otimizar», apenas tarefas não intrusivas. Em todas as secções: tudo, exceto itens protegidos e em execução.",
+  "cs": "Platí pro sekce Úklid, Projekty, Instalátory a Optimalizovat. Doporučeno: v sekci Úklid pouze položky označené jako „Bezpečné“, v sekci Projekty pouze nepoužívané projekty, v sekci Optimalizovat pouze nenápadné úlohy. Vše: vše kromě chráněných a spuštěných položek.",
+  "sk": "Platí pre sekcie Upratanie, Projekty, Inštalátory a Optimalizovať. Odporúčanie: v sekcii Upratanie iba položky označené ako „Bezpečné“, v sekcii Projekty iba nepoužívané projekty, v sekcii Optimalizovať iba nenápadné úlohy. Všetko: všetko okrem chránených a spustených položiek.",
+  "hu": "Vonatkozik a Tisztítás, Projektek, Telepítők és Optimalizálás menüpontokra. Ajánlott: a Tisztítás menüpontban csak a „Biztonságos” elemeket, a Projektek menüpontban csak a nem használtakat, az Optimalizálás menüpontban csak a nem zavaró feladatokat. Minden: minden, kivéve a védett és futó elemeket.",
+  "ro": "Se aplică secțiunilor Curățare, Proiecte, Instalatori și Optimizare. Recomandare: în secțiunea Curățare, selectați doar opțiunea „Sigur”; în secțiunea Proiecte, selectați doar cele neutilizate; în secțiunea Optimizare, selectați doar sarcinile care nu deranjează. Pentru toate secțiunile: selectați totul, cu excepția elementelor protejate și a celor care rulează.",
+  "hr": "Primjenjuje se na Čišćenje, Projekte, Instalatere i Optimizaciju. Preporučeno: u Čišćenju samo \"Sigurno\", u Projektima samo neiskorišteni, u Optimizaciji samo neometajući zadaci. Sve: sve osim zaštićenih i aktivnih stavki.",
+  "el": "Ισχύει για τις ενότητες «Καθαρισμός», «Έργα», «Εγκαταστάτες» και «Βελτιστοποίηση». Συνιστάται: στην ενότητα «Καθαρισμός» μόνο το «Ασφαλές», στην ενότητα «Έργα» μόνο τα αχρησιμοποίητα, στην ενότητα «Βελτιστοποίηση» μόνο οι εργασίες που δεν παρεμβαίνουν στη λειτουργία του συστήματος. Σε όλες τις ενότητες: όλα εκτός από τα προστατευμένα και τα τρέχοντα στοιχεία."
  }
 }

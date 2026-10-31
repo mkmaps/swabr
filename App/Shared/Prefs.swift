@@ -34,9 +34,9 @@ enum Prefs {
     }
 
     static var cleanEmptyTrash: Bool { bool(Key.cleanEmptyTrash, true) }
-    /// What Clean Up ticks after a scan. Nothing by default: the user decides what goes (REGELWERK G2).
-    static var cleanPreselect: CleanPreselect {
-        CleanPreselect(rawValue: d.string(forKey: Key.cleanPreselect) ?? "") ?? .none
+    /// What every page ticks after a scan. Nothing by default: the user decides what goes (REGELWERK G2).
+    static var preselect: Preselect {
+        Preselect(rawValue: d.string(forKey: Key.cleanPreselect) ?? "") ?? .none
     }
     static var orphanAgeDays: Int { int(Key.orphanAgeDays, DynamicRules.defaultOrphanAgeDays) }
     static var largeDataMinMB: Int { int(Key.largeDataMinMB, 500) }
@@ -76,16 +76,16 @@ enum Prefs {
     }
 }
 
-/// What Clean Up ticks after a scan.
-enum CleanPreselect: String, CaseIterable, Identifiable {
+/// What the pages tick after a scan: Clean Up, Projects, Installers and Optimize.
+enum Preselect: String, CaseIterable, Identifiable {
     case none, recommended, all
     var id: Self { self }
 
     var title: String {
         switch self {
         case .none: String(localized: "Nichts")
-        case .recommended: String(localized: "Empfohlen (nur „Sicher“)")
-        case .all: String(localized: "Alle (auch „Prüfen“)")
+        case .recommended: String(localized: "Empfohlen")
+        case .all: String(localized: "Alle")
         }
     }
 }

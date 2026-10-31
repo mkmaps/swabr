@@ -27,8 +27,13 @@ final class ProjectsModel {
         result = nil
         Prefs.applyToCore()
         artifacts = await ProjectPurge.scan(roots: roots)
-        // Only artifacts untouched for the configured number of days (7 by default) start ticked.
-        selected = Set(artifacts.filter { !$0.recent && !$0.inUse }.map(\.id))
+        // The preselection setting: nothing by default; "recommended" takes artifacts untouched for the
+        // configured number of days (7 by default), "all" everything not in use.
+        switch Prefs.preselect {
+        case .none: selected = []
+        case .recommended: selected = Set(artifacts.filter { !$0.recent && !$0.inUse }.map(\.id))
+        case .all: selected = Set(artifacts.filter { !$0.inUse }.map(\.id))
+        }
         scanning = false
         scanned = true
         recordSummary()
