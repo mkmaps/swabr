@@ -454,19 +454,6 @@
   "hr": "Nikad ne čistiti: ova lokacija",
   "el": "Να μην καθαρίζεται ποτέ: αυτή η θέση"
  },
- "Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen. Aufklappen zeigt sie mit Grund.": {
-  "en": "Locations protected by the whitelist, a running app or the safety check. Expand an entry to see them with the reason.",
-  "fr": "Emplacements protégés par la liste blanche, une app ouverte ou le contrôle de sécurité. Développez une entrée pour les voir avec leur motif.",
-  "es": "Ubicaciones protegidas por la lista blanca, una app abierta o la comprobación de seguridad. Despliega una entrada para verlas con el motivo.",
-  "it": "Posizioni protette dalla lista bianca, da un'app in esecuzione o dal controllo di sicurezza. Espandi una voce per vederle con il motivo.",
-  "pt-PT": "Localizações protegidas pela lista de permissões, por uma app em execução ou pela verificação de segurança. Expanda uma entrada para as ver com o motivo.",
-  "cs": "Umístění chráněná whitelistem, spuštěnou aplikací nebo bezpečnostní kontrolou. Rozbalením položky je uvidíte i s důvodem.",
-  "sk": "Umiestnenia chránené whitelistom, spustenou aplikáciou alebo bezpečnostnou kontrolou. Rozbalením položky ich uvidíte aj s dôvodom.",
-  "hu": "A fehérlista, egy futó app vagy a biztonsági ellenőrzés által védett helyek. Egy tétel kibontásával indoklással együtt láthatók.",
-  "ro": "Locații protejate de lista albă, de o aplicație care rulează sau de verificarea de siguranță. Extindeți o intrare pentru a le vedea cu motivul.",
-  "hr": "Lokacije koje štiti popis dopuštenih, pokrenuta aplikacija ili sigurnosna provjera. Proširite stavku da ih vidite s razlogom.",
-  "el": "Θέσεις που προστατεύονται από τη λίστα επιτρεπόμενων, μια εφαρμογή σε εκτέλεση ή τον έλεγχο ασφαλείας. Αναπτύξτε μια καταχώριση για να τις δείτε με την αιτία."
- },
  "Rückgängig": {
   "en": "Undo",
   "fr": "Annuler",
@@ -2533,5 +2520,57 @@
   "ro": "Ce va fi șters",
   "hr": "Što će biti izbrisano",
   "el": "Τι θα διαγραφεί"
+ },
+ "Nach dem Scan vorauswählen": {
+  "en": "Preselect after scan",
+  "fr": "Présélectionner après l'analyse",
+  "es": "Preseleccionar tras el análisis",
+  "it": "Preseleziona dopo la scansione",
+  "pt-PT": "Pré-selecionar após a análise",
+  "cs": "Po skenování předvybrat",
+  "sk": "Po skenovaní predvybrať",
+  "hu": "Vizsgálat után előre kijelölni",
+  "ro": "Preselecție după scanare",
+  "hr": "Nakon skeniranja unaprijed odabrati",
+  "el": "Προεπιλογή μετά τη σάρωση"
+ },
+ "Nichts": {
+  "en": "Nothing",
+  "fr": "Rien",
+  "es": "Nada",
+  "it": "Niente",
+  "pt-PT": "Nada",
+  "cs": "Nic",
+  "sk": "Nič",
+  "hu": "Semmi",
+  "ro": "Nimic",
+  "hr": "Ništa",
+  "el": "Τίποτα"
+ },
+ "Empfohlen (nur „Sicher“)": {
+  "en": "Recommended (“Safe” only)",
+  "fr": "Recommandé (« Sûr » uniquement)",
+  "es": "Recomendado (solo «Seguro»)",
+  "it": "Consigliato (solo “Sicuro”)",
+  "pt-PT": "Recomendado (apenas «Seguro»)",
+  "cs": "Doporučené (jen „Bezpečné“)",
+  "sk": "Odporúčané (len „Bezpečné“)",
+  "hu": "Ajánlott (csak „Biztonságos”)",
+  "ro": "Recomandat (doar „Sigur”)",
+  "hr": "Preporučeno (samo „Sigurno“)",
+  "el": "Συνιστώμενα (μόνο «Ασφαλές»)"
+ },
+ "Alle (auch „Prüfen“)": {
+  "en": "All (including “Check”)",
+  "fr": "Tout (y compris « À vérifier »)",
+  "es": "Todo (también «Revisar»)",
+  "it": "Tutto (anche “Da verificare”)",
+  "pt-PT": "Tudo (também «Rever»)",
+  "cs": "Vše (i „Zkontrolovat“)",
+  "sk": "Všetko (aj „Skontrolovať“)",
+  "hu": "Mind (a „Ellenőrzés” is)",
+  "ro": "Toate (și „Verifică”)",
+  "hr": "Sve (i „Provjeri“)",
+  "el": "Όλα (και «Έλεγχος»)"
  }
 }

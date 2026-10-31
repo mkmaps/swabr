@@ -131,7 +131,7 @@ struct GeneralSettingsView: View {
 struct BehaviorSettingsView: View {
     @AppStorage("cleanMode") private var cleanMode = Cleaner.Mode.permanent.rawValue
     @AppStorage(Prefs.Key.cleanEmptyTrash) private var emptyTrash = true
-    @AppStorage(Prefs.Key.cleanPreselectReview) private var preselectReview = false
+    @AppStorage(Prefs.Key.cleanPreselect) private var preselect = CleanPreselect.none
     @AppStorage(Prefs.Key.orphanAgeDays) private var orphanDays = DynamicRules.defaultOrphanAgeDays
     @AppStorage(Prefs.Key.largeDataMinMB) private var largeMB = 500
     @AppStorage(Prefs.Key.uninstallPersonalData) private var personalData = false
@@ -150,7 +150,9 @@ struct BehaviorSettingsView: View {
                     Text("In den Papierkorb legen").tag(Cleaner.Mode.trash.rawValue)
                 }
                 Toggle("Papierkorb beim Aufräumen mit leeren", isOn: $emptyTrash)
-                Toggle("Auch Einträge der Stufe „Prüfen“ vorauswählen", isOn: $preselectReview)
+                Picker("Nach dem Scan vorauswählen", selection: $preselect) {
+                    ForEach(CleanPreselect.allCases) { Text($0.title).tag($0) }
+                }
                 Stepper(value: $orphanDays, in: 7...365, step: 7) {
                     LabeledContent("Reste entfernter Apps nach", value: String(localized: "\(orphanDays) Tagen"))
                 }
@@ -199,7 +201,7 @@ struct BehaviorSettingsView: View {
             }
             Section {
                 Button("Alle Werte auf Standard zurücksetzen") {
-                    for key in [Prefs.Key.cleanEmptyTrash, Prefs.Key.cleanPreselectReview, Prefs.Key.orphanAgeDays, Prefs.Key.largeDataMinMB,
+                    for key in [Prefs.Key.cleanEmptyTrash, Prefs.Key.cleanPreselect, Prefs.Key.orphanAgeDays, Prefs.Key.largeDataMinMB,
                                 Prefs.Key.uninstallPersonalData, Prefs.Key.uninstallSystemFiles, Prefs.Key.uninstallConfirm, Prefs.Key.purgeRecentDays,
                                 Prefs.Key.purgeMaxDepth, Prefs.Key.analyzeTimeout, Prefs.Key.statusInterval, "cleanMode"] {
                         UserDefaults.standard.removeObject(forKey: key)

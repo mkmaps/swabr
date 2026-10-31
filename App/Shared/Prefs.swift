@@ -6,7 +6,7 @@ enum Prefs {
     enum Key {
         static let onlineInfo = "onlineInfo"
         static let cleanEmptyTrash = "cleanEmptyTrash"
-        static let cleanPreselectReview = "cleanPreselectReview"
+        static let cleanPreselect = "cleanPreselect"
         static let orphanAgeDays = "orphanAgeDays"
         static let largeDataMinMB = "largeDataMinMB"
         static let uninstallPersonalData = "uninstallPersonalData"
@@ -34,7 +34,10 @@ enum Prefs {
     }
 
     static var cleanEmptyTrash: Bool { bool(Key.cleanEmptyTrash, true) }
-    static var cleanPreselectReview: Bool { bool(Key.cleanPreselectReview, false) }
+    /// What Clean Up ticks after a scan. Nothing by default: the user decides what goes (REGELWERK G2).
+    static var cleanPreselect: CleanPreselect {
+        CleanPreselect(rawValue: d.string(forKey: Key.cleanPreselect) ?? "") ?? .none
+    }
     static var orphanAgeDays: Int { int(Key.orphanAgeDays, DynamicRules.defaultOrphanAgeDays) }
     static var largeDataMinMB: Int { int(Key.largeDataMinMB, 500) }
     static var uninstallPersonalData: Bool { bool(Key.uninstallPersonalData, false) }
@@ -69,6 +72,20 @@ enum Prefs {
         set {
             d.set(newValue, forKey: Key.language)
             if newValue == "system" { d.removeObject(forKey: "AppleLanguages") } else { d.set([newValue], forKey: "AppleLanguages") }
+        }
+    }
+}
+
+/// What Clean Up ticks after a scan.
+enum CleanPreselect: String, CaseIterable, Identifiable {
+    case none, recommended, all
+    var id: Self { self }
+
+    var title: String {
+        switch self {
+        case .none: String(localized: "Nichts")
+        case .recommended: String(localized: "Empfohlen (nur „Sicher“)")
+        case .all: String(localized: "Alle (auch „Prüfen“)")
         }
     }
 }

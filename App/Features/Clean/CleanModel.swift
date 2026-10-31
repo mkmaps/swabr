@@ -82,7 +82,7 @@ final class CleanModel {
             items = found.filter { $0.bytes > 0 || !$0.protected.isEmpty || $0.status != .ready }
             currentStep = String(localized: "Große Datenbestände")
             largeData = await DynamicRules.largeData(minimum: Int64(Prefs.largeDataMinMB) * 1_048_576)
-            selectRecommended()
+            applyPreselection()
             freeSpace = VolumeInfo.freeSpace()
             recordSummary()
             phase = .review
@@ -150,10 +150,18 @@ final class CleanModel {
         ScanSummary.shared.record(.clean, bytes: s.selectedBytes, count: s.selectedEntries)
     }
 
+    /// After a scan: what the setting says, nothing by default.
+    func applyPreselection() {
+        switch Prefs.cleanPreselect {
+        case .none: selected = []
+        case .recommended: selectRecommended()
+        case .all: selectAll()
+        }
+    }
+
     /// Only items rated safe: the "recommended" preset.
     func selectRecommended() {
-        // The setting "also tick review items" turns the recommended preset into "everything".
-        selected = Set(items.filter { $0.isCleanable && ($0.safety == .safe || Prefs.cleanPreselectReview) }.map(\.id))
+        selected = Set(items.filter { $0.isCleanable && $0.safety == .safe }.map(\.id))
     }
 
 

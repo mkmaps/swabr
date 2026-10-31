@@ -7069,6 +7069,82 @@
         }
       }
     },
+    "Alle (auch „Prüfen“)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vše (i „Zkontrolovat“)"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle (auch „Prüfen“)"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Όλα (και «Έλεγχος»)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All (including “Check”)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo (también «Revisar»)"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout (y compris « À vérifier »)"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sve (i „Provjeri“)"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mind (a „Ellenőrzés” is)"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutto (anche “Da verificare”)"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo (também «Rever»)"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toate (și „Verifică”)"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Všetko (aj „Skontrolovať“)"
+          }
+        }
+      }
+    },
     "Alle Anmeldeobjekte sind vorhanden": {
       "localizations": {
         "cs": {
@@ -10105,82 +10181,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Druh"
-          }
-        }
-      }
-    },
-    "Auch Einträge der Stufe „Prüfen“ vorauswählen": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Předvybrat i položky úrovně „Zkontrolovat“"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Auch Einträge der Stufe „Prüfen“ vorauswählen"
-          }
-        },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Προεπιλογή και των καταχωρίσεων με αξιολόγηση «Έλεγχος»"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Also preselect entries rated “Review”"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Además, preselecciona las entradas con la calificación «Revisar»."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sélectionnez également les entrées classées « À vérifier »."
-          }
-        },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unaprijed odaberi i unose ocijenjene „Provjerite”"
-          }
-        },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Az „Ellenőrizendő” szintű bejegyzések előzetes kijelölése is"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inoltre, preseleziona le voci contrassegnate come “Da rivedere”"
-          }
-        },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Selecione também previamente as entradas classificadas como «Revisão»"
-          }
-        },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preselectați și intrările de nivel „Verificați”"
-          }
-        },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Predvybrať aj položky úrovne „Skontrolovať“"
           }
         }
       }
@@ -18769,6 +18769,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Odporúčané"
+          }
+        }
+      }
+    },
+    "Empfohlen (nur „Sicher“)": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Doporučené (jen „Bezpečné“)"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empfohlen (nur „Sicher“)"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συνιστώμενα (μόνο «Ασφαλές»)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recommended (“Safe” only)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recomendado (solo «Seguro»)"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recommandé (« Sûr » uniquement)"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preporučeno (samo „Sigurno“)"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajánlott (csak „Biztonságos”)"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consigliato (solo “Sicuro”)"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recomendado (apenas «Seguro»)"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recomandat (doar „Sigur”)"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odporúčané (len „Bezpečné“)"
           }
         }
       }
@@ -30781,6 +30857,82 @@
         }
       }
     },
+    "Nach dem Scan vorauswählen": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Po skenování předvybrat"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nach dem Scan vorauswählen"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προεπιλογή μετά τη σάρωση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preselect after scan"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preseleccionar tras el análisis"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Présélectionner après l'analyse"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nakon skeniranja unaprijed odabrati"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vizsgálat után előre kijelölni"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preseleziona dopo la scansione"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pré-selecionar após a análise"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preselecție după scanare"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Po skenovaní predvybrať"
+          }
+        }
+      }
+    },
     "Name": {
       "localizations": {
         "cs": {
@@ -31841,6 +31993,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nepredvyberať, ak bolo použité za posledných"
+          }
+        }
+      }
+    },
+    "Nichts": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nic"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nichts"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τίποτα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rien"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ništa"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semmi"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niente"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nimic"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nič"
           }
         }
       }
@@ -34349,82 +34577,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Miesta chránené bielym zoznamom, spustenou aplikáciou alebo bezpečnostnou kontrolou, spolu s dôvodom"
-          }
-        }
-      }
-    },
-    "Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen. Aufklappen zeigt sie mit Grund.": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Umístění chráněná whitelistem, spuštěnou aplikací nebo bezpečnostní kontrolou. Rozbalením položky je uvidíte i s důvodem."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen. Aufklappen zeigt sie mit Grund."
-          }
-        },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Θέσεις που προστατεύονται από τη λίστα επιτρεπόμενων, μια εφαρμογή σε εκτέλεση ή τον έλεγχο ασφαλείας. Αναπτύξτε μια καταχώριση για να τις δείτε με την αιτία."
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Locations protected by the whitelist, a running app or the safety check. Expand an entry to see them with the reason."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ubicaciones protegidas por la lista blanca, una app abierta o la comprobación de seguridad. Despliega una entrada para verlas con el motivo."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Emplacements protégés par la liste blanche, une app ouverte ou le contrôle de sécurité. Développez une entrée pour les voir avec leur motif."
-          }
-        },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lokacije koje štiti popis dopuštenih, pokrenuta aplikacija ili sigurnosna provjera. Proširite stavku da ih vidite s razlogom."
-          }
-        },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A fehérlista, egy futó app vagy a biztonsági ellenőrzés által védett helyek. Egy tétel kibontásával indoklással együtt láthatók."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Posizioni protette dalla lista bianca, da un'app in esecuzione o dal controllo di sicurezza. Espandi una voce per vederle con il motivo."
-          }
-        },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Localizações protegidas pela lista de permissões, por uma app em execução ou pela verificação de segurança. Expanda uma entrada para as ver com o motivo."
-          }
-        },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Locații protejate de lista albă, de o aplicație care rulează sau de verificarea de siguranță. Extindeți o intrare pentru a le vedea cu motivul."
-          }
-        },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Umiestnenia chránené whitelistom, spustenou aplikáciou alebo bezpečnostnou kontrolou. Rozbalením položky ich uvidíte aj s dôvodom."
           }
         }
       }

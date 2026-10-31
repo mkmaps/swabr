@@ -16,7 +16,7 @@ Legende Ist-Stand: ✅ umgesetzt · ⚠️ teilweise · ❌ fehlt
 | Nr. | Grundsatz |
 |---|---|
 | G1 | **Scannen ändert nichts.** Gelöscht wird erst nach Anzeige, Auswahl und Bestätigung. |
-| G2 | **Im Zweifel behalten.** Was nicht sicher neu erzeugt wird, ist nie vorausgewählt. |
+| G2 | **Im Zweifel behalten.** Nach dem Scan ist standardmäßig nichts vorausgewählt; der Nutzer entscheidet, was geht. „Prüfen“-Einträge sind nur mit der Einstellung „Alle“ vorausgewählt. |
 | G3 | **Mehrere unabhängige Sperren.** Regel → Einstufung → Whitelist → Pfadprüfung → Prüfung direkt vor dem Löschen. Jede Schicht muss allein ausreichen, um Schaden zu verhindern. |
 | G4 | **Muster nie breiter als nötig.** Ein Muster wird gegen eine echte App-Liste und einen echten Benutzerordner geprüft (Lehre aus `com.apple.*`, das Safari-Web-Apps und Pixelmator gesperrt hat). |
 | G5 | **Papierkorb zuerst.** Standard ist der Papierkorb, endgültiges Löschen nur auf ausdrückliche Einstellung. Apps gehen immer in den Papierkorb. |
@@ -83,8 +83,8 @@ Legende Ist-Stand: ✅ umgesetzt · ⚠️ teilweise · ❌ fehlt
 
 | Stufe | Bedeutung | Vorausgewählt | Umsetzung |
 |---|---|---|---|
-| **Sicher** | Cache, Log, Temp, Pakete, Build-Ergebnisse, die von selbst neu entstehen | ja | `Safety.safe` |
-| **Prüfen** | kann noch gewollte Daten, Anmeldungen, Verläufe oder lange Downloads enthalten | nein | `Safety.review` |
+| **Sicher** | Cache, Log, Temp, Pakete, Build-Ergebnisse, die von selbst neu entstehen | nur mit Einstellung „Empfohlen“ oder „Alle“, sonst per Knopf „Empfohlen“ | `Safety.safe` |
+| **Prüfen** | kann noch gewollte Daten, Anmeldungen, Verläufe oder lange Downloads enthalten | nur mit Einstellung „Alle“ | `Safety.review` |
 | **Hinweis** | wird nur mit Größe und Weg zum Aufräumen gezeigt, Swabr löscht nicht | – | `DynamicRules.largeData` |
 | **Gesperrt** | wird nie gezeigt und nie gelöscht | – | `safetyWhitelist`, `PathSafety` |
 
@@ -101,7 +101,7 @@ Pflicht für *Prüfen*:
 
 **Ist-Stand** ✅
 - *Sicher* und *Prüfen* sind als `Safety` umgesetzt. *Hinweis* ist die Gruppe „Große Datenbestände (nur Hinweis)“. *Gesperrt* erscheint aufgeklappt mit Grund und als Zahl „Geschützt und übersprungen“ (M-08).
-- Die Voreinstellung „Prüfen-Einträge mit ankreuzen“ (`Prefs.cleanPreselectReview`) hebt G2 auf Wunsch des Nutzers auf. Das ist erlaubt, muss aber in der Prüfansicht sichtbar bleiben.
+- Einstellung „Nach dem Scan vorauswählen“ (`Prefs.cleanPreselect`, seit 31.10.2026): **Nichts** (Standard) / Empfohlen (nur „Sicher“) / Alle (auch „Prüfen“). Die Auswahl bleibt in „Auswahl ansehen“ und in der Prüfansicht vor dem Löschen sichtbar.
 - Test `catalogueNeverLoosensSafety` (M-07): Keine Regel setzt `safety: "safe"`, und die Pflicht-*Prüfen*-Regeln sind festgehalten.
 
 ### S3 – Pfadprüfung (letzte Sperre)
