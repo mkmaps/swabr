@@ -15581,78 +15581,78 @@
         }
       }
     },
-    "Den Schalter neben „Swabr“ einschalten. Fehlt der Eintrag, Swabr aus dem Finder-Fenster, das sich mit öffnet, in die Liste ziehen.": {
+    "Den Schalter neben „Swabr OP“ einschalten. Fehlt der Eintrag, Swabr aus dem Finder-Fenster, das sich mit öffnet, in die Liste ziehen.": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zapněte „Swabr“. Pokud není v seznamu uveden, přetáhněte Swabr z okna Finderu, které se otevře vedle, do seznamu."
+            "value": "Zapněte „Swabr OP“. Pokud není v seznamu uveden, přetáhněte Swabr z okna Finderu, které se otevře vedle, do seznamu."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Den Schalter neben „Swabr“ einschalten. Fehlt der Eintrag, Swabr aus dem Finder-Fenster, das sich mit öffnet, in die Liste ziehen."
+            "value": "Den Schalter neben „Swabr OP“ einschalten. Fehlt der Eintrag, Swabr aus dem Finder-Fenster, das sich mit öffnet, in die Liste ziehen."
           }
         },
         "el": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ενεργοποιήστε το «Swabr». Εάν δεν εμφανίζεται στη λίστα, σύρετε το Swabr από το παράθυρο του Finder που ανοίγει παράλληλα στη λίστα."
+            "value": "Ενεργοποιήστε το «Swabr OP». Εάν δεν εμφανίζεται στη λίστα, σύρετε το Swabr από το παράθυρο του Finder που ανοίγει παράλληλα στη λίστα."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Switch on “Swabr”. If it isn't listed, drag Swabr from the Finder window that opens alongside into the list."
+            "value": "Switch on “Swabr OP”. If it isn't listed, drag Swabr from the Finder window that opens alongside into the list."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Activa «Swabr». Si no aparece en la lista, arrastra Swabr desde la ventana del Finder que se abre al lado hasta la lista."
+            "value": "Activa «Swabr OP». Si no aparece en la lista, arrastra Swabr desde la ventana del Finder que se abre al lado hasta la lista."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Activez « Swabr ». Si l’application n’apparaît pas dans la liste, faites glisser Swabr depuis la fenêtre du Finder qui s’ouvre à côté vers la liste."
+            "value": "Activez « Swabr OP ». Si l’application n’apparaît pas dans la liste, faites glisser Swabr depuis la fenêtre du Finder qui s’ouvre à côté vers la liste."
           }
         },
         "hr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Uključite \"Swabr\". Ako nije naveden, povucite Swabr iz prozora Findera koji se otvori pored i ispustite ga u popis."
+            "value": "Uključite \"Swabr OP\". Ako nije naveden, povucite Swabr iz prozora Findera koji se otvori pored i ispustite ga u popis."
           }
         },
         "hu": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kapcsolja be a „Swabr” alkalmazást. Ha nem szerepel a listában, húzza át a Swabr alkalmazást a mellette megnyíló Finder-ablakból a listába."
+            "value": "Kapcsolja be a „Swabr OP” alkalmazást. Ha nem szerepel a listában, húzza át a Swabr alkalmazást a mellette megnyíló Finder-ablakból a listába."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Attiva “Swabr”. Se non è presente, trascina Swabr nell’elenco dalla finestra del Finder che si apre accanto."
+            "value": "Attiva “Swabr OP”. Se non è presente, trascina Swabr nell’elenco dalla finestra del Finder che si apre accanto."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ative o «Swabr». Se este não constar da lista, arraste o Swabr da janela do Finder que se abre em paralelo para a lista."
+            "value": "Ative o «Swabr OP». Se este não constar da lista, arraste o Swabr da janela do Finder que se abre em paralelo para a lista."
           }
         },
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "Activați „Swabr”. Dacă nu apare în listă, trageți Swabr din fereastra Finder care se deschide alături în listă."
+            "value": "Activați „Swabr OP”. Dacă nu apare în listă, trageți Swabr din fereastra Finder care se deschide alături în listă."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zapnite „Swabr“. Ak nie je v zozname, pretiahnite Swabr z okna Finderu, ktoré sa otvorí vedľa, do zoznamu."
+            "value": "Zapnite „Swabr OP“. Ak nie je v zozname, pretiahnite Swabr z okna Finderu, ktoré sa otvorí vedľa, do zoznamu."
           }
         }
       }
@@ -41269,78 +41269,78 @@
         }
       }
     },
-    "Unter „App-Hintergrundaktivitäten“ den Eintrag „Swabr“ einschalten.": {
+    "Unter „App-Hintergrundaktivitäten“ den Eintrag „Swabr OP“ einschalten.": {
       "localizations": {
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "V části „Aktivita aplikací na pozadí“ zapněte „Swabr“."
+            "value": "V části „Aktivita aplikací na pozadí“ zapněte „Swabr OP“."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Unter „App-Hintergrundaktivitäten“ den Eintrag „Swabr“ einschalten."
+            "value": "Unter „App-Hintergrundaktivitäten“ den Eintrag „Swabr OP“ einschalten."
           }
         },
         "el": {
           "stringUnit": {
             "state": "translated",
-            "value": "Στην ενότητα «Δραστηριότητα εφαρμογών στο παρασκήνιο», ενεργοποιήστε το «Swabr»."
+            "value": "Στην ενότητα «Δραστηριότητα εφαρμογών στο παρασκήνιο», ενεργοποιήστε το «Swabr OP»."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Under “App Background Activity”, switch on “Swabr”."
+            "value": "Under “App Background Activity”, switch on “Swabr OP”."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "En «Actividad en segundo plano de las apps», activa «Swabr»."
+            "value": "En «Actividad en segundo plano de las apps», activa «Swabr OP»."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sous « Activité en arrière-plan des applications », activez « Swabr »."
+            "value": "Sous « Activité en arrière-plan des applications », activez « Swabr OP »."
           }
         },
         "hr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pod \"Pozadinska aktivnost aplikacije\" uključite \"Swabr\"."
+            "value": "Pod \"Pozadinska aktivnost aplikacije\" uključite \"Swabr OP\"."
           }
         },
         "hu": {
           "stringUnit": {
             "state": "translated",
-            "value": "Az „Alkalmazások háttértevékenysége” alatt kapcsolja be a „Swabr” opciót."
+            "value": "Az „Alkalmazások háttértevékenysége” alatt kapcsolja be a „Swabr OP” opciót."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "In “Attività in background delle app”, attiva “Swabr”."
+            "value": "In “Attività in background delle app”, attiva “Swabr OP”."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em «Atividade em segundo plano das aplicações», ative «Swabr»."
+            "value": "Em «Atividade em segundo plano das aplicações», ative «Swabr OP»."
           }
         },
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "În secțiunea „Activitate în fundal a aplicațiilor”, activați „Swabr”."
+            "value": "În secțiunea „Activitate în fundal a aplicațiilor”, activați „Swabr OP”."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "V časti „Aktivita aplikácií na pozadí“ zapnite „Swabr“."
+            "value": "V časti „Aktivita aplikácií na pozadí“ zapnite „Swabr OP“."
           }
         }
       }

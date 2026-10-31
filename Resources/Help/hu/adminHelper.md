@@ -7,12 +7,12 @@ A Swabr **segítőszolgáltatása** átveszi ezeket a lépéseket, miután enged
 
 ## Hogyan állítsd be?
 ### 1. Állítsa be a Swabr-ben
-Nyissa meg **a Swabr-et → **Beállítások** → **Viselkedés****, majd kattintson ** **Beállítások…** gombra** a **Rendszergazdai jogok** részben.
+Nyissa meg a **Swabr OP → Beállítások → Viselkedés** lapot, majd kattintson a **Beállítás…** gombra a **Rendszergazdai jogok** részben.
 
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Engedélyezze a rendszerbeállításokban
-macOS esetén nyissa meg a „**Rendszerbeállítások**”** → „Általános” → „Bejelentkezési elemek alatt**” menüpontot. **Az** **„App Background Activity”** (Alkalmazások háttértevékenysége) alatt kapcsolja be ** Swabr-et**, majd erősítse meg jelszavával vagy Touch ID-vel.
+A macOS megnyitja a **Rendszerbeállítások → Általános → Bejelentkezési elemek** részt. Az **Alkalmazások háttértevékenysége** alatt kapcsolja be a **Swabr OP** elemet, majd erősítse meg jelszavával vagy Touch ID-vel.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

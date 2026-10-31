@@ -12,7 +12,7 @@ Otevřete **Swabr → *Nastavení* → *Chování*** a v sekci ***Práva správc
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Povolte to v Nastavení systému
-V systému macOS otevřete ****Nastavení systému** → **Obecné** → **Položky přihlášení**. V části **Aktivita aplikací na pozadí**** zapněte **Swabr** a potvrďte zadáním hesla nebo pomocí Touch ID.
+V systému macOS otevřete ****Nastavení systému** → **Obecné** → **Položky přihlášení**. V části **Aktivita aplikací na pozadí**** zapněte **Swabr OP** a potvrďte zadáním hesla nebo pomocí Touch ID.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

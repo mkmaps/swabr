@@ -12,7 +12,7 @@ Ouvrez **Swabr → « Réglages » → « Comportement »** et cliquez sur « **
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Autorisez-le dans les Réglages Système
-Sous macOS, ouvrez «**Réglages Système** » **→ « Général » → « Ouverture** ». Dans la section « **Activité en arrière-plan des applications** », activez **Swabr** et confirmez à l’aide de votre mot de passe ou de Touch ID.
+Sous macOS, ouvrez «**Réglages Système** » **→ « Général » → « Ouverture** ». Dans la section « **Activité en arrière-plan des applications** », activez **Swabr OP** et confirmez à l’aide de votre mot de passe ou de Touch ID.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

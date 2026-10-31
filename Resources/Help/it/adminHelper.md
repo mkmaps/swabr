@@ -12,7 +12,7 @@ Apri **Swabr → Impostazioni → Comportamento** e clicca **su Configura…** n
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Autorizzalo nelle Impostazioni di Sistema
-Su macOS, apri **Impostazioni di Sistema** → **Generali** → **Elementi login**. Nella sezione **Attività in background delle app****, attiva **Swabr** e conferma con la tua password o con Touch ID.
+Su macOS, apri **Impostazioni di Sistema** → **Generali** → **Elementi login**. Nella sezione **Attività in background delle app****, attiva **Swabr OP** e conferma con la tua password o con Touch ID.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

@@ -12,7 +12,7 @@ Deschideți **Swabr → „Configurări” → „Comportament”** și faceți 
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Permiteți acest lucru în Configurări sistem
-macOS deschide „**Configurări sistem” → „General” → „Articole de autentificare**”. În secțiunea **„Activitate în fundal a aplicațiilor**”, activați **Swabr** și confirmați cu parola sau Touch ID.
+macOS deschide „**Configurări sistem” → „General” → „Articole de autentificare**”. În secțiunea **„Activitate în fundal a aplicațiilor**”, activați **Swabr OP** și confirmați cu parola sau Touch ID.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

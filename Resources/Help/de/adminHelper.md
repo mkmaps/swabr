@@ -12,7 +12,7 @@ Der **Hilfsdienst** von Swabr übernimmt diese Schritte, nachdem du ihn einmal e
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. In den Systemeinstellungen erlauben
-macOS öffnet **Systemeinstellungen → Allgemein → Anmeldeobjekte**. Schalte unter **App-Hintergrundaktivitäten** den Eintrag **Swabr** ein und bestätige mit deinem Passwort oder Touch ID.
+macOS öffnet **Systemeinstellungen → Allgemein → Anmeldeobjekte**. Schalte unter **App-Hintergrundaktivitäten** den Eintrag **Swabr OP** ein und bestätige mit deinem Passwort oder Touch ID.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

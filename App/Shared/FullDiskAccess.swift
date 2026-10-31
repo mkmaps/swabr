@@ -100,7 +100,7 @@ struct FullDiskAccessIntro: View {
                 .fixedSize(horizontal: false, vertical: true)
             VStack(alignment: .leading, spacing: 6) {
                 step(1, String(localized: "Auf das Zahnrad klicken. Es öffnet sich Datenschutz & Sicherheit → Festplattenvollzugriff."))
-                step(2, String(localized: "Den Schalter neben „Swabr“ einschalten. Fehlt der Eintrag, Swabr aus dem Finder-Fenster, das sich mit öffnet, in die Liste ziehen."))
+                step(2, String(localized: "Den Schalter neben „Swabr OP“ einschalten. Fehlt der Eintrag, Swabr aus dem Finder-Fenster, das sich mit öffnet, in die Liste ziehen."))
                 step(3, String(localized: "Swabr neu starten, wenn macOS darum bittet."))
             }
             HelpImage(path: "images/festplattenvollzugriff-1-liste.png").frame(maxWidth: .infinity)
@@ -150,7 +150,7 @@ struct AdminHelperIntro: View {
                 .fixedSize(horizontal: false, vertical: true)
             VStack(alignment: .leading, spacing: 6) {
                 step(1, String(localized: "„Jetzt einrichten“ klicken. macOS öffnet Allgemein → Anmeldeobjekte."))
-                step(2, String(localized: "Unter „App-Hintergrundaktivitäten“ den Eintrag „Swabr“ einschalten."))
+                step(2, String(localized: "Unter „App-Hintergrundaktivitäten“ den Eintrag „Swabr OP“ einschalten."))
                 step(3, String(localized: "Mit Passwort oder Touch ID bestätigen. Fertig."))
             }
             HelpImage(path: "images/helfer-2-anmeldeobjekte.png").frame(maxWidth: .infinity)

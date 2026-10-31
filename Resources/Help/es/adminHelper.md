@@ -12,7 +12,7 @@ Abre **Swabr → «Ajustes» → «Comportamiento»** y haz clic en **«Configur
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Permítelo en los Ajustes del Sistema
-En macOS, abre «**Ajustes del Sistema**»** → «General» → «Ítems de inicio**». En **«Actividad en segundo plano de las apps**», activa **Swabr** y confirma con tu contraseña o Touch ID.
+En macOS, abre «**Ajustes del Sistema**»** → «General» → «Ítems de inicio**». En **«Actividad en segundo plano de las apps**», activa **Swabr OP** y confirma con tu contraseña o Touch ID.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

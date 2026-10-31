@@ -12,7 +12,7 @@ Otvorite **Swabr → Postavke → Ponašanje** i kliknite na **Postavi …** u o
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Dopustite to u postavkama sustava
-macOS otvara **Postavke sustava → Općenito → Stavke prijave**. U odjeljku **App Background Activity** (Aktivnost u pozadini aplikacije) uključite **Swabr** i potvrdite svojom lozinkom ili Touch ID-om.
+macOS otvara **Postavke sustava → Općenito → Stavke prijave**. U odjeljku **App Background Activity** (Aktivnost u pozadini aplikacije) uključite **Swabr OP** i potvrdite svojom lozinkom ili Touch ID-om.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

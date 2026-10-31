@@ -12,7 +12,7 @@ Otvorte **Swabr → Nastavenia → Správanie** a kliknite na **Nastaviť…** v
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Povoliť v Nastaveniach systému
-V systéme macOS otvorte **Nastavenia systému** → **Všeobecné** → **Položky prihlásenia**. V časti **Aktivity aplikácií na pozadí**** zapnite **Swabr** a potvrďte heslom alebo Touch ID.
+V systéme macOS otvorte **Nastavenia systému** → **Všeobecné** → **Položky prihlásenia**. V časti **Aktivity aplikácií na pozadí**** zapnite **Swabr OP** a potvrďte heslom alebo Touch ID.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 

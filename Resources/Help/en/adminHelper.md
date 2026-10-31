@@ -12,7 +12,7 @@ Open **Swabr → Settings → Behavior** and click **Set Up …** in the **Admin
 ![](images/helfer-1-einstellungen.png)
 
 ### 2. Allow it in System Settings
-macOS opens **System Settings → General → Login Items**. Under **App Background Activity**, switch on **Swabr** and confirm with your password or Touch ID.
+macOS opens **System Settings → General → Login Items**. Under **App Background Activity**, switch on **Swabr OP** and confirm with your password or Touch ID.
 
 ![](images/helfer-2-anmeldeobjekte.png)
 
