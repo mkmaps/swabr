@@ -21,8 +21,14 @@ public enum DiskSize {
         return total
     }
 
-    public static func format(_ bytes: Int64) -> String {
-        ByteCountFormatter.string(fromByteCount: bytes, countStyle: .file)
+    /// "0 KB" rather than the spelled-out "Zero KB" some languages get by default.
+    public static func format(_ bytes: Int64) -> String { format(bytes, style: .file) }
+
+    public static func format(_ bytes: Int64, style: ByteCountFormatter.CountStyle) -> String {
+        let f = ByteCountFormatter()
+        f.countStyle = style
+        f.allowsNonnumericFormatting = false
+        return f.string(fromByteCount: bytes)
     }
 }
 

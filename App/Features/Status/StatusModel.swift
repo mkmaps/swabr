@@ -69,10 +69,10 @@ final class StatusModel {
 
 enum Rate {
     static func format(_ bytesPerSecond: Double) -> String {
-        ByteCountFormatter.string(fromByteCount: Int64(bytesPerSecond), countStyle: .file) + "/s"
+        DiskSize.format(Int64(bytesPerSecond)) + "/s"
     }
 
     static func memory(_ bytes: UInt64) -> String {
-        ByteCountFormatter.string(fromByteCount: Int64(bytes), countStyle: .memory)
+        DiskSize.format(Int64(bytes), style: .memory)
     }
 }

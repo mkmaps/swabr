@@ -260,17 +260,17 @@
   "el": "Τοπικά μοντέλα AI ή βελτιστοποίησης. Λαμβάνονται ξανά όταν χρειάζεται."
  },
  "Zuletzt benutzt": {
-  "en": "Recent items",
-  "fr": "Éléments récents",
-  "es": "Ítems recientes",
-  "it": "Elementi recenti",
-  "pt-PT": "Itens recentes",
-  "cs": "Nedávné položky",
-  "sk": "Nedávne položky",
-  "hu": "Legutóbbi elemek",
-  "ro": "Articole recente",
-  "hr": "Nedavne stavke",
-  "el": "Πρόσφατα στοιχεία"
+  "en": "Last used",
+  "fr": "Dernière utilisation",
+  "es": "Último uso",
+  "it": "Ultimo utilizzo",
+  "pt-PT": "Última utilização",
+  "cs": "Naposledy použito",
+  "sk": "Naposledy použité",
+  "hu": "Utoljára használva",
+  "ro": "Ultima utilizare",
+  "hr": "Zadnje korišteno",
+  "el": "Τελευταία χρήση"
  },
  "Kontakte": {
   "en": "Contacts",

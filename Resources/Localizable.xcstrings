@@ -27513,82 +27513,6 @@
         }
       }
     },
-    "Swabr für den Mac: aufräumen, Apps entfernen, Speicher analysieren und den Zustand im Blick behalten.": {
-      "localizations": {
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr pro váš Mac: uklízejte, odstraňujte aplikace, analyzujte úložiště a sledujte jeho stav."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr für den Mac: aufräumen, Apps entfernen, Speicher analysieren und den Zustand im Blick behalten."
-          }
-        },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr για το Mac σας: καθαρισμός, αφαίρεση εφαρμογών, ανάλυση χώρου και παρακολούθηση της υγείας του."
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr for your Mac: clean up, remove apps, analyse storage and keep an eye on its health."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr para tu Mac: limpia el ordenador, elimina aplicaciones, analiza el almacenamiento y vigila su estado."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr pour votre Mac : nettoyez votre ordinateur, supprimez des applications, analysez l'espace de stockage et surveillez son état de santé."
-          }
-        },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr za vaš Mac: čišćenje, uklanjanje aplikacija, analiza prostora i praćenje zdravlja."
-          }
-        },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr a Mac-hez: takarítás, appok eltávolítása, tárhely elemzése és az állapot figyelése."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr per il tuo Mac: pulisci il sistema, rimuovi le app, analizza lo spazio di archiviazione e tieni d’occhio lo stato di salute del tuo Mac."
-          }
-        },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr para o seu Mac: limpe, remova aplicações, analise o espaço de armazenamento e acompanhe o estado do seu computador."
-          }
-        },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr pentru Mac-ul dvs.: curățați, eliminați aplicații, analizați spațiul și urmăriți starea de sănătate."
-          }
-        },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swabr pre váš Mac: upratujte, odstraňujte aplikácie, analyzujte úložisko a sledujte jeho stav."
-          }
-        }
-      }
-    },
     "Klick: auswählen · Doppelklick: öffnen": {
       "localizations": {
         "cs": {
@@ -38989,6 +38913,82 @@
         }
       }
     },
+    "Swabr für den Mac: aufräumen, Apps entfernen, Speicher analysieren und den Zustand im Blick behalten.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr pro váš Mac: uklízejte, odstraňujte aplikace, analyzujte úložiště a sledujte jeho stav."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr für den Mac: aufräumen, Apps entfernen, Speicher analysieren und den Zustand im Blick behalten."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr για το Mac σας: καθαρισμός, αφαίρεση εφαρμογών, ανάλυση χώρου και παρακολούθηση της υγείας του."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr for your Mac: clean up, remove apps, analyse storage and keep an eye on its health."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr para tu Mac: limpia el ordenador, elimina aplicaciones, analiza el almacenamiento y vigila su estado."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr pour votre Mac : nettoyez votre ordinateur, supprimez des applications, analysez l'espace de stockage et surveillez son état de santé."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr za vaš Mac: čišćenje, uklanjanje aplikacija, analiza prostora i praćenje zdravlja."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr a Mac-hez: takarítás, appok eltávolítása, tárhely elemzése és az állapot figyelése."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr per il tuo Mac: pulisci il sistema, rimuovi le app, analizza lo spazio di archiviazione e tieni d’occhio lo stato di salute del tuo Mac."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr para o seu Mac: limpe, remova aplicações, analise o espaço de armazenamento e acompanhe o estado do seu computador."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr pentru Mac-ul dvs.: curățați, eliminați aplicații, analizați spațiul și urmăriți starea de sănătate."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swabr pre váš Mac: upratujte, odstraňujte aplikácie, analyzujte úložisko a sledujte jeho stav."
+          }
+        }
+      }
+    },
     "Swabr hat keine Daten dieser App gefunden.": {
       "localizations": {
         "cs": {
@@ -44314,7 +44314,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nedávné položky"
+            "value": "Naposledy použito"
           }
         },
         "de": {
@@ -44326,61 +44326,61 @@
         "el": {
           "stringUnit": {
             "state": "translated",
-            "value": "Πρόσφατα στοιχεία"
+            "value": "Τελευταία χρήση"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Recent items"
+            "value": "Last used"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Elementos recientes"
+            "value": "Último uso"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Éléments récents"
+            "value": "Dernière utilisation"
           }
         },
         "hr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nedavne stavke"
+            "value": "Zadnje korišteno"
           }
         },
         "hu": {
           "stringUnit": {
             "state": "translated",
-            "value": "Legutóbbi elemek"
+            "value": "Utoljára használva"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Elementi recenti"
+            "value": "Ultimo utilizzo"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Itens recentes"
+            "value": "Última utilização"
           }
         },
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "Articole recente"
+            "value": "Ultima utilizare"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nedávne položky"
+            "value": "Naposledy použité"
           }
         }
       }

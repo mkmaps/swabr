@@ -26910,7 +26910,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nedávné položky"
+            "value": "Naposledy použito"
           }
         },
         "de": {
@@ -26922,61 +26922,61 @@
         "el": {
           "stringUnit": {
             "state": "translated",
-            "value": "Πρόσφατα στοιχεία"
+            "value": "Τελευταία χρήση"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Recent items"
+            "value": "Last used"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Elementos recientes"
+            "value": "Último uso"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Éléments récents"
+            "value": "Dernière utilisation"
           }
         },
         "hr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nedavne stavke"
+            "value": "Zadnje korišteno"
           }
         },
         "hu": {
           "stringUnit": {
             "state": "translated",
-            "value": "Legutóbbi elemek"
+            "value": "Utoljára használva"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Elementi recenti"
+            "value": "Ultimo utilizzo"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Itens recentes"
+            "value": "Última utilização"
           }
         },
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "Articole recente"
+            "value": "Ultima utilizare"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nedávne položky"
+            "value": "Naposledy použité"
           }
         }
       }

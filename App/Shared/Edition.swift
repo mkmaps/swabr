@@ -77,6 +77,7 @@ enum Appearance: String, CaseIterable, Identifiable {
 enum FolderAccess {
     private static let key = "folderBookmarks"
     private static var active: [String: URL] = [:]
+    private static var restored = false
 
     /// Asks for folders; returns their paths with access granted.
     static func choose(prompt: String, multiple: Bool = true) -> [String] {
@@ -97,8 +98,10 @@ enum FolderAccess {
         return panel.urls.map(\.path)
     }
 
-    /// Re-opens every remembered folder at launch.
+    /// Re-opens every remembered folder. Runs before the first access check, because SwiftUI can draw the
+    /// window (and ask `covers`) before the app delegate has finished launching.
     static func restore() {
+        restored = true
         let stored = UserDefaults.standard.dictionary(forKey: key) as? [String: Data] ?? [:]
         for (path, data) in stored where active[path] == nil {
             var stale = false
@@ -108,11 +111,16 @@ enum FolderAccess {
         }
     }
 
-    static var paths: [String] { Array(active.keys).sorted() }
+    static var paths: [String] {
+        if !restored { restore() }
+        return Array(active.keys).sorted()
+    }
 
     /// Whether a granted folder contains `path` (always true outside the sandbox).
     static func covers(_ path: String) -> Bool {
-        !Edition.isStore || active.keys.contains { path == $0 || path.hasPrefix($0 + "/") }
+        guard Edition.isStore else { return true }
+        if !restored { restore() }
+        return active.keys.contains { path == $0 || path.hasPrefix($0 + "/") }
     }
 
     /// Opens the panel already pointing at `path`, so granting is one click.
