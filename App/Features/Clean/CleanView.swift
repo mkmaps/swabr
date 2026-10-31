@@ -249,7 +249,7 @@ struct CleanView: View {
                         Text(DiskSize.format(d.bytes)).monospacedDigit()
                         Button {
                             NSWorkspace.shared.activateFileViewerSelecting([URL(fileURLWithPath: d.path)])
-                        } label: { Image(systemName: "magnifyingglass") }
+                        } label: { Label("Im Finder zeigen", systemImage: "magnifyingglass").labelStyle(.iconOnly) }
                             .buttonStyle(.borderless).help("Im Finder zeigen")
                     }
                 }
@@ -410,7 +410,7 @@ private struct PathLine: View {
             Spacer()
             Button {
                 NSWorkspace.shared.activateFileViewerSelecting([URL(fileURLWithPath: path)])
-            } label: { Image(systemName: "magnifyingglass") }
+            } label: { Label("Im Finder zeigen", systemImage: "magnifyingglass").labelStyle(.iconOnly) }
                 .buttonStyle(.borderless).help("Im Finder zeigen")
         }
     }

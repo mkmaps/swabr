@@ -28,7 +28,7 @@ struct UninstallView: View {
             ToolbarItem(placement: .navigation) { SortMenu(order: $model.sort) }
             .sharedBackgroundVisibility(.hidden)
             ToolbarItemGroup {
-                Button { Task { await model.load() } } label: { Image(systemName: "arrow.clockwise") }
+                Button { Task { await model.load() } } label: { Label("Liste neu laden", systemImage: "arrow.clockwise").labelStyle(.iconOnly) }
                     .help("Liste neu laden")
             }
         }
@@ -69,9 +69,9 @@ struct UninstallView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(spacing: 4) {
                                 Text(app.name).lineLimit(1)
-                                if !app.isRemovable { Image(systemName: "lock.fill").font(.caption).foregroundStyle(.secondary) }
+                                if !app.isRemovable { Image(systemName: "lock.fill").font(.caption).foregroundStyle(.secondary).accessibilityLabel("Geschützt") }
                                 else if app.needsAdmin {
-                                    Image(systemName: "person.badge.key").font(.caption).foregroundStyle(.secondary)
+                                    Image(systemName: "person.badge.key").font(.caption).foregroundStyle(.secondary).accessibilityLabel("braucht Administratorrechte")
                                         .help("Gehört einem anderen Benutzer oder dem System: Löschen braucht dein Passwort")
                                 }
                             }

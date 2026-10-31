@@ -2338,5 +2338,70 @@
   "ro": "Selectat din: %@",
   "hr": "Odabrano iz: %@",
   "el": "Επιλεγμένα από: %@"
+ },
+ "Geschützt": {
+  "en": "Protected",
+  "fr": "Protégé",
+  "es": "Protegido",
+  "it": "Protetto",
+  "pt-PT": "Protegido",
+  "cs": "Chráněno",
+  "sk": "Chránené",
+  "hu": "Védett",
+  "ro": "Protejat",
+  "hr": "Zaštićeno",
+  "el": "Προστατευμένο"
+ },
+ "Kacheln": {
+  "en": "Tiles",
+  "fr": "Vignettes",
+  "es": "Mosaicos",
+  "it": "Riquadri",
+  "pt-PT": "Blocos",
+  "cs": "Dlaždice",
+  "sk": "Dlaždice",
+  "hu": "Csempék",
+  "ro": "Plăci",
+  "hr": "Pločice",
+  "el": "Πλακίδια"
+ },
+ "Liste": {
+  "en": "List",
+  "fr": "Liste",
+  "es": "Lista",
+  "it": "Elenco",
+  "pt-PT": "Lista",
+  "cs": "Seznam",
+  "sk": "Zoznam",
+  "hu": "Lista",
+  "ro": "Listă",
+  "hr": "Popis",
+  "el": "Λίστα"
+ },
+ "Suchort entfernen": {
+  "en": "Remove search location",
+  "fr": "Supprimer l’emplacement de recherche",
+  "es": "Eliminar ubicación de búsqueda",
+  "it": "Rimuovi la posizione di ricerca",
+  "pt-PT": "Remover local de pesquisa",
+  "cs": "Odstranit umístění vyhledávání",
+  "sk": "Odstrániť umiestnenie vyhľadávania",
+  "hu": "Keresési hely eltávolítása",
+  "ro": "Eliminați locația de căutare",
+  "hr": "Ukloni lokaciju pretraživanja",
+  "el": "Κατάργηση θέσης αναζήτησης"
+ },
+ "Weitere Aktionen": {
+  "en": "More actions",
+  "fr": "Autres actions",
+  "es": "Más acciones",
+  "it": "Altre azioni",
+  "pt-PT": "Mais ações",
+  "cs": "Další akce",
+  "sk": "Ďalšie akcie",
+  "hu": "További műveletek",
+  "ro": "Mai multe acțiuni",
+  "hr": "Više akcija",
+  "el": "Περισσότερες ενέργειες"
  }
 }

@@ -138,7 +138,7 @@ struct ProjectsView: View {
                         HStack(spacing: 4) {
                             Image(systemName: "folder")
                             Text(root.replacingOccurrences(of: UserHome.path, with: "~")).lineLimit(1)
-                            Button { model.removeRoot(root) } label: { Image(systemName: "xmark.circle.fill") }
+                            Button { model.removeRoot(root) } label: { Label("Suchort entfernen", systemImage: "xmark.circle.fill").labelStyle(.iconOnly) }
                                 .buttonStyle(.borderless).foregroundStyle(.secondary)
                         }
                         .padding(.horizontal, 8).padding(.vertical, 3)

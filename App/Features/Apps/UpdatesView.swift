@@ -330,7 +330,7 @@ private struct UpdateRow: View {
                 }
                 if let link = u.link { Button(u.source == .appStore ? String(localized: "Im App Store ansehen") : String(localized: "Website des Herstellers")) { NSWorkspace.shared.open(link) } }
                 Button("Im Finder zeigen") { NSWorkspace.shared.activateFileViewerSelecting([URL(fileURLWithPath: u.app.path)]) }
-            } label: { Image(systemName: "ellipsis.circle") }
+            } label: { Label("Weitere Aktionen", systemImage: "ellipsis.circle").labelStyle(.iconOnly) }
                 .menuStyle(.borderlessButton).fixedSize()
         }
         .padding(.vertical, 3)

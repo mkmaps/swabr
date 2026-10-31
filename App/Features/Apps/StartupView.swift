@@ -198,7 +198,7 @@ struct StartupView: View {
                         .help("Einträge, deren Programm nicht mehr installiert ist")
                 }
                 SettingsGearButton(String(localized: "Systemeinstellungen → Anmeldeobjekte öffnen")) { SystemSettingsPane.open(SystemSettingsPane.loginItems) }
-                Button { Task { await model.load() } } label: { Image(systemName: "arrow.clockwise") }.help("Neu laden")
+                Button { Task { await model.load() } } label: { Label("Neu laden", systemImage: "arrow.clockwise").labelStyle(.iconOnly) }.help("Neu laden")
             }
             .font(.callout)
             .padding(.horizontal, 18).padding(.vertical, 12)

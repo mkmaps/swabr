@@ -75,7 +75,7 @@ struct AnalyzeView: View {
 
     @ToolbarContentBuilder private var toolbar: some ToolbarContent {
         ToolbarItem(placement: .navigation) {
-            Button { model.back() } label: { Image(systemName: "chevron.left") }
+            Button { model.back() } label: { Label("Zurück", systemImage: "chevron.left").labelStyle(.iconOnly) }
                 .disabled(model.stack.count < 2).help("Zurück")
         }
         ToolbarItem(placement: .navigation) { SortMenu(order: $model.order) }
@@ -86,13 +86,13 @@ struct AnalyzeView: View {
                     .help("Ordner zum Analysieren auswählen")
             }
             Picker("Ansicht", selection: $model.viewMode) {
-                Image(systemName: "list.bullet").tag(AnalyzeModel.ViewMode.list)
-                Image(systemName: "square.grid.2x2").tag(AnalyzeModel.ViewMode.treemap)
+                Label("Liste", systemImage: "list.bullet").labelStyle(.iconOnly).tag(AnalyzeModel.ViewMode.list)
+                Label("Kacheln", systemImage: "square.grid.2x2").labelStyle(.iconOnly).tag(AnalyzeModel.ViewMode.treemap)
             }
             .pickerStyle(.segmented)
-            Button { model.load(force: true) } label: { Image(systemName: "arrow.clockwise") }
+            Button { model.load(force: true) } label: { Label("Neu messen", systemImage: "arrow.clockwise").labelStyle(.iconOnly) }
                 .help("Neu messen")
-            Toggle(isOn: $model.showLargeFiles) { Image(systemName: "doc.badge.ellipsis") }
+            Toggle(isOn: $model.showLargeFiles) { Label("Größte Dateien", systemImage: "doc.badge.ellipsis").labelStyle(.iconOnly) }
                 .help("Größte Dateien")
         }
     }

@@ -52,7 +52,7 @@ struct MenuBarDashboard: View {
                 }
             }
             Spacer()
-            Button { openSettings() } label: { Image(systemName: "gearshape") }
+            Button { openSettings() } label: { Label("Einstellungen", systemImage: "gearshape").labelStyle(.iconOnly) }
                 .buttonStyle(.borderless).help("Einstellungen")
         }
     }
@@ -132,7 +132,7 @@ struct MenuBarDashboard: View {
             Text("Schutz aktiv").font(.caption).foregroundStyle(.secondary)
             Spacer()
             Button("Swabr öffnen", action: openApp).buttonStyle(.borderless).font(.caption.weight(.medium))
-            Button { NSApp.terminate(nil) } label: { Image(systemName: "power") }
+            Button { NSApp.terminate(nil) } label: { Label("Swabr beenden", systemImage: "power").labelStyle(.iconOnly) }
                 .buttonStyle(.borderless).help("Swabr beenden")
         }
     }

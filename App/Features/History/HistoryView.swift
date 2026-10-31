@@ -62,7 +62,7 @@ struct HistoryView: View {
                     NSWorkspace.shared.activateFileViewerSelecting([OperationLog().url])
                 }
                 .disabled(!FileManager.default.fileExists(atPath: OperationLog().url.path))
-                Button { reload() } label: { Image(systemName: "arrow.clockwise") }.help("Neu laden")
+                Button { reload() } label: { Label("Neu laden", systemImage: "arrow.clockwise").labelStyle(.iconOnly) }.help("Neu laden")
             }
             .font(.callout)
             .padding(.horizontal, 18).padding(.vertical, 12)
