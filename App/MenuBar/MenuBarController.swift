@@ -85,7 +85,7 @@ final class MenuBarController: NSResponder {
         self.item = item
         guard let button = item.button else { return }
         button.image = Mascot.image(frame: Mascot.restFrame)
-        button.image?.accessibilityDescription = "Swabr"
+        button.image?.accessibilityDescription = Edition.appName
         button.imagePosition = .imageLeading
         button.target = self
         button.action = #selector(clicked)

@@ -42,7 +42,7 @@ echo "== Release-Build SwabrDirect $VERSION"
 xcodebuild -project Swabr.xcodeproj -scheme SwabrDirect -configuration Release \
     -archivePath "$BUILD/Swabr.xcarchive" -allowProvisioningUpdates archive | tail -1
 
-APP="$BUILD/export/Swabr.app"
+APP="$BUILD/export/Swabr OP.app"
 rm -rf "$BUILD/export"
 NOTARIZE=false
 if has_identity "Developer ID Application"; then
@@ -57,7 +57,7 @@ else
     echo "Hinweis: kein „Developer ID Application“-Zertifikat. Die App wird mit dem Entwicklungszertifikat"
     echo "         signiert und läuft auf diesem Mac, auf anderen Macs blockiert Gatekeeper sie."
     mkdir -p "$BUILD/export"
-    ditto "$BUILD/Swabr.xcarchive/Products/Applications/Swabr.app" "$APP"
+    ditto "$BUILD/Swabr.xcarchive/Products/Applications/Swabr OP.app" "$APP"
 fi
 
 if [[ "$NOTARIZE" == true ]]; then
@@ -72,7 +72,7 @@ DMG="$OUT/Swabr-$VERSION.dmg"
 STAGE="$BUILD/dmg"
 rm -rf "$STAGE" "$DMG"
 mkdir -p "$STAGE"
-ditto "$APP" "$STAGE/Swabr.app"
+ditto "$APP" "$STAGE/Swabr OP.app"
 ln -s /Applications "$STAGE/Programme"
 hdiutil create -volname "Swabr $VERSION" -srcfolder "$STAGE" -fs APFS -format ULFO -ov "$DMG" >/dev/null
 SIGNER="$(security find-identity -v -p codesigning | awk -F'"' '/Developer ID Application/ {print $2; exit}')"

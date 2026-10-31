@@ -19,7 +19,7 @@ Der Zugriff erlaubt Lesen und Schreiben. Swabr nutzt ihn ausschließlich für di
 Klicke im orangefarbenen Hinweis in Swabr (oder im Fenster beim ersten Start) auf das **Zahnrad**. Es öffnet sich **Systemeinstellungen → Datenschutz & Sicherheit → Festplattenvollzugriff**.
 
 ### 2. Swabr einschalten
-Schalte den Schalter neben **Swabr.app** ein und bestätige mit deinem Passwort oder Touch ID. Fehlt der Eintrag, füge Swabr mit **+** hinzu oder ziehe die App aus dem Finder in die Liste.
+Schalte den Schalter neben **Swabr OP.app** ein und bestätige mit deinem Passwort oder Touch ID. Fehlt der Eintrag, füge Swabr mit **+** hinzu oder ziehe die App aus dem Finder in die Liste.
 
 ![](images/festplattenvollzugriff-1-liste.png)
 

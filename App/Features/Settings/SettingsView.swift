@@ -457,7 +457,7 @@ struct AboutView: View {
     var body: some View {
         VStack(spacing: 14) {
             Image(nsImage: NSApp.applicationIconImage).resizable().frame(width: 96, height: 96)
-            Text(verbatim: "Swabr").font(.title.bold())
+            Text(verbatim: Edition.appName).font(.title.bold())
             Text("Version \(Edition.version) · \(Edition.name)").foregroundStyle(.secondary)
             Text("Swabr für den Mac: aufräumen, Apps entfernen, Speicher analysieren und den Zustand im Blick behalten.")
                 .multilineTextAlignment(.center).frame(maxWidth: 440).foregroundStyle(.secondary)

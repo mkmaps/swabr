@@ -19,7 +19,7 @@ Accesul permite citirea și scrierea. Swabr îl utilizează doar pentru regulile
 Faceți clic pe **rotița** din notificarea portocalie a Swabr (sau în fereastra de la prima pornire). Se deschide „**Configurări sistem” → „Confidențialitate și securitate” → „Acces complet la disc**”.
 
 ### 2. Activați Swabr
-Activați **Swabr.app** și confirmați cu parola sau Touch ID. Dacă intrarea lipsește, adăugați Swabr cu **+** sau trageți aplicația din Finder în listă.
+Activați **Swabr OP.app** și confirmați cu parola sau Touch ID. Dacă intrarea lipsește, adăugați Swabr cu **+** sau trageți aplicația din Finder în listă.
 
 ![](images/festplattenvollzugriff-1-liste.png)
 

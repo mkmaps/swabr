@@ -107,7 +107,7 @@ struct RootView: View {
                 Section("Werkzeuge") {
                     ForEach(Self.tools.filter(\.isAvailable)) { row($0) }
                 }
-                Section("Swabr") {
+                Section(Edition.appName) {
                     row(.history)
                     SettingsLink {
                         Label("Einstellungen", systemImage: "gearshape")

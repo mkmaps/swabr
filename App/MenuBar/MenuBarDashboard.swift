@@ -44,7 +44,7 @@ struct MenuBarDashboard: View {
         HStack(spacing: 10) {
             Image(nsImage: NSApp.applicationIconImage).resizable().frame(width: 32, height: 32)
             VStack(alignment: .leading, spacing: 1) {
-                Text("Swabr").font(.headline)
+                Text(verbatim: Edition.appName).font(.headline)
                 Text("Zustand \(s.health.score) · \(s.health.label)")
                     .font(.caption.weight(.medium)).foregroundStyle(HealthColor.of(s.health.score))
                 if !s.health.issues.isEmpty {

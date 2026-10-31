@@ -73,7 +73,7 @@ targets:
     info:
       path: App/Direct/Info.plist
       properties:
-        CFBundleDisplayName: Swabr
+        CFBundleDisplayName: Swabr OP
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSApplicationCategoryType: public.app-category.utilities
@@ -88,7 +88,9 @@ targets:
         com.apple.security.automation.apple-events: true
     settings:
       base:
-        PRODUCT_NAME: Swabr
+        # "OP" (open, Direct) and "ST" (App Store) tell the two editions apart when both are installed.
+        PRODUCT_NAME: Swabr OP
+        PRODUCT_MODULE_NAME: Swabr
         PRODUCT_BUNDLE_IDENTIFIER: io.github.mkmaps.swabr
         SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) SWABR_DIRECT"
 
@@ -98,7 +100,7 @@ targets:
     info:
       path: App/Store/Info.plist
       properties:
-        CFBundleDisplayName: Swabr
+        CFBundleDisplayName: Swabr ST
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSApplicationCategoryType: public.app-category.utilities
@@ -115,15 +117,10 @@ targets:
         com.apple.security.network.client: true
     settings:
       base:
-        # Shipped as "Swabr.app" like the Direct edition. Debug builds keep "Swabr Store" so both editions can
-        # sit side by side in the shared build folder.
-        PRODUCT_NAME: Swabr
+        PRODUCT_NAME: Swabr ST
         PRODUCT_MODULE_NAME: Swabr_Store
         PRODUCT_BUNDLE_IDENTIFIER: io.github.mkmaps.swabr.store
         SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) SWABR_STORE"
-      configs:
-        Debug:
-          PRODUCT_NAME: Swabr Store
 
 schemes:
   SwabrDirect:

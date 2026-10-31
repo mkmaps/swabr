@@ -12,6 +12,10 @@ enum Edition {
 
     static var name: String { isStore ? String(localized: "App Store") : "Direct" }
 
+    /// Short mark in the app name, so both editions can be told apart when they are installed side by side.
+    static let tag = isStore ? "ST" : "OP"
+    static let appName = "Swabr \(tag)"
+
     /// Source code and the Direct edition. Shown under "Über" in both editions, worded neutrally: App Review
     /// does not like apps that advertise other ways to get software, so there is no banner or prompt elsewhere.
     static let repositoryURL = URL(string: "https://github.com/mkmaps/swabr")!

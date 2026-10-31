@@ -19,7 +19,7 @@ Pristup omogućuje čitanje i pisanje. Swabr ga koristi samo za pravila koja vid
 Kliknite na **zupčanik** u narančastom obavještenju aplikacije Swabr (ili u prozoru pri prvom pokretanju). Otvorit će se **Postavke sustava** → **Privatnost i sigurnost** → **Potpuni pristup disku****.
 
 ### 2. Uključite Swabr
-Uključite **Swabr.app** i potvrdite svojom lozinkom ili Touch ID-om. Ako unosa nema, dodajte Swabr pomoću **gumba** **+** ili povucite aplikaciju iz Findera u popis.
+Uključite **Swabr OP.app** i potvrdite svojom lozinkom ili Touch ID-om. Ako unosa nema, dodajte Swabr pomoću **gumba** **+** ili povucite aplikaciju iz Findera u popis.
 
 ![](images/festplattenvollzugriff-1-liste.png)
 

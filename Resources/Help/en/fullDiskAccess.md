@@ -19,7 +19,7 @@ The access allows reading and writing. Swabr uses it only for the rules you see 
 Click the **gear** in Swabr's orange notice (or in the window at the first start). **System Settings → Privacy & Security → Full Disk Access** opens.
 
 ### 2. Switch Swabr on
-Switch on **Swabr.app** and confirm with your password or Touch ID. If the entry is missing, add Swabr with **+** or drag the app from the Finder into the list.
+Switch on **Swabr OP.app** and confirm with your password or Touch ID. If the entry is missing, add Swabr with **+** or drag the app from the Finder into the list.
 
 ![](images/festplattenvollzugriff-1-liste.png)
 

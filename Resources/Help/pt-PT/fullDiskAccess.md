@@ -19,7 +19,7 @@ O acesso permite a leitura e a escrita. O Swabr utiliza-o apenas para as regras 
 Clique na **roda dentada** no aviso laranja do Swabr (ou na janela aquando do primeiro arranque). Abrir-se-á «**Definições do Sistema» → «Privacidade e segurança» → «Acesso total ao disco**».
 
 ### 2. Ative o Swabr
-Ative **o** **Swabr.app** e confirme com a sua palavra-passe ou Touch ID. Se a entrada não estiver presente, adicione o Swabr com ** botão +** ou arraste a aplicação do Finder para a lista.
+Ative **o** **Swabr OP.app** e confirme com a sua palavra-passe ou Touch ID. Se a entrada não estiver presente, adicione o Swabr com ** botão +** ou arraste a aplicação do Finder para a lista.
 
 ![](images/festplattenvollzugriff-1-liste.png)
 
