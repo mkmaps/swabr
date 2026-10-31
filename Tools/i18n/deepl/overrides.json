@@ -1,0 +1,487 @@
+{
+ " · %lld zombies": {
+  "fr": " · %lld zombies"
+ },
+ "%lld %% capacity": {
+  "pt-PT": "%lld %% da capacidade"
+ },
+ "%lld damaged lists removed": {
+  "fr": "%lld listes endommagées supprimées"
+ },
+ "%lld entries": {
+  "fr": "%lld entrées",
+  "it": "%lld voci",
+  "pt-PT": "%lld entradas"
+ },
+ "%lld entries · %@": {
+  "it": "%lld voci · %@"
+ },
+ "%lld entries · %@%@": {
+  "it": "%lld voci · %@%@"
+ },
+ "%lld items": {
+  "it": "%lld elementi"
+ },
+ "%lld levels": {
+  "fr": "%lld niveaux",
+  "es": "%lld niveles",
+  "it": "%lld livelli",
+  "pt-PT": "%lld níveis"
+ },
+ "%lld not removed": {
+  "fr": "%lld non supprimés",
+  "es": "%lld sin eliminar",
+  "it": "%lld non rimossi",
+  "pt-PT": "%lld não removidos"
+ },
+ "%lld selected": {
+  "fr": "%lld sélectionnés",
+  "es": "%lld seleccionados",
+  "it": "%lld selezionati",
+  "pt-PT": "%lld selecionados"
+ },
+ "%lld selected · %@": {
+  "fr": "%lld sélectionnés · %@",
+  "es": "%lld seleccionados · %@",
+  "it": "%lld selezionati · %@",
+  "pt-PT": "%lld selecionados · %@"
+ },
+ "%lld switched on": {
+  "fr": "%lld activés",
+  "es": "%lld activados",
+  "it": "%lld attivati",
+  "pt-PT": "%lld ativados"
+ },
+ "%lld with missing program: ": {
+  "fr": "%lld avec programme manquant : "
+ },
+ "%lld/%lld selected": {
+  "fr": "%lld/%lld sélectionnés",
+  "it": "%lld/%lld selezionati",
+  "pt-PT": "%lld/%lld selecionados"
+ },
+ " · not possible: %@": {
+  "es": " · no es posible: %@"
+ },
+ "%@ is running": {
+  "pt-PT": "%@ está em execução"
+ },
+ "is running": {
+  "pt-PT": "está em execução"
+ },
+ "Administrator rights not granted": {
+  "fr": "Droits d’administrateur non accordés",
+  "it": "Diritti di amministratore non concessi"
+ },
+ "Allowed to start": {
+  "fr": "Démarrage autorisé",
+  "es": "Inicio permitido",
+  "it": "Avvio consentito",
+  "pt-PT": "Arranque permitido"
+ },
+ "Archive": {
+  "fr": "Archive"
+ },
+ "CI tools": {
+  "fr": "Outils CI"
+ },
+ "Charge": {
+  "fr": "Charge",
+  "es": "Carga",
+  "it": "Carica",
+  "pt-PT": "Carga"
+ },
+ "Charged": {
+  "fr": "Chargée",
+  "es": "Cargada",
+  "it": "Carica",
+  "pt-PT": "Carregada"
+ },
+ "Charging": {
+  "fr": "En charge",
+  "es": "Cargando",
+  "it": "In carica",
+  "pt-PT": "A carregar"
+ },
+ "Load": {
+  "fr": "Charge",
+  "es": "Carga",
+  "it": "Carico",
+  "pt-PT": "Carga"
+ },
+ "Check again": {
+  "fr": "Vérifier à nouveau",
+  "es": "Comprobar de nuevo",
+  "pt-PT": "Verificar novamente"
+ },
+ "Check login items": {
+  "es": "Comprobar ítems de inicio"
+ },
+ "Checked %@": {
+  "es": "Comprobado %@"
+ },
+ "Choose folder …": {
+  "fr": "Choisir un dossier…",
+  "es": "Elegir carpeta…"
+ },
+ "Choose folders": {
+  "fr": "Choisir des dossiers",
+  "es": "Elegir carpetas"
+ },
+ "Choose folders to analyse": {
+  "es": "Elegir las carpetas que analizar"
+ },
+ "Clean up old notifications": {
+  "es": "Limpiar notificaciones antiguas"
+ },
+ "Remove old window states": {
+  "es": "Eliminar estados de ventana antiguos",
+  "pt-PT": "Remover estados de janela antigos"
+ },
+ "Discard cached name lookups.": {
+  "es": "Descartar las búsquedas de nombres en caché.",
+  "pt-PT": "Descartar as pesquisas de nomes em cache."
+ },
+ "Critical": {
+  "it": "Critico"
+ },
+ "Display": {
+  "es": "Mostrar",
+  "it": "Mostra",
+  "pt-PT": "Mostrar"
+ },
+ "Share": {
+  "fr": "Part",
+  "es": "Proporción",
+  "it": "Quota",
+  "pt-PT": "Proporção"
+ },
+ "Double-click: open": {
+  "fr": "Double-clic : ouvrir",
+  "es": "Doble clic: abrir",
+  "pt-PT": "Duplo clique: abrir"
+ },
+ "Double-click opens a location": {
+  "it": "Un doppio clic apre una posizione"
+ },
+ "Fair": {
+  "fr": "Correct"
+ },
+ "Free": {
+  "fr": "Libre",
+  "es": "Libre",
+  "it": "Libero",
+  "pt-PT": "Livre"
+ },
+ "· Free: %@": {
+  "fr": "· Libre : %@",
+  "es": "· Libre: %@",
+  "it": "· Libero: %@",
+  "pt-PT": "· Livre: %@"
+ },
+ "Good": {
+  "es": "Bueno",
+  "it": "Buono"
+ },
+ "Keep": {
+  "es": "Conservar",
+  "it": "Mantieni"
+ },
+ "Light": {
+  "fr": "Clair",
+  "es": "Claro",
+  "it": "Chiaro",
+  "pt-PT": "Claro"
+ },
+ "Login item": {
+  "es": "Ítem de inicio",
+  "it": "Elemento login",
+  "pt-PT": "Elemento de início de sessão"
+ },
+ "mas not installed": {
+  "es": "mas no está instalado",
+  "pt-PT": "mas não está instalado"
+ },
+ "matches nothing right now": {
+  "fr": "ne correspond à rien pour l’instant",
+  "es": "no coincide con nada por ahora",
+  "it": "al momento non corrisponde a nulla",
+  "pt-PT": "não corresponde a nada de momento"
+ },
+ "Measure again": {
+  "fr": "Mesurer à nouveau",
+  "es": "Medir de nuevo",
+  "pt-PT": "Medir novamente"
+ },
+ "Measuring %@ …": {
+  "es": "Midiendo %@…"
+ },
+ "Maintenance scripts run": {
+  "fr": "Scripts de maintenance exécutés",
+  "es": "Scripts de mantenimiento ejecutados",
+  "it": "Script di manutenzione eseguiti",
+  "pt-PT": "Scripts de manutenção executados"
+ },
+ "Mail attachments": {
+  "fr": "Pièces jointes de Mail",
+  "es": "Archivos adjuntos de Mail",
+  "it": "Allegati di Mail",
+  "pt-PT": "Anexos do Mail"
+ },
+ "Installer opened: finish there": {
+  "pt-PT": "Instalador aberto: termine lá"
+ },
+ "Grant /Library …": {
+  "pt-PT": "Conceder acesso a /Library…"
+ },
+ "Health: %@": {
+  "es": "Salud: %@",
+  "it": "Salute: %@",
+  "pt-PT": "Saúde: %@"
+ },
+ "Health score": {
+  "es": "Puntuación de salud"
+ },
+ "Default": {
+  "pt-PT": "Predefinição"
+ },
+ "Developer": {
+  "pt-PT": "Programador"
+ },
+ "Copy path": {
+  "fr": "Copier le chemin"
+ },
+ "Build and compiler caches": {
+  "fr": "Caches de compilation et du compilateur"
+ },
+ "Crash reports": {
+  "fr": "Rapports de plantage"
+ },
+ "Elevated memory pressure": {
+  "es": "Presión de memoria elevada"
+ },
+ "None found": {
+  "fr": "Rien trouvé",
+  "it": "Non trovato nulla"
+ },
+ "Overview": {
+  "fr": "Vue d’ensemble"
+ },
+ "Swap": {
+  "es": "Swap",
+  "it": "Swap",
+  "pt-PT": "Swap"
+ },
+ "Wired/compr.": {
+  "fr": "Résidente/compr.",
+  "es": "Fija/compr.",
+  "it": "Fissa/compr.",
+  "pt-PT": "Fixa/compr."
+ },
+ "Read": {
+  "fr": "Lecture",
+  "es": "Lectura",
+  "it": "Lettura",
+  "pt-PT": "Leitura"
+ },
+ "Write": {
+  "fr": "Écriture",
+  "es": "Escritura",
+  "it": "Scrittura",
+  "pt-PT": "Escrita"
+ },
+ "Run again …": {
+  "fr": "Relancer…",
+  "es": "Volver a ejecutar…",
+  "it": "Esegui di nuovo…",
+  "pt-PT": "Executar novamente…"
+ },
+ "Scan again": {
+  "fr": "Analyser à nouveau",
+  "es": "Volver a analizar",
+  "it": "Esegui di nuovo la scansione",
+  "pt-PT": "Analisar novamente"
+ },
+ "Remove all too": {
+  "fr": "Tout supprimer aussi",
+  "es": "Eliminar también el resto",
+  "it": "Rimuovi anche il resto",
+  "pt-PT": "Remover também o resto"
+ },
+ "Remove orphans (%lld) …": {
+  "fr": "Supprimer les orphelins (%lld)…",
+  "es": "Eliminar huérfanos (%lld)…",
+  "it": "Rimuovi orfani (%lld)…",
+  "pt-PT": "Remover órfãos (%lld)…"
+ },
+ "Remove %lld build folders?": {
+  "fr": "Supprimer %lld dossiers de compilation ?",
+  "es": "¿Eliminar %lld carpetas de compilación?",
+  "it": "Rimuovere %lld cartelle di compilazione?",
+  "pt-PT": "Remover %lld pastas de compilação?"
+ },
+ "Remove %lld installers?": {
+  "fr": "Supprimer %lld programmes d’installation ?",
+  "es": "¿Eliminar %lld instaladores?",
+  "it": "Rimuovere %lld programmi di installazione?",
+  "pt-PT": "Remover %lld instaladores?"
+ },
+ "Slim down %lld apps?": {
+  "fr": "Alléger %lld apps ?",
+  "es": "¿Reducir %lld apps?",
+  "it": "Alleggerire %lld app?",
+  "pt-PT": "Reduzir %lld apps?"
+ },
+ "Slim down …": {
+  "pt-PT": "Reduzir…"
+ },
+ "Uninstall %lld apps?": {
+  "it": "Disinstallare %lld app?"
+ },
+ "Uninstall complete": {
+  "fr": "Désinstallation terminée",
+  "es": "Desinstalación completada"
+ },
+ "Uninstalling apps": {
+  "es": "Desinstalación de apps",
+  "pt-PT": "Desinstalação de aplicações"
+ },
+ "Uninstalling …": {
+  "it": "Disinstallazione…",
+  "pt-PT": "A desinstalar…"
+ },
+ "Up to date (%lld)": {
+  "es": "Actualizadas (%lld)",
+  "it": "Aggiornate (%lld)"
+ },
+ "Update selected (%lld)": {
+  "fr": "Mettre à jour la sélection (%lld)",
+  "es": "Actualizar selección (%lld)",
+  "it": "Aggiorna selezionate (%lld)",
+  "pt-PT": "Atualizar seleção (%lld)"
+ },
+ "Update with Homebrew": {
+  "fr": "Mettre à jour avec Homebrew",
+  "es": "Actualizar con Homebrew",
+  "it": "Aggiorna con Homebrew",
+  "pt-PT": "Atualizar com o Homebrew"
+ },
+ "Updated to": {
+  "fr": "Mis à jour vers"
+ },
+ "Updated to %@": {
+  "fr": "Mis à jour vers %@"
+ },
+ "Use online info": {
+  "fr": "Utiliser les infos en ligne",
+  "es": "Usar información en línea",
+  "pt-PT": "Usar informações online"
+ },
+ "Your entries": {
+  "fr": "Vos entrées"
+ },
+ "… and %lld more": {
+  "fr": "… et %lld autres",
+  "it": "… e altri %lld"
+ },
+ "Open Activity Monitor": {
+  "fr": "Ouvrir le Moniteur d’activité",
+  "es": "Abrir Monitor de Actividad"
+ },
+ "Open selected (%lld)": {
+  "es": "Abrir selección (%lld)",
+  "pt-PT": "Abrir seleção (%lld)"
+ },
+ "Open Trash": {
+  "fr": "Ouvrir la Corbeille",
+  "pt-PT": "Abrir o Lixo"
+ },
+ "Permissions reset": {
+  "fr": "Autorisations réinitialisées",
+  "es": "Permisos restablecidos",
+  "it": "Permessi reimpostati",
+  "pt-PT": "Permissões reinicializadas"
+ },
+ "Quit and remove": {
+  "es": "Salir y eliminar",
+  "it": "Esci e rimuovi"
+ },
+ "Quit and update": {
+  "es": "Salir y actualizar"
+ },
+ "Quit Swabr": {
+  "it": "Esci da Swabr"
+ },
+ "removable": {
+  "fr": "supprimable",
+  "es": "eliminable",
+  "it": "eliminabile"
+ },
+ "Search help": {
+  "fr": "Rechercher dans l’aide",
+  "es": "Buscar en la ayuda"
+ },
+ "Search path or section": {
+  "fr": "Rechercher un chemin ou une section",
+  "es": "Buscar ruta o sección",
+  "it": "Cerca percorso o sezione",
+  "pt-PT": "Pesquisar caminho ou secção"
+ },
+ "Skipped (%lld)": {
+  "fr": "Ignorés (%lld)",
+  "es": "Omitidos (%lld)",
+  "it": "Saltati (%lld)",
+  "pt-PT": "Ignorados (%lld)"
+ },
+ "Status and menu bar": {
+  "fr": "État et barre des menus",
+  "es": "Estado y barra de menús",
+  "it": "Stato e barra dei menu",
+  "pt-PT": "Estado e barra de menus"
+ },
+ "Storage and status": {
+  "it": "Spazio e stato"
+ },
+ "Verify startup volume": {
+  "es": "Verificar el volumen de arranque"
+ },
+ "Website": {
+  "pt-PT": "Site"
+ },
+ "Vendor": {
+  "es": "Fabricante",
+  "pt-PT": "Fabricante"
+ },
+ "Vendor (update channel)": {
+  "es": "Fabricante (canal de actualización)",
+  "it": "Produttore (canale di aggiornamento)",
+  "pt-PT": "Fabricante (canal de atualização)"
+ },
+ "Vendor website": {
+  "pt-PT": "Site do fabricante"
+ },
+ "Vendor website opened": {
+  "pt-PT": "Site do fabricante aberto"
+ },
+ "Swabr isn't allowed to control System Events. Please allow it in System Settings → Privacy & Security → Automation.": {
+  "fr": "Swabr n’est pas autorisé à contrôler System Events. Autorisez-le dans Réglages Système → Confidentialité et sécurité → Automatisation.",
+  "es": "Swabr no tiene permiso para controlar System Events. Permítelo en Ajustes del Sistema → Privacidad y seguridad → Automatización.",
+  "it": "Swabr non è autorizzato a controllare System Events. Consentilo in Impostazioni di Sistema → Privacy e sicurezza → Automazione.",
+  "pt-PT": "O Swabr não tem permissão para controlar o System Events. Autorize-o em Definições do Sistema → Privacidade e segurança → Automatização."
+ },
+ "Swabr isn't allowed to control the Finder (System Settings → Privacy & Security → Automation)": {
+  "fr": "Swabr n’est pas autorisé à contrôler le Finder (Réglages Système → Confidentialité et sécurité → Automatisation)",
+  "es": "Swabr no tiene permiso para controlar el Finder (Ajustes del Sistema → Privacidad y seguridad → Automatización)",
+  "it": "Swabr non è autorizzato a controllare il Finder (Impostazioni di Sistema → Privacy e sicurezza → Automazione)",
+  "pt-PT": "O Swabr não tem permissão para controlar o Finder (Definições do Sistema → Privacidade e segurança → Automatização)"
+ },
+ "Owned by “%@”: macOS asks for your password when deleting.": {
+  "fr": "Appartient à « %@ » : macOS vous demande votre mot de passe lors de la suppression."
+ },
+ "Don't preselect if used in the last": {
+  "fr": "Ne pas présélectionner si utilisé au cours des derniers",
+  "es": "No preseleccionar si se usó en los últimos",
+  "it": "Non preselezionare se usato negli ultimi",
+  "pt-PT": "Não pré-selecionar se usado nos últimos"
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "Arbeitskopien, die KI-Agenten für einzelne Aufgaben angelegt haben. Nicht übernommene Änderungen darin gehen verloren.": "Working copies that AI agents created for single tasks. Changes in them that were not merged are lost.",
+ "Arbeitsumgebung von Claude für Aufgaben am Computer. Wird bei Bedarf neu geladen; in Claude unter Einstellungen verwalten.": "Claude's working environment for tasks on the computer. Downloaded again when needed; manage it in Claude's settings.",
+ "Claude: virtuelle Maschine": "Claude: virtual machine",
+ "Draw-Things-Modelle": "Draw Things models",
+ "Heruntergeladene Bildmodelle. In Draw Things unter Modelle verwalten.": "Downloaded image models. Manage them in Draw Things under Models.",
+ "Luftaufnahmen": "Aerials",
+ "Seit über 60 Tagen nicht benutzt. Entfernen in Xcode → Einstellungen → Komponenten oder mit xcrun simctl runtime delete %@.": "Not used for over 60 days. Remove it in Xcode → Settings → Components or with xcrun simctl runtime delete %@.",
+ "Simulator-Laufzeit %@": "Simulator runtime %@",
+ "Von macOS geladene Luftaufnahmen, die weder als Hintergrundbild noch als Bildschirmschoner genutzt werden. Sie werden bei erneuter Auswahl wieder geladen.": "Aerial videos macOS downloaded that are used neither as wallpaper nor as screen saver. They are downloaded again when you choose them.",
+ "ein Prozess läuft im Projekt": "a process is running in the project",
+ "Ältere JetBrains-Versionen": "Older JetBrains versions",
+ "KI-Arbeitskopien": "AI working copies",
+ "Zurücksetzen": "Reset"
+}

@@ -1,0 +1,5 @@
+{
+ "(%lld Kerne)": "(%lld cores)",
+ "Kern %lld: %lld %%": "Core %lld: %lld %%",
+ "einem anderen Benutzer": "another user"
+}

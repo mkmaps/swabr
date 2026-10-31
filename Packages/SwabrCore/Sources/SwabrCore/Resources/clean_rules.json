@@ -1,0 +1,1030 @@
+[
+ {
+  "section": "system",
+  "label": "Papierkorb",
+  "kind": "trash",
+  "paths": [
+   "~/.Trash/*"
+  ]
+ },
+ {
+  "section": "system",
+  "label": "Absturzberichte",
+  "kind": "crash",
+  "paths": [
+   "~/Library/Logs/DiagnosticReports/*",
+   "~/Library/Application Support/CrashReporter/*",
+   "~/Library/Application Support/*/Crashpad/completed/*",
+   "~/Library/Application Support/*/sentry/*",
+   "~/Library/Application Support/*/crash-reports/*"
+  ]
+ },
+ {
+  "section": "system",
+  "label": "Mail-Anhänge",
+  "kind": "mailDownloads",
+  "paths": [
+   "~/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/*"
+  ],
+  "skipIfRunning": "com.apple.mail"
+ },
+ {
+  "section": "system",
+  "label": "Fensterzustände",
+  "kind": "state",
+  "paths": [
+   "~/Library/Saved Application State/*"
+  ]
+ },
+ {
+  "section": "system",
+  "label": "Zuletzt benutzt",
+  "kind": "recentItems",
+  "paths": [
+   "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.Recent*",
+   "~/Library/Preferences/com.apple.recentitems.plist"
+  ]
+ },
+ {
+  "section": "system",
+  "label": "Kontakte",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/AddressBook/Sources/*/Photos.cache"
+  ],
+  "skipIfRunning": "com.apple.AddressBook",
+  "safety": "review"
+ },
+ {
+  "section": "system",
+  "label": "iPhone- und iPad-Software",
+  "kind": "updates",
+  "paths": [
+   "~/Library/iTunes/iPhone Software Updates/*",
+   "~/Library/iTunes/iPad Software Updates/*",
+   "~/Library/iTunes/iPod Software Updates/*"
+  ]
+ },
+ {
+  "section": "browsers",
+  "label": "Safari",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Containers/com.apple.Safari/Data/Library/Caches/*",
+   "~/Library/Caches/com.apple.Safari/*"
+  ],
+  "skipIfRunning": "com.apple.Safari"
+ },
+ {
+  "section": "browsers",
+  "label": "Safari-Web-Apps",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Containers/com.apple.Safari.WebApp/Data/Library/Containers/com.apple.Safari.WebApp.*/Library/Caches/*"
+  ],
+  "skipRunningOwner": true
+ },
+ {
+  "section": "browsers",
+  "label": "Google Chrome",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Application Support/Google/Chrome/*/{Cache,Code Cache,GPUCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,Service Worker/CacheStorage,Service Worker/ScriptCache}/*",
+   "~/Library/Application Support/Google/Chrome/{ShaderCache,GrShaderCache,GraphiteDawnCache,component_crx_cache}/*",
+   "~/Library/Caches/Google/Chrome/*"
+  ],
+  "skipIfRunning": "Google Chrome"
+ },
+ {
+  "section": "browsers",
+  "label": "Chrome-KI-Modelle",
+  "kind": "models",
+  "paths": [
+   "~/Library/Application Support/Google/Chrome/{OptGuideOnDeviceModel,OptGuideOnDeviceClassifierModel,OptimizationGuidePredictionModels,optimization_guide_model_store}/*"
+  ],
+  "skipIfRunning": "Google Chrome"
+ },
+ {
+  "section": "browsers",
+  "label": "Google Updater",
+  "kind": "updates",
+  "paths": [
+   "~/Library/Application Support/Google/GoogleUpdater/crx_cache/*",
+   "~/Library/Application Support/Google/GoogleUpdater/*.old"
+  ]
+ },
+ {
+  "section": "browsers",
+  "label": "Google Chrome Canary",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Application Support/Google/Chrome Canary/*/{Cache,Code Cache,GPUCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,Service Worker/CacheStorage,Service Worker/ScriptCache}/*",
+   "~/Library/Application Support/Google/Chrome Canary/{ShaderCache,GrShaderCache,GraphiteDawnCache,component_crx_cache}/*",
+   "~/Library/Caches/Google/Chrome Canary/*"
+  ],
+  "skipIfRunning": "Google Chrome Canary"
+ },
+ {
+  "section": "browsers",
+  "label": "Chromium",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Application Support/Chromium/*/{Cache,Code Cache,GPUCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,Service Worker/CacheStorage,Service Worker/ScriptCache}/*",
+   "~/Library/Application Support/Chromium/{ShaderCache,GrShaderCache,GraphiteDawnCache,component_crx_cache}/*",
+   "~/Library/Caches/Chromium/*"
+  ],
+  "skipIfRunning": "Chromium"
+ },
+ {
+  "section": "browsers",
+  "label": "Microsoft Edge",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Application Support/Microsoft Edge/*/{Cache,Code Cache,GPUCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,Service Worker/CacheStorage,Service Worker/ScriptCache}/*",
+   "~/Library/Application Support/Microsoft Edge/{ShaderCache,GrShaderCache,GraphiteDawnCache,component_crx_cache}/*",
+   "~/Library/Caches/Microsoft Edge/*"
+  ],
+  "skipIfRunning": "Microsoft Edge"
+ },
+ {
+  "section": "browsers",
+  "label": "Brave",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Application Support/BraveSoftware/Brave-Browser/*/{Cache,Code Cache,GPUCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,Service Worker/CacheStorage,Service Worker/ScriptCache}/*",
+   "~/Library/Application Support/BraveSoftware/Brave-Browser/{ShaderCache,GrShaderCache,GraphiteDawnCache,component_crx_cache}/*",
+   "~/Library/Caches/BraveSoftware/Brave-Browser/*"
+  ],
+  "skipIfRunning": "Brave Browser"
+ },
+ {
+  "section": "browsers",
+  "label": "Vivaldi",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Application Support/Vivaldi/*/{Cache,Code Cache,GPUCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,Service Worker/CacheStorage,Service Worker/ScriptCache}/*",
+   "~/Library/Application Support/Vivaldi/{ShaderCache,GrShaderCache,GraphiteDawnCache,component_crx_cache}/*",
+   "~/Library/Caches/Vivaldi/*"
+  ],
+  "skipIfRunning": "Vivaldi"
+ },
+ {
+  "section": "browsers",
+  "label": "Opera",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Application Support/com.operasoftware.Opera/*/{Cache,Code Cache,GPUCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,Service Worker/CacheStorage,Service Worker/ScriptCache}/*",
+   "~/Library/Application Support/com.operasoftware.Opera/{ShaderCache,GrShaderCache,GraphiteDawnCache,component_crx_cache}/*",
+   "~/Library/Caches/com.operasoftware.Opera/*"
+  ],
+  "skipIfRunning": "Opera"
+ },
+ {
+  "section": "browsers",
+  "label": "Arc",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Application Support/Arc/User Data/*/{Cache,Code Cache,GPUCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,Service Worker/CacheStorage,Service Worker/ScriptCache}/*",
+   "~/Library/Application Support/Arc/User Data/{ShaderCache,GrShaderCache,GraphiteDawnCache,component_crx_cache}/*",
+   "~/Library/Caches/company.thebrowser.Browser/*"
+  ],
+  "skipIfRunning": "Arc"
+ },
+ {
+  "section": "browsers",
+  "label": "Firefox",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Caches/Firefox/Profiles/*/{cache2,startupCache,thumbnails}/*",
+   "~/Library/Application Support/Firefox/Profiles/*/{cache2,startupCache}/*"
+  ],
+  "skipIfRunning": "Firefox"
+ },
+ {
+  "section": "browsers",
+  "label": "Zen",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Caches/zen/Profiles/*/{cache2,startupCache,thumbnails}/*",
+   "~/Library/Application Support/zen/Profiles/*/{cache2,startupCache}/*"
+  ],
+  "skipIfRunning": "Zen"
+ },
+ {
+  "section": "browsers",
+  "label": "LibreWolf",
+  "kind": "browserCache",
+  "paths": [
+   "~/Library/Caches/librewolf/Profiles/*/{cache2,startupCache,thumbnails}/*",
+   "~/Library/Application Support/librewolf/Profiles/*/{cache2,startupCache}/*"
+  ],
+  "skipIfRunning": "LibreWolf"
+ },
+ {
+  "section": "apps",
+  "label": "Nachrichten",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Messages/Caches/Previews/*",
+   "~/Library/Messages/StickerCache/*"
+  ],
+  "skipIfRunning": "com.apple.MobileSMS"
+ },
+ {
+  "section": "apps",
+  "label": "VirtualBox",
+  "kind": "cache",
+  "paths": [
+   "~/VirtualBox VMs/.cache"
+  ],
+  "skipIfRunning": "VirtualBox"
+ },
+ {
+  "section": "apps",
+  "label": "Steam",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/Steam/{appcache,depotcache,htmlcache,steamapps/shadercache}/*"
+  ],
+  "skipIfRunning": "Steam"
+ },
+ {
+  "section": "apps",
+  "label": "Steam-Protokolle",
+  "kind": "log",
+  "paths": [
+   "~/Library/Application Support/Steam/logs/*"
+  ]
+ },
+ {
+  "section": "apps",
+  "label": "Adobe",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/Adobe/Common/{Media Cache Files,Media Cache,Peak Files}/*"
+  ]
+ },
+ {
+  "section": "apps",
+  "label": "Dropbox",
+  "kind": "cache",
+  "paths": [
+   "~/Dropbox/.dropbox.cache/*"
+  ],
+  "skipIfRunning": "Dropbox"
+ },
+ {
+  "section": "apps",
+  "label": "DaVinci Resolve",
+  "kind": "build",
+  "paths": [
+   "~/Movies/CacheClip/*"
+  ],
+  "skipIfRunning": "DaVinci Resolve",
+  "safety": "review"
+ },
+ {
+  "section": "apps",
+  "label": "Docker Desktop",
+  "kind": "log",
+  "paths": [
+   "~/Library/Containers/com.docker.docker/Data/log/*"
+  ]
+ },
+ {
+  "section": "apps",
+  "label": "Evernote",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/Evernote/resource-cache/*"
+  ],
+  "skipIfRunning": "Evernote",
+  "safety": "review"
+ },
+ {
+  "section": "apps",
+  "label": "pCloud Drive",
+  "kind": "temp",
+  "paths": [
+   "~/.pcloud/temp/*"
+  ],
+  "skipIfRunning": "pCloud Drive",
+  "safety": "review"
+ },
+ {
+  "section": "apps",
+  "label": "ONLYOFFICE",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/asc.onlyoffice.ONLYOFFICE/data/cache/*"
+  ],
+  "skipIfRunning": "ONLYOFFICE"
+ },
+ {
+  "section": "developer",
+  "label": "Xcode DerivedData",
+  "kind": "derivedData",
+  "paths": [
+   "~/Library/Developer/Xcode/DerivedData/*"
+  ],
+  "skipIfRunning": "com.apple.dt.Xcode"
+ },
+ {
+  "section": "developer",
+  "label": "Xcode Products",
+  "kind": "build",
+  "paths": [
+   "~/Library/Developer/Xcode/Products/*"
+  ],
+  "skipIfRunning": "com.apple.dt.Xcode"
+ },
+ {
+  "section": "developer",
+  "label": "Xcode DocumentationCache",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Developer/Xcode/DocumentationCache/*"
+  ],
+  "skipIfRunning": "com.apple.dt.Xcode"
+ },
+ {
+  "section": "developer",
+  "label": "Xcode Device Support",
+  "kind": "deviceSupport",
+  "paths": [
+   "~/Library/Developer/Xcode/{iOS,watchOS,tvOS,visionOS} DeviceSupport/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Simulator",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Developer/CoreSimulator/Caches/*"
+  ],
+  "skipIfRunning": "com.apple.iphonesimulator"
+ },
+ {
+  "section": "developer",
+  "label": "Simulator",
+  "kind": "temp",
+  "paths": [
+   "~/Library/Developer/CoreSimulator/Devices/*/data/tmp/*"
+  ],
+  "skipIfRunning": "com.apple.iphonesimulator"
+ },
+ {
+  "section": "developer",
+  "label": "Homebrew",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/Homebrew/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "pip",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/pip/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Poetry",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/pypoetry/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Yarn",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/Yarn/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "pnpm",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/pnpm/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "node-gyp",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/node-gyp/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Deno",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/deno/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "CocoaPods",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/CocoaPods/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Swift Package Manager",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/org.swift.swiftpm/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Go",
+  "kind": "build",
+  "paths": [
+   "~/Library/Caches/go-build/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Cargo",
+  "kind": "packages",
+  "paths": [
+   "~/.cargo/registry/cache/*",
+   "~/.cargo/registry/src/*",
+   "~/.cargo/git/checkouts/*",
+   "~/.cargo/git/db/*",
+   "~/.cargo/registry/index/*/.cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Composer",
+  "kind": "packages",
+  "paths": [
+   "~/.composer/cache/*",
+   "~/Library/Caches/composer/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Bundler",
+  "kind": "packages",
+  "paths": [
+   "~/.bundle/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Dart/Flutter",
+  "kind": "packages",
+  "paths": [
+   "~/.pub-cache/hosted/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Android",
+  "kind": "cache",
+  "paths": [
+   "~/.android/cache/*",
+   "~/.android/build-cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Expo",
+  "kind": "packages",
+  "paths": [
+   "~/.expo/*-cache/*",
+   "~/.expo/expo-go/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Yarn",
+  "kind": "packages",
+  "paths": [
+   "~/.yarn/cache/*",
+   "~/.yarn/berry/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "node-gyp",
+  "kind": "packages",
+  "paths": [
+   "~/.node-gyp/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Turborepo",
+  "kind": "build",
+  "paths": [
+   "~/.turbo/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "pyenv",
+  "kind": "packages",
+  "paths": [
+   "~/.pyenv/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "rbenv",
+  "kind": "packages",
+  "paths": [
+   "~/.rbenv/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "RubyGems",
+  "kind": "packages",
+  "paths": [
+   "~/.gem/specs/*",
+   "~/.gem/ruby/*/cache/*.gem"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Hex (Elixir)",
+  "kind": "packages",
+  "paths": [
+   "~/.hex/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "opam (OCaml)",
+  "kind": "packages",
+  "paths": [
+   "~/.opam/download-cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Docker Buildx",
+  "kind": "build",
+  "paths": [
+   "~/.docker/buildx/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "kubectl",
+  "kind": "cache",
+  "paths": [
+   "~/.kube/cache/*",
+   "~/.kube/http-cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Google Cloud CLI",
+  "kind": "log",
+  "paths": [
+   "~/.config/gcloud/logs/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Azure CLI",
+  "kind": "log",
+  "paths": [
+   "~/.azure/logs/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "SonarScanner",
+  "kind": "cache",
+  "paths": [
+   "~/.sonar/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "tnpm",
+  "kind": "packages",
+  "paths": [
+   "~/.tnpm/_cacache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "tnpm",
+  "kind": "log",
+  "paths": [
+   "~/.tnpm/_logs/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "pytest",
+  "kind": "cache",
+  "paths": [
+   "~/.pytest_cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Vite",
+  "kind": "cache",
+  "paths": [
+   "~/.vite/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Parcel",
+  "kind": "cache",
+  "paths": [
+   "~/.parcel-cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "CPAN",
+  "kind": "build",
+  "paths": [
+   "~/.cpan/build/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Podman",
+  "kind": "temp",
+  "paths": [
+   "~/.local/share/containers/storage/tmp/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Grafana",
+  "kind": "cache",
+  "paths": [
+   "~/.grafana/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "CI-Werkzeuge",
+  "kind": "cache",
+  "paths": [
+   "~/.github/cache/*",
+   "~/.circleci/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Jenkins",
+  "kind": "build",
+  "paths": [
+   "~/.jenkins/workspace/*/target/*"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "developer",
+  "label": "Cacher",
+  "kind": "log",
+  "paths": [
+   "~/.cacher/logs/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Kite",
+  "kind": "log",
+  "paths": [
+   "~/.kite/logs/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Jupyter",
+  "kind": "temp",
+  "paths": [
+   "~/.jupyter/runtime/*"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "developer",
+  "label": "AWS CLI",
+  "kind": "cache",
+  "paths": [
+   "~/.aws/cli/cache/*"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "developer",
+  "label": "Zsh",
+  "kind": "cache",
+  "paths": [
+   "~/.zcompdump*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "less",
+  "kind": "history",
+  "paths": [
+   "~/.lesshst"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Vim",
+  "kind": "temp",
+  "paths": [
+   "~/.viminfo.tmp"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "wget",
+  "kind": "cache",
+  "paths": [
+   "~/.wget-hsts"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "developer",
+  "label": "Vagrant",
+  "kind": "temp",
+  "paths": [
+   "~/.vagrant.d/tmp/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Oh My Zsh",
+  "kind": "cache",
+  "paths": [
+   "~/.oh-my-zsh/cache/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Gradle",
+  "kind": "packages",
+  "paths": [
+   "~/.gradle/caches/*"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "developer",
+  "label": "Gradle-Protokolle",
+  "kind": "log",
+  "paths": [
+   "~/.gradle/daemon/*/*.log"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Playwright",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/ms-playwright/*"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "developer",
+  "label": "Cypress",
+  "kind": "packages",
+  "paths": [
+   "~/Library/Caches/Cypress/*"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "developer",
+  "label": "Hugging Face",
+  "kind": "models",
+  "paths": [
+   "~/.cache/huggingface/*"
+  ]
+ },
+ {
+  "section": "developer",
+  "label": "Claude Code",
+  "kind": "temp",
+  "paths": [
+   "~/.claude/shell-snapshots/*",
+   "~/.claude/paste-cache/*"
+  ],
+  "minAgeDays": 7
+ },
+ {
+  "section": "developer",
+  "label": "Claude Code",
+  "kind": "log",
+  "paths": [
+   "~/.claude/telemetry/*"
+  ],
+  "minAgeDays": 7
+ },
+ {
+  "section": "developer",
+  "label": "Codex",
+  "kind": "log",
+  "paths": [
+   "~/.codex/log/*"
+  ],
+  "minAgeDays": 7
+ },
+ {
+  "section": "developer",
+  "label": "Codex",
+  "kind": "cache",
+  "paths": [
+   "~/.codex/cache/*",
+   "~/.codex/plugins/cache/*"
+  ],
+  "skipIfRunning": "Codex"
+ },
+ {
+  "section": "developer",
+  "label": "KI-Arbeitskopien",
+  "kind": "worktrees",
+  "paths": [
+   "~/.codex/worktrees/*"
+  ],
+  "minAgeDays": 3
+ },
+ {
+  "section": "developer",
+  "label": "Kommandozeilen-Caches (~/.cache)",
+  "kind": "cache",
+  "paths": [
+   "~/.cache/*"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "app_caches",
+  "label": "Chromium-Caches von Apps",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/*/{Cache,Code Cache,GPUCache,GPUPersistentCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,GrShaderCache,ShaderCache,GraphiteDawnCache,CachedData,component_crx_cache,extensions_crx_cache,Application Cache}",
+   "~/Library/Application Support/*/*/{Cache,Code Cache,GPUCache,GPUPersistentCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,GrShaderCache,ShaderCache,GraphiteDawnCache,CachedData,component_crx_cache,extensions_crx_cache,Application Cache}",
+   "~/Library/Application Support/*/*/*/{Cache,Code Cache,GPUCache,GPUPersistentCache,DawnCache,DawnGraphiteCache,DawnWebGPUCache,GrShaderCache,ShaderCache,GraphiteDawnCache,CachedData,component_crx_cache,extensions_crx_cache,Application Cache}",
+   "~/Library/Application Support/*/Service Worker/{CacheStorage,ScriptCache}",
+   "~/Library/Application Support/*/*/Service Worker/{CacheStorage,ScriptCache}",
+   "~/Library/Application Support/*/*/*/Service Worker/{CacheStorage,ScriptCache}"
+  ],
+  "exclude": [
+   "~/Library/Application Support/com.apple.*"
+  ],
+  "skipRunningOwner": true,
+  "chromiumOnly": true
+ },
+ {
+  "section": "app_caches",
+  "label": "Chromium-Caches von Apps",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/*/CachedExtensionVSIXs/*"
+  ],
+  "skipRunningOwner": true
+ },
+ {
+  "section": "app_caches",
+  "label": "Chromium-Caches von Apps",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/*/WebStorage/*/CacheStorage/*"
+  ],
+  "exclude": [
+   "~/Library/Application Support/com.apple.*"
+  ],
+  "skipRunningOwner": true,
+  "chromiumOnly": true
+ },
+ {
+  "section": "app_caches",
+  "label": "App-Protokolle",
+  "kind": "log",
+  "paths": [
+   "~/Library/Application Support/*/{log,logs,Logs}/*",
+   "~/Library/Application Support/*/*/{log,logs,Logs}/*"
+  ],
+  "exclude": [
+   "~/Library/Application Support/com.apple.*"
+  ]
+ },
+ {
+  "section": "app_caches",
+  "label": "Weitere Cache-Ordner von Apps",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Application Support/*/{Cache,Caches,cache,caches}/*"
+  ],
+  "exclude": [
+   "~/Library/Application Support/com.apple.*",
+   "~/Library/Application Support/MobileSync*"
+  ],
+  "skipRunningOwner": true,
+  "safety": "review"
+ },
+ {
+  "section": "app_caches",
+  "label": "App-Caches",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Caches/*/*"
+  ],
+  "exclude": [
+   "~/Library/Caches/com.apple.*"
+  ],
+  "skipRunningOwner": true
+ },
+ {
+  "section": "app_caches",
+  "label": "Caches in App-Containern",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Containers/*/Data/Library/Caches/*"
+  ],
+  "exclude": [
+   "~/Library/Containers/com.apple.*"
+  ],
+  "skipRunningOwner": true
+ },
+ {
+  "section": "app_caches",
+  "label": "App-Protokolle",
+  "kind": "log",
+  "paths": [
+   "~/Library/Containers/*/Data/Library/Logs/*"
+  ]
+ },
+ {
+  "section": "app_caches",
+  "label": "Temporäre Dateien in App-Containern",
+  "kind": "temp",
+  "paths": [
+   "~/Library/Containers/*/Data/tmp/*"
+  ],
+  "skipRunningOwner": true,
+  "safety": "review"
+ },
+ {
+  "section": "app_caches",
+  "label": "Caches in Gruppen-Containern",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Group Containers/*/Library/Caches/*"
+  ],
+  "safety": "review"
+ },
+ {
+  "section": "app_caches",
+  "label": "App-Protokolle",
+  "kind": "log",
+  "paths": [
+   "~/Library/Group Containers/*/Library/{Logs,Application Support/Logs,Application Support/logs}/*"
+  ],
+  "exclude": [
+   "~/Library/Group Containers/group.com.apple.*",
+   "~/Library/Group Containers/*.com.apple.*"
+  ]
+ },
+ {
+  "section": "app_caches",
+  "label": "App-Protokolle",
+  "kind": "log",
+  "paths": [
+   "~/Library/Logs/*"
+  ]
+ },
+ {
+  "section": "system",
+  "label": "macOS-Caches",
+  "kind": "cache",
+  "paths": [
+   "~/Library/Caches/com.apple.*/*",
+   "~/Library/Containers/com.apple.*/Data/Library/Caches/*"
+  ],
+  "skipRunningOwner": true,
+  "safety": "review"
+ }
+]

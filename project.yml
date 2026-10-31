@@ -1,0 +1,133 @@
+name: Swabr
+options:
+  bundleIdPrefix: de.knieriem
+  deploymentTarget:
+    macOS: "27.0"
+  createIntermediateGroups: true
+  developmentLanguage: de
+  knownRegions: [de, en, fr, es, it, pt-PT, cs, sk, hu, ro, hr, el, Base]
+packages:
+  SwabrCore:
+    path: Packages/SwabrCore
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "0.9.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "Apple Development"
+    DEVELOPMENT_TEAM: Y94QZAZZ45
+    ENABLE_HARDENED_RUNTIME: YES
+    COMBINE_HIDPI_IMAGES: YES
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    SWIFT_EMIT_LOC_STRINGS: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+
+# Shared sources; each edition differs only in its compiler flag, Info.plist and entitlements.
+targetTemplates:
+  SwabrApp:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+        excludes: ["Direct/**", "Store/**"]
+      - path: Resources
+        excludes: ["Help/**"]
+      # Folder reference so Help/de/*.md and Help/en/*.md keep their language folders in the bundle.
+      - path: Resources/Help
+        type: folder
+        buildPhase: resources
+    dependencies:
+      - package: SwabrCore
+
+targets:
+  # Root helper of the Direct edition: started by launchd after the user allowed it once (SMAppService).
+  SwabrHelper:
+    type: tool
+    platform: macOS
+    sources:
+      - path: Helper/main.swift
+      - path: App/Shared/HelperProtocol.swift
+    settings:
+      base:
+        PRODUCT_NAME: SwabrHelper
+        PRODUCT_BUNDLE_IDENTIFIER: de.knieriem.swabr.helper
+        GENERATE_INFOPLIST_FILE: YES
+        CREATE_INFOPLIST_SECTION_IN_BINARY: YES
+        SKIP_INSTALL: YES
+
+  # Distributed directly (Developer ID): full access, every module.
+  SwabrDirect:
+    templates: [SwabrApp]
+    sources:
+      - path: Helper/de.knieriem.swabr.helper.plist
+        buildPhase:
+          copyFiles:
+            destination: wrapper
+            subpath: Contents/Library/LaunchDaemons
+    dependencies:
+      - target: SwabrHelper
+        embed: true
+        copy:
+          destination: executables
+    info:
+      path: App/Direct/Info.plist
+      properties:
+        CFBundleDisplayName: Swabr
+        LSApplicationCategoryType: public.app-category.utilities
+        NSHumanReadableCopyright: "© 2026 Michael Knieriem · MIT-Lizenz"
+        NSAppleEventsUsageDescription: "Swabr bittet den Finder, Apps in den Papierkorb zu legen, die einem anderen Benutzer oder dem System gehören, und liest über System Events die Anmeldeobjekte."
+    entitlements:
+      path: App/Direct/Swabr.entitlements
+      properties:
+        # The sandbox would hide ~/Library, so this edition is distributed outside the App Store.
+        com.apple.security.app-sandbox: false
+        # Hardened runtime: needed to send Apple Events to Finder and System Events.
+        com.apple.security.automation.apple-events: true
+    settings:
+      base:
+        PRODUCT_NAME: Swabr
+        PRODUCT_BUNDLE_IDENTIFIER: de.knieriem.swabr
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) SWABR_DIRECT"
+
+  # Mac App Store: sandboxed, so only modules that work on folders the user picks (and Downloads).
+  SwabrStore:
+    templates: [SwabrApp]
+    info:
+      path: App/Store/Info.plist
+      properties:
+        CFBundleDisplayName: Swabr
+        LSApplicationCategoryType: public.app-category.utilities
+        NSHumanReadableCopyright: "© 2026 Michael Knieriem · MIT-Lizenz"
+        ITSAppUsesNonExemptEncryption: false
+    entitlements:
+      path: App/Store/Swabr.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.files.user-selected.read-write: true
+        com.apple.security.files.downloads.read-write: true
+        com.apple.security.files.bookmarks.app-scope: true
+        # App descriptions (Homebrew catalogue, App Store lookup) in the uninstall view.
+        com.apple.security.network.client: true
+    settings:
+      base:
+        PRODUCT_NAME: Swabr Store
+        PRODUCT_BUNDLE_IDENTIFIER: de.knieriem.swabr.store
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) SWABR_STORE"
+
+schemes:
+  SwabrDirect:
+    build:
+      targets:
+        SwabrDirect: all
+    test:
+      targets:
+        - package: SwabrCore/SwabrCoreTests
+    archive:
+      config: Release
+  SwabrStore:
+    build:
+      targets:
+        SwabrStore: all
+    archive:
+      config: Release

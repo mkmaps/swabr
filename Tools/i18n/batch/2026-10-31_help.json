@@ -1,0 +1,12 @@
+{
+ "Administratorrechte (Hilfsdienst)": "Administrator rights (helper service)",
+ "Anleitung": "Guide",
+ "Apps, die sich selbst anmelden (z. B. über „Beim Anmelden öffnen“ in der App), zeigt Swabr nur mit eingerichtetem Hilfsdienst für Administratorrechte.": "Apps that register themselves (for example with “Open at Login” in the app) appear only when the helper service for administrator rights is set up.",
+ "Bebilderte Anleitung": "Illustrated guide",
+ "Den Schalter neben „Swabr.app“ einschalten. Fehlt der Eintrag, mit + hinzufügen.": "Switch on “Swabr.app”. If the entry is missing, add it with +.",
+ "Einmalig nötig, damit Swabr alles findet": "Needed once so Swabr finds everything",
+ "Festplattenvollzugriff erlauben": "Allow Full Disk Access",
+ "Ohne ihn bleiben Papierkorb, Mail und einige App-Caches unsichtbar. Swabr löscht trotzdem nur, was du im Prüffenster bestätigst.": "Without it, the Trash, Mail and some app caches stay invisible. Swabr still only deletes what you confirm in the review window.",
+ "Swabr neu starten, wenn macOS darum bittet.": "Restart Swabr when macOS asks you to.",
+ "Später": "Later"
+}

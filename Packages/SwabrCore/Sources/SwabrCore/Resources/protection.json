@@ -1,0 +1,417 @@
+{
+ "defaultWhitelist": [
+  "~/.gradle/caches/*",
+  "~/Library/Caches/ms-playwright/*",
+  "~/.cache/huggingface/*"
+ ],
+ "safetyWhitelist": [
+  "~/Library/Caches/CloudKit*",
+  "~/Library/Caches/com.apple.bird*",
+  "~/Library/Caches/com.apple.cloudd*",
+  "~/Library/Caches/com.apple.CloudDocs*",
+  "~/Library/Caches/com.apple.akd*",
+  "~/Library/Caches/com.apple.passd*",
+  "~/Library/Caches/com.apple.HomeKit*",
+  "~/Library/Caches/com.apple.FontRegistry*",
+  "~/Library/Caches/com.apple.spotlight*",
+  "~/Library/Caches/com.apple.Spotlight*",
+  "~/Library/Caches/com.apple.nsurlsessiond*",
+  "~/Library/Caches/com.apple.containermanagerd*",
+  "~/Library/Caches/de.knieriem.swabr*"
+ ],
+ "systemCriticalBundles": [
+  "com.apple.Safari"
+ ],
+ "sensitiveBundles": [
+  "com.1password.*",
+  "com.agilebits.*",
+  "com.bitwarden.*",
+  "*.bitwarden.*",
+  "org.keepassxc.*",
+  "com.dashlane.*",
+  "com.lastpass.*",
+  "in.sinew.Enpass*",
+  "me.proton.pass*",
+  "com.yubico.*",
+  "com.authy.*",
+  "com.ledger.*",
+  "org.electrum.*",
+  "com.exodus.*",
+  "*.wireguard.*",
+  "net.tunnelblick.*",
+  "com.sparklabs.*",
+  "com.tailscale.*",
+  "io.tailscale.*",
+  "net.mullvad.*",
+  "com.nordvpn.*",
+  "ch.protonvpn.*",
+  "com.cisco.*",
+  "com.paloaltonetworks.*",
+  "*.inputmethod.*",
+  "*inputmethod*",
+  "*ssh*",
+  "*gpg*",
+  "*keychain*",
+  "*password*",
+  "*wallet*"
+ ],
+ "appleUninstallableApps": [
+  "com.apple.Safari.WebApp.*",
+  "com.apple.pixelmator*",
+  "com.apple.iWork.*",
+  "com.apple.iMovieApp",
+  "com.apple.garageband*",
+  "com.apple.dt.*",
+  "com.apple.FinalCut*",
+  "com.apple.logic*",
+  "com.apple.motionapp",
+  "com.apple.Compressor",
+  "com.apple.mainstage*",
+  "com.apple.configurator.*",
+  "com.apple.TransporterApp"
+ ],
+ "officialUninstallerRules": [
+  {
+   "vendor": "CrowdStrike",
+   "bundlePrefixes": [
+    "com.crowdstrike."
+   ],
+   "nameFragments": [
+    "crowdstrike"
+   ]
+  },
+  {
+   "vendor": "SentinelOne",
+   "bundlePrefixes": [
+    "com.sentinelone."
+   ],
+   "nameFragments": [
+    "sentinelone"
+   ]
+  },
+  {
+   "vendor": "Sophos",
+   "bundlePrefixes": [
+    "com.sophos."
+   ],
+   "nameFragments": [
+    "sophos"
+   ]
+  },
+  {
+   "vendor": "ESET",
+   "bundlePrefixes": [
+    "com.eset."
+   ],
+   "nameFragments": [
+    "eset"
+   ]
+  },
+  {
+   "vendor": "Microsoft Defender",
+   "bundlePrefixes": [
+    "com.microsoft.wdav"
+   ],
+   "nameFragments": [
+    "microsoft defender"
+   ]
+  },
+  {
+   "vendor": "Jamf",
+   "bundlePrefixes": [
+    "com.jamf.",
+    "com.jamfsoftware."
+   ],
+   "nameFragments": [
+    "jamf"
+   ]
+  },
+  {
+   "vendor": "Kandji",
+   "bundlePrefixes": [
+    "io.kandji."
+   ],
+   "nameFragments": [
+    "kandji"
+   ]
+  },
+  {
+   "vendor": "Trend Micro",
+   "bundlePrefixes": [
+    "com.trendmicro."
+   ],
+   "nameFragments": [
+    "trend micro"
+   ]
+  },
+  {
+   "vendor": "Bitdefender",
+   "bundlePrefixes": [
+    "com.bitdefender."
+   ],
+   "nameFragments": [
+    "bitdefender"
+   ]
+  },
+  {
+   "vendor": "Kaspersky",
+   "bundlePrefixes": [
+    "com.kaspersky."
+   ],
+   "nameFragments": [
+    "kaspersky"
+   ]
+  },
+  {
+   "vendor": "Zscaler",
+   "bundlePrefixes": [
+    "com.zscaler."
+   ],
+   "nameFragments": [
+    "zscaler"
+   ]
+  },
+  {
+   "vendor": "Palo Alto GlobalProtect",
+   "bundlePrefixes": [
+    "com.paloaltonetworks."
+   ],
+   "nameFragments": [
+    "globalprotect"
+   ]
+  },
+  {
+   "vendor": "Cisco Secure Client",
+   "bundlePrefixes": [
+    "com.cisco.anyconnect",
+    "com.cisco.secureclient"
+   ],
+   "nameFragments": [
+    "anyconnect",
+    "cisco secure client"
+   ]
+  }
+ ],
+ "whitelistOptions": [
+  {
+   "label": "Apple Music",
+   "pattern": "~/Library/Caches/com.apple.Music/*",
+   "category": "system_cache"
+  },
+  {
+   "label": "Fotos und Medienanalyse",
+   "pattern": "~/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches/*",
+   "category": "system_cache"
+  },
+  {
+   "label": "Karten",
+   "pattern": "~/Library/Containers/com.apple.geod/Data/Library/Caches/*",
+   "category": "system_cache"
+  },
+  {
+   "label": "Mail-Anhänge",
+   "pattern": "~/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/*",
+   "category": "system_cache"
+  },
+  {
+   "label": "Fensterzustände",
+   "pattern": "~/Library/Saved Application State/*",
+   "category": "system_cache"
+  },
+  {
+   "label": "Absturzberichte",
+   "pattern": "~/Library/Logs/DiagnosticReports/*",
+   "category": "system_cache"
+  },
+  {
+   "label": "Safari",
+   "pattern": "~/Library/Containers/com.apple.Safari/Data/Library/Caches/*",
+   "category": "browser_cache"
+  },
+  {
+   "label": "Google Chrome",
+   "pattern": "~/Library/Application Support/Google/Chrome/*",
+   "category": "browser_cache"
+  },
+  {
+   "label": "Microsoft Edge",
+   "pattern": "~/Library/Application Support/Microsoft Edge/*",
+   "category": "browser_cache"
+  },
+  {
+   "label": "Brave",
+   "pattern": "~/Library/Application Support/BraveSoftware/Brave-Browser/*",
+   "category": "browser_cache"
+  },
+  {
+   "label": "Arc",
+   "pattern": "~/Library/Application Support/Arc/User Data/*",
+   "category": "browser_cache"
+  },
+  {
+   "label": "Firefox",
+   "pattern": "~/Library/Caches/Firefox/*",
+   "category": "browser_cache"
+  },
+  {
+   "label": "Xcode DerivedData",
+   "pattern": "~/Library/Developer/Xcode/DerivedData/*",
+   "category": "ide_cache"
+  },
+  {
+   "label": "Xcode Device Support",
+   "pattern": "~/Library/Developer/Xcode/iOS DeviceSupport/*",
+   "category": "ide_cache"
+  },
+  {
+   "label": "Simulator",
+   "pattern": "~/Library/Developer/CoreSimulator/Caches/*",
+   "category": "ide_cache"
+  },
+  {
+   "label": "JetBrains",
+   "pattern": "~/Library/Caches/JetBrains/*",
+   "category": "ide_cache"
+  },
+  {
+   "label": "Visual Studio Code",
+   "pattern": "~/Library/Application Support/Code/*",
+   "category": "ide_cache"
+  },
+  {
+   "label": "Cursor",
+   "pattern": "~/Library/Application Support/Cursor/*",
+   "category": "ide_cache"
+  },
+  {
+   "label": "Go",
+   "pattern": "~/Library/Caches/go-build/*",
+   "category": "compiler_cache"
+  },
+  {
+   "label": "Swift Package Manager",
+   "pattern": "~/Library/Caches/org.swift.swiftpm/*",
+   "category": "compiler_cache"
+  },
+  {
+   "label": "Cargo",
+   "pattern": "~/.cargo/registry/*",
+   "category": "compiler_cache"
+  },
+  {
+   "label": "Homebrew",
+   "pattern": "~/Library/Caches/Homebrew/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "npm",
+   "pattern": "~/.npm/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "pip",
+   "pattern": "~/Library/Caches/pip/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "uv",
+   "pattern": "~/.cache/uv/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "Yarn",
+   "pattern": "~/Library/Caches/Yarn/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "pnpm",
+   "pattern": "~/Library/Caches/pnpm/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "Bun",
+   "pattern": "~/.bun/install/cache/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "CocoaPods",
+   "pattern": "~/Library/Caches/CocoaPods/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "Composer",
+   "pattern": "~/.composer/cache/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "Gradle",
+   "pattern": "~/.gradle/caches/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "Playwright",
+   "pattern": "~/Library/Caches/ms-playwright/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "Cypress",
+   "pattern": "~/Library/Caches/Cypress/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "Dart/Flutter",
+   "pattern": "~/.pub-cache/*",
+   "category": "package_manager"
+  },
+  {
+   "label": "Hugging Face",
+   "pattern": "~/.cache/huggingface/*",
+   "category": "ai_ml_cache"
+  },
+  {
+   "label": "PyTorch",
+   "pattern": "~/.cache/torch/*",
+   "category": "ai_ml_cache"
+  },
+  {
+   "label": "Docker Desktop",
+   "pattern": "~/Library/Containers/com.docker.docker/Data/log/*",
+   "category": "container_cache"
+  },
+  {
+   "label": "Spotify",
+   "pattern": "~/Library/Caches/com.spotify.client/*",
+   "category": "apps"
+  },
+  {
+   "label": "Slack",
+   "pattern": "~/Library/Application Support/Slack/*",
+   "category": "apps"
+  },
+  {
+   "label": "Discord",
+   "pattern": "~/Library/Application Support/discord/*",
+   "category": "apps"
+  },
+  {
+   "label": "Microsoft Teams",
+   "pattern": "~/Library/Application Support/Microsoft/Teams/*",
+   "category": "apps"
+  },
+  {
+   "label": "Steam",
+   "pattern": "~/Library/Application Support/Steam/*",
+   "category": "apps"
+  },
+  {
+   "label": "Adobe",
+   "pattern": "~/Library/Application Support/Adobe/Common/*",
+   "category": "apps"
+  },
+  {
+   "label": "Dropbox",
+   "pattern": "~/Dropbox/.dropbox.cache/*",
+   "category": "apps"
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "Administratorrechte ohne Passwort": "Administrator rights without a password",
+ "Beim nächsten Start wieder fragen": "Ask again at next start",
+ "Deinstallieren, Optimieren und einige Aufräumschritte brauchen Administratorrechte. Ohne den Hilfsdienst von Swabr fragt macOS dafür jedes Mal nach deinem Passwort, und Apps, die sich selbst beim Anmelden eintragen, bleiben unter Apps → Start unsichtbar.": "Uninstalling, optimizing and some clean-up steps need administrator rights. Without Swabr's helper service, macOS asks for your password every time, and apps that register themselves at login stay invisible under Apps → Startup.",
+ "Erscheinen nur, solange das Recht fehlt. Jeder Hinweis lässt sich auch direkt im Fenster abschalten.": "Only appear while the right is missing. Each notice can also be switched off in its own window.",
+ "Fehlenden Festplattenvollzugriff beim Start melden": "Report missing Full Disk Access at start",
+ "Fehlenden Hilfsdienst für Administratorrechte beim Start melden": "Report a missing helper service for administrator rights at start",
+ "Hinweise beim Start": "Notices at start",
+ "Jetzt einrichten": "Set Up Now",
+ "Mit Passwort oder Touch ID bestätigen. Fertig.": "Confirm with your password or Touch ID. Done.",
+ "Optional: einmal erlauben, dann fragt macOS nicht mehr": "Optional: allow it once, then macOS stops asking",
+ "Unter „App-Hintergrundaktivitäten“ den Eintrag „Swabr“ einschalten.": "Under “App Background Activity”, switch on “Swabr”.",
+ "„Jetzt einrichten“ klicken. macOS öffnet Allgemein → Anmeldeobjekte.": "Click “Set Up Now”. macOS opens General → Login Items."
+}

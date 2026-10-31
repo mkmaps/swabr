@@ -1,0 +1,16 @@
+{
+ "%@ arbeitet weiter, bis du sie ausschaltest. Nur macOS selbst darf Systemerweiterungen entfernen.": "%@ keeps running until you switch it off. Only macOS itself may remove system extensions.",
+ "Anmeldeobjekte & Erweiterungen öffnen": "Open Login Items & Extensions",
+ "Daten in den Papierkorb legen": "Move data to the Trash",
+ "Daten von „%@“ löschen?": "Delete the data of “%@”?",
+ "Daten zurückgesetzt": "Data reset",
+ "Der Zuwachs liegt außerhalb deines Benutzerordners, etwa bei System-Updates oder lokalen Time-Machine-Schnappschüssen.": "The growth is outside your home folder, for example system updates or local Time Machine snapshots.",
+ "Die App bleibt installiert. %lld Objekte (%@) mit Einstellungen, Caches und Daten landen im Papierkorb; beim nächsten Start ist die App wie neu installiert. Gemeinsam genutzte Daten und Browser-Profile bleiben.": "The app stays installed. %lld items (%@) with settings, caches and data go to the Trash; at the next launch the app starts as if freshly installed. Shared data and browser profiles stay.",
+ "Ein laufendes Programm arbeitet in diesem Projekt (z. B. ein Entwicklungsserver). Der Ordner wird nicht entfernt.": "A running program works in this project (e.g. a development server). The folder is not removed.",
+ "Eine Systemerweiterung läuft noch": "A system extension is still running",
+ "Nur Daten löschen …": "Delete data only …",
+ "Prozess läuft im Projekt": "Process running in project",
+ "Seit %@ um %@ gewachsen": "Grown by %2$@ since %1$@",
+ "Swabr hat keine Daten dieser App gefunden.": "Swabr found no data of this app.",
+ "in den letzten %lld Tagen benutzt": "used in the last %lld days"
+}
