@@ -5,6 +5,8 @@ import SwiftUI
 struct CleanView: View {
     @Bindable private var model = AppModels.shared.clean
     @State private var confirming = false
+    @State private var showingSelection = false
+    @State private var showingProtected = false
     /// Category shown on the right; nil picks the first one.
     @State private var category: String?
     @State private var search = ""
@@ -27,6 +29,8 @@ struct CleanView: View {
         } message: {
             Text(model.errorMessage ?? "")
         }
+        .sheet(isPresented: $showingSelection) { SelectionSheet(model: model) }
+        .sheet(isPresented: $showingProtected) { ProtectedSheet(model: model) }
         .sheet(isPresented: $confirming) {
             ReviewSheet(
                 title: String(localized: "\(DiskSize.format(model.selectedBytes)) bereinigen?"),
@@ -269,10 +273,17 @@ struct CleanView: View {
             // Everything ticked in all categories: exactly what the button removes. The caption names the
             // categories it comes from, so a total that is not in the open category is not a mystery.
             AmountLabel(amount: DiskSize.format(model.selectedBytes), caption: selectionCaption)
+            // What goes and what stays, each in a window of its own (same boxes as the page).
+            Button { showingSelection = true } label: { Label("Auswahl ansehen", systemImage: "checklist") }
+                .buttonStyle(.softCompact)
+                .disabled(model.selectedItems.isEmpty)
+                .help("Alle angehakten Einträge mit ihren Orten: genau das, was gelöscht wird")
             if model.protectedCount > 0 {
-                Label("\(model.protectedCount) geschützt", systemImage: "shield")
-                    .font(.caption).foregroundStyle(.secondary)
-                    .help("Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen. Aufklappen zeigt sie mit Grund.")
+                Button { showingProtected = true } label: {
+                    Label("\(model.protectedCount) geschützt", systemImage: "shield")
+                }
+                .buttonStyle(.softCompact)
+                .help("Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen, mit Grund")
             }
         } trailing: {
             Toggle("Endgültig löschen", isOn: Binding(get: { model.mode == .permanent }, set: { model.mode = $0 ? .permanent : .trash }))

@@ -1,0 +1,12 @@
+{
+ "%lld Einträge · %lld Elemente": "%lld entries · %lld items",
+ "%lld Orte geschützt": "%lld locations protected",
+ "%lld/%lld ausgewählt · %@": "%lld/%lld selected · %@",
+ "Alle angehakten Einträge mit ihren Orten: genau das, was gelöscht wird": "All ticked entries with their locations: exactly what will be deleted",
+ "Angehakte Einträge aller Kategorien. Änderungen hier gelten auch auf der Seite.": "Ticked entries of all categories. Changes here also apply on the page.",
+ "Auswahl ansehen": "View selection",
+ "Diese Orte hat der Scan gefunden, Swabr lässt sie aber stehen: laufende Apps, deine Ausnahmen und geschützte Bereiche.": "The scan found these locations, but Swabr leaves them alone: running apps, your exceptions and protected areas.",
+ "Geschützt – wird nicht gelöscht": "Protected – not deleted",
+ "Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen, mit Grund": "Locations protected by the whitelist, a running app or the safety check, with the reason",
+ "Was gelöscht wird": "What will be deleted"
+}

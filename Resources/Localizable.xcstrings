@@ -3269,6 +3269,82 @@
         }
       }
     },
+    "%lld Einträge · %lld Elemente": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld záznamů · %lld položek"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Einträge · %lld Elemente"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld καταχωρήσεις · %lld στοιχεία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld entries · %lld items"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld entradas · %lld elementos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld entrées · %lld éléments"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld unosa · %lld stavki"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld bejegyzés · %lld elem"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld voci · %lld elementi"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld entradas · %lld itens"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld intrări · %lld elemente"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld záznamov · %lld položiek"
+          }
+        }
+      }
+    },
     "%lld Einträge · %lld ausgewählt": {
       "localizations": {
         "cs": {
@@ -4101,6 +4177,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Presunúť %lld položiek do Koša?"
+          }
+        }
+      }
+    },
+    "%lld Orte geschützt": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld chráněných umístění"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Orte geschützt"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld θέσεις προστατεύονται"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld locations protected"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ubicaciones protegidas"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld emplacements protégés"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lokacije zaštićene"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld védett hely"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld posizioni protette"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld locais protegidos"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld de locații protejate"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld chránených umiestnení"
           }
         }
       }
@@ -5165,6 +5317,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vybraté %lld/%lld"
+          }
+        }
+      }
+    },
+    "%lld/%lld ausgewählt · %@": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld vybráno · %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld ausgewählt · %@"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld επιλεγμένα · %@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld selected · %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld seleccionados · %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld sélectionné(e) · %@"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld odabrano · %@"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld kiválasztva · %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld selezionato · %@"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld selecionado · %@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld selectat(e) · %@"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld vybrané · %@"
           }
         }
       }
@@ -7069,6 +7297,82 @@
         }
       }
     },
+    "Alle angehakten Einträge mit ihren Orten: genau das, was gelöscht wird": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Všechny zaškrtnuté položky s jejich umístěním: přesně to, co bude smazáno"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle angehakten Einträge mit ihren Orten: genau das, was gelöscht wird"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Όλες οι επιλεγμένες καταχωρήσεις με τις αντίστοιχες θέσεις τους: ακριβώς τι θα διαγραφεί"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All ticked entries with their locations: exactly what will be deleted"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todas las entradas marcadas con su ubicación: exactamente lo que se va a eliminar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toutes les entrées cochées avec leur emplacement : ce qui sera supprimé exactement"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Svi označeni unosi s njihovim lokacijama: točno što će biti izbrisano"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Az összes bejelölt elem és azok helye: pontosan mi fog törlődni"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutte le voci spuntate con la loro posizione: esattamente ciò che verrà eliminato"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todas as entradas assinaladas com as respetivas localizações: exatamente o que será eliminado"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toate elementele bifate, împreună cu locațiile lor: exact ce va fi șters"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Všetky zaškrtnuté položky s ich umiestnením: presne to, čo bude odstránené"
+          }
+        }
+      }
+    },
     "Alle auswählen": {
       "localizations": {
         "cs": {
@@ -7749,6 +8053,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Analyzovať"
+          }
+        }
+      }
+    },
+    "Angehakte Einträge aller Kategorien. Änderungen hier gelten auch auf der Seite.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaškrtnuté položky ve všech kategoriích. Změny zde se projeví také na stránce."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angehakte Einträge aller Kategorien. Änderungen hier gelten auch auf der Seite."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλεγμένες καταχωρήσεις όλων των κατηγοριών. Οι αλλαγές εδώ ισχύουν και στη σελίδα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ticked entries of all categories. Changes here also apply on the page."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elementos marcados de todas las categorías. Los cambios que hagas aquí también se aplicarán en la página."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Éléments cochés de toutes les catégories. Les modifications apportées ici s'appliquent également à la page."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Označene stavke svih kategorija. Promjene ovdje također se primjenjuju na stranici."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Az összes kategória bejelölt elemei. Az itt végzett módosítások az oldalon is érvényesek."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voci selezionate di tutte le categorie. Le modifiche apportate qui si applicano anche alla pagina."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entradas assinaladas em todas as categorias. As alterações aqui efetuadas aplicam-se também à página."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elementele bifate din toate categoriile. Modificările efectuate aici se aplică și pe pagină."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaškrtnuté položky vo všetkých kategóriách. Zmeny vykonané tu sa uplatnia aj na stránke."
           }
         }
       }
@@ -10865,6 +11245,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Odkladanie"
+          }
+        }
+      }
+    },
+    "Auswahl ansehen": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zobrazit výběr"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auswahl ansehen"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προβολή επιλογής"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View selection"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver selección"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher la sélection"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prikaz odabira"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiválasztás megtekintése"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visualizza selezione"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver seleção"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vizualizați selecția"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zobraziť výber"
           }
         }
       }
@@ -16489,6 +16945,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tieto položky odkazujú na programy, ktoré už nie sú nainštalované: %@."
+          }
+        }
+      }
+    },
+    "Diese Orte hat der Scan gefunden, Swabr lässt sie aber stehen: laufende Apps, deine Ausnahmen und geschützte Bereiche.": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skenování našlo tato místa, ale Swabr je nechává na pokoji: spuštěné aplikace, vaše výjimky a chráněné oblasti."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diese Orte hat der Scan gefunden, Swabr lässt sie aber stehen: laufende Apps, deine Ausnahmen und geschützte Bereiche."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η σάρωση εντόπισε αυτές τις τοποθεσίες, αλλά το Swabr δεν τις αγγίζει: εφαρμογές που εκτελούνται, τις εξαιρέσεις σας και τις προστατευμένες περιοχές."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The scan found these locations, but Swabr leaves them alone: running apps, your exceptions and protected areas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El análisis ha detectado estas ubicaciones, pero Swabr no las toca: aplicaciones en ejecución, tus excepciones y áreas protegidas."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'analyse a détecté ces emplacements, mais Swabr ne les modifie pas : les applications en cours d'exécution, vos exceptions et les zones protégées."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skener je pronašao ove lokacije, ali Swabr ih ne dira: pokrenute aplikacije, vaše iznimke i zaštićena područja."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A vizsgálat ezeket a helyeket találta meg, de a Swabr nem nyúl hozzájuk: a futó alkalmazásokhoz, a kivételekhez és a védett területekhez."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La scansione ha individuato queste posizioni, ma Swabr le lascia stare: le app in esecuzione, le tue eccezioni e le aree protette."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A análise detetou estas localizações, mas o Swabr não as altera: aplicações em execução, as suas exceções e áreas protegidas."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanarea a identificat aceste locații, dar Swabr nu le afectează: aplicațiile care rulează, excepțiile dvs. și zonele protejate."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skenovanie našlo tieto miesta, ale Swabr ich necháva na pokoji: spustené aplikácie, vaše výnimky a chránené oblasti."
           }
         }
       }
@@ -22417,6 +22949,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vždy chránené: spustené aplikácie, vaše výnimky a všetko v priečinku /System."
+          }
+        }
+      }
+    },
+    "Geschützt – wird nicht gelöscht": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chráněno – nebude odstraněno"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geschützt – wird nicht gelöscht"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προστατευμένο – δεν διαγράφεται"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protected – not deleted"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protegido – no se eliminará"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protégé – ne sera pas supprimé"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaštićeno – neće biti izbrisano"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Védett – nem törlődik"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protetto – non verrà eliminato"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protegido – não será eliminado"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protejat – nu se șterge"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chránené – nebude odstránené"
           }
         }
       }
@@ -33669,6 +34277,82 @@
         }
       }
     },
+    "Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen, mit Grund": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Umístění chráněná pomocí seznamu povolených položek, spuštěnou aplikací nebo bezpečnostní kontrolou, včetně důvodu"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen, mit Grund"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Θέσεις που προστατεύονται από τη λίστα επιτρεπόμενων, μια εφαρμογή που εκτελείται ή τον έλεγχο ασφαλείας, με την αιτία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Locations protected by the whitelist, a running app or the safety check, with the reason"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ubicaciones protegidas por la lista blanca, una app en ejecución o la comprobación de seguridad, con el motivo correspondiente"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emplacements protégés par la liste blanche, une application en cours d'exécution ou le contrôle de sécurité, avec la raison"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lokacije zaštićene bjelačkom listom, aktivnom aplikacijom ili provjerom sigurnosti, s razlogom"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A fehérlistával, egy futó alkalmazással vagy a biztonsági ellenőrzéssel védett helyek, az indoklással együtt"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posizioni protette dalla whitelist, da un’app in esecuzione o dal controllo di sicurezza, con la relativa motivazione"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Locais protegidos pela lista de permissões, por uma aplicação em execução ou pela verificação de segurança, com a respetiva justificação"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Locații protejate de lista albă, de o aplicație care rulează sau de verificarea de siguranță, cu motivul"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Miesta chránené bielym zoznamom, spustenou aplikáciou alebo bezpečnostnou kontrolou, spolu s dôvodom"
+          }
+        }
+      }
+    },
     "Orte, die die Whitelist, eine laufende App oder die Sicherheitsprüfung schützen. Aufklappen zeigt sie mit Grund.": {
       "localizations": {
         "cs": {
@@ -43241,6 +43925,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "Čo sa spustí po prihlásení"
+          }
+        }
+      }
+    },
+    "Was gelöscht wird": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Co bude odstraněno"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Was gelöscht wird"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τι θα διαγραφεί"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What will be deleted"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que se eliminará"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce qui sera supprimé"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Što će biti izbrisano"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mi kerül törlésre"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa verrà eliminato"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que será eliminado"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce va fi șters"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Čo bude odstránené"
           }
         }
       }
