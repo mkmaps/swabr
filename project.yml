@@ -115,9 +115,15 @@ targets:
         com.apple.security.network.client: true
     settings:
       base:
-        PRODUCT_NAME: Swabr Store
+        # Shipped as "Swabr.app" like the Direct edition. Debug builds keep "Swabr Store" so both editions can
+        # sit side by side in the shared build folder.
+        PRODUCT_NAME: Swabr
+        PRODUCT_MODULE_NAME: Swabr_Store
         PRODUCT_BUNDLE_IDENTIFIER: de.knieriem.swabr.store
         SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) SWABR_STORE"
+      configs:
+        Debug:
+          PRODUCT_NAME: Swabr Store
 
 schemes:
   SwabrDirect:
