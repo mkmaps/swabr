@@ -17,7 +17,7 @@
   "~/Library/Caches/com.apple.Spotlight*",
   "~/Library/Caches/com.apple.nsurlsessiond*",
   "~/Library/Caches/com.apple.containermanagerd*",
-  "~/Library/Caches/de.knieriem.swabr*"
+  "~/Library/Caches/io.github.mkmaps.swabr*"
  ],
  "systemCriticalBundles": [
   "com.apple.Safari"

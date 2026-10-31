@@ -9,7 +9,7 @@ Swabr erfasst keine personenbezogenen Daten. Die App hat kein Benutzerkonto, kei
 Werbedienste und sendet nichts an den Entwickler.
 
 ## Verantwortlicher
-Michael Knieriem. Kontakt über die Issues des Projekts: https://github.com/mkmaps/swabr/issues
+Der Entwickler von Swabr (GitHub: mkmaps). Kontakt über die Issues des Projekts: https://github.com/mkmaps/swabr/issues
 
 ## Was auf deinem Mac bleibt
 Alle Scans, Messungen, Einstellungen, geschützte Einträge und das Protokoll werden ausschließlich lokal auf
@@ -50,7 +50,7 @@ Swabr does not collect any personal data. The app has no user account, no analyt
 services, and sends nothing to the developer.
 
 ### Controller
-Michael Knieriem. Contact via the project's issues: https://github.com/mkmaps/swabr/issues
+The developer of Swabr (GitHub: mkmaps). Contact via the project's issues: https://github.com/mkmaps/swabr/issues
 
 ### What stays on your Mac
 All scans, measurements, settings, protected items and the log are stored locally on your Mac only and are never

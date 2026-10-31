@@ -5,7 +5,7 @@ Speicher analysieren, Optimieren und Überwachen. Kostenlos, in zwei Varianten: 
 eingeschränkte Sandbox-Version im Mac App Store.
 
 ## Lizenz
-**MIT** (siehe `LICENSE`), © 2026 Michael Knieriem. Der gesamte Code ist eigenständig entwickelt. Der
+**MIT** (siehe `LICENSE`), © 2026 mkmaps. Der gesamte Code ist eigenständig entwickelt. Der
 Lizenzhinweis steht in der App unter Über → Lizenzhinweise.
 
 ## Datenschutz und Support
@@ -26,8 +26,8 @@ Lizenzhinweis steht in der App unter Über → Lizenzhinweise.
 ## Varianten
 | Target | Kennung | Verteilung | Module |
 |---|---|---|---|
-| `SwabrDirect` (Flag `SWABR_DIRECT`) | `de.knieriem.swabr` | DMG, Developer ID, ohne Sandbox | alle |
-| `SwabrStore` (Flag `SWABR_STORE`) | `de.knieriem.swabr.store` | Mac App Store, Sandbox | Aufräumen und Deinstallieren (nach Ordnerfreigabe, /Library optional), Speicher, Status + Menüleiste, Projekte, Installer, Verlauf. Optimieren nur sandbox-taugliche Aufgaben, Updates nur als Hinweis (öffnet App Store/Herstellerseite), Start nur eigene LaunchAgents entfernen, Online-Infos standardmäßig aus. Nicht: Verschlanken |
+| `SwabrDirect` (Flag `SWABR_DIRECT`) | `io.github.mkmaps.swabr` | DMG, Developer ID, ohne Sandbox | alle |
+| `SwabrStore` (Flag `SWABR_STORE`) | `io.github.mkmaps.swabr.store` | Mac App Store, Sandbox | Aufräumen und Deinstallieren (nach Ordnerfreigabe, /Library optional), Speicher, Status + Menüleiste, Projekte, Installer, Verlauf. Optimieren nur sandbox-taugliche Aufgaben, Updates nur als Hinweis (öffnet App Store/Herstellerseite), Start nur eigene LaunchAgents entfernen, Online-Infos standardmäßig aus. Nicht: Verschlanken |
 
 Welche Module eine Variante zeigt, steht in `App/Shared/Edition.swift` (`Module.inStoreEdition`).
 

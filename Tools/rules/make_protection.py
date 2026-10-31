@@ -17,7 +17,7 @@ safety = [
     "~/Library/Caches/com.apple.Spotlight*",
     "~/Library/Caches/com.apple.nsurlsessiond*",  # background downloads in progress
     "~/Library/Caches/com.apple.containermanagerd*",
-    "~/Library/Caches/de.knieriem.swabr*",
+    "~/Library/Caches/io.github.mkmaps.swabr*",
 ]
 
 # Switches under Settings → Protected Data, named after the product (category and path give the context);

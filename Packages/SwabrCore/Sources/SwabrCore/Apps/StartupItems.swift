@@ -80,7 +80,7 @@ public enum StartupItems {
     /// Moves a file to the Trash; nil on success, otherwise the reason.
     typealias Trash = @Sendable (String) -> String?
 
-    static let ownMarker = "de.knieriem.swabr"
+    static let ownMarker = "io.github.mkmaps.swabr"
 
     static let launchctl: Runner = { arguments in
         switch ToolRun.run("/bin/launchctl", arguments, timeout: 15) {

@@ -190,7 +190,7 @@ Ein Symlink als Ziel wird als Link entfernt, nie sein Ziel. Das ist bereits so, 
 
 **Hilfsdienst (Direct, seit 25.10.2026)**
 - `SwabrHelper` wird per `SMAppService.daemon` angemeldet und einmal unter Anmeldeobjekte erlaubt. Danach führt er Admin-Schritte ohne Passwort aus, auf Wunsch des Nutzers ohne Rückfrage.
-- Er nimmt nur Verbindungen der App mit der Kennung `de.knieriem.swabr` und Team `Y94QZAZZ45` an. Umgekehrt verbindet sich die App nur mit dem gleich signierten Dienst.
+- Er nimmt nur Verbindungen der App mit der Kennung `io.github.mkmaps.swabr` und Team `Y94QZAZZ45` an. Umgekehrt verbindet sich die App nur mit dem gleich signierten Dienst.
 - Er führt dieselben Skripte aus wie bisher die Passwortabfrage, also mit allen Prüfungen aus `RootScript`.
 - Ohne Freigabe fragt macOS wie bisher nach dem Passwort.
 - Entfernen geht unter Einstellungen → Verhalten → Administratorrechte.

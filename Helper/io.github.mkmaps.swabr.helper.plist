@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>de.knieriem.swabr.helper</string>
+	<string>io.github.mkmaps.swabr.helper</string>
 	<key>BundleProgram</key>
 	<string>Contents/MacOS/SwabrHelper</string>
 	<key>MachServices</key>
 	<dict>
-		<key>de.knieriem.swabr.helper</key>
+		<key>io.github.mkmaps.swabr.helper</key>
 		<true/>
 	</dict>
 	<key>AssociatedBundleIdentifiers</key>
 	<array>
-		<string>de.knieriem.swabr</string>
+		<string>io.github.mkmaps.swabr</string>
 	</array>
 </dict>
 </plist>

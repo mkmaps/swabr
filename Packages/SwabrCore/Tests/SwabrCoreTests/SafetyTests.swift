@@ -256,7 +256,7 @@ func guardedMove(_ src: String, to dst: String, roots: [String]) -> Int32 {
     func reason(_ label: String, program: String? = nil) -> String? {
         StartupItems.protectionReason(label: label, path: "/Users/x/Library/LaunchAgents/\(label).plist", program: program, protection: p)
     }
-    #expect(reason("de.knieriem.swabr.helper") != nil)
+    #expect(reason("io.github.mkmaps.swabr.helper") != nil)
     #expect(reason("com.crowdstrike.falcon.UserAgent") != nil)
     #expect(reason("com.tailscale.ipn.macsys.login-item-helper") != nil)
     #expect(reason("com.1password.browser-helper") != nil)

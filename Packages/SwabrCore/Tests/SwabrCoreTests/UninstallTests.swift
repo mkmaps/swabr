@@ -71,7 +71,7 @@ func fakeApp(_ h: FakeHome, name: String, id: String, protection: String? = nil)
     #expect(AppCatalog.protectionReason(bundleID: "com.apple.Safari", name: "Safari", protection: p, ownBundleID: nil) != nil)
     #expect(AppCatalog.protectionReason(bundleID: "com.apple.dt.Xcode", name: "Xcode", protection: p, ownBundleID: nil) == nil)
     #expect(AppCatalog.protectionReason(bundleID: "com.crowdstrike.falcon.App", name: "Falcon", protection: p, ownBundleID: nil)?.contains("CrowdStrike") == true)
-    #expect(AppCatalog.protectionReason(bundleID: "de.knieriem.swabr", name: "Swabr", protection: p, ownBundleID: "de.knieriem.swabr") != nil)
+    #expect(AppCatalog.protectionReason(bundleID: "io.github.mkmaps.swabr", name: "Swabr", protection: p, ownBundleID: "io.github.mkmaps.swabr") != nil)
     #expect(AppCatalog.protectionReason(bundleID: "com.spotify.client", name: "Spotify", protection: p, ownBundleID: nil) == nil)
 }
 

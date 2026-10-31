@@ -464,7 +464,7 @@ struct AboutView: View {
             Button("Lizenzhinweise") { showLicense.toggle() }
                 .buttonStyle(.link).font(.caption)
                 .popover(isPresented: $showLicense) {
-                    Text("© 2026 Michael Knieriem. Swabr ist freie Software unter der MIT-Lizenz und wird ohne jede Gewährleistung bereitgestellt.")
+                    Text("© 2026 mkmaps. Swabr ist freie Software unter der MIT-Lizenz und wird ohne jede Gewährleistung bereitgestellt.")
                         .frame(width: 320).fixedSize(horizontal: false, vertical: true).padding()
                 }
             HStack {

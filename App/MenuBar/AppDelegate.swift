@@ -6,7 +6,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @MainActor private var menuBar: MenuBarController?
 
     /// Both editions share one menu bar slot: a second copy hands over to the running one and quits.
-    static let bundleIDs = ["de.knieriem.swabr", "de.knieriem.swabr.store"]
+    static let bundleIDs = ["io.github.mkmaps.swabr", "io.github.mkmaps.swabr.store"]
 
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
         let me = ProcessInfo.processInfo.processIdentifier

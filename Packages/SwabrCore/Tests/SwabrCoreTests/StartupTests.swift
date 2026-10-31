@@ -102,8 +102,8 @@ private func agent(_ label: String, kind: StartupItem.Kind = .userAgent, program
     func reason(_ label: String, program: String? = nil) -> String? {
         StartupItems.protectionReason(label: label, path: "/Users/x/Library/LaunchAgents/\(label).plist", program: program, protection: p)
     }
-    #expect(reason("de.knieriem.swabr.helper") == String(localized: "Dienst von Swabr", bundle: .module))
-    #expect(reason("com.other.x", program: "/Applications/Swabr.app/Contents/Library/de.knieriem.swabr.agent") != nil)
+    #expect(reason("io.github.mkmaps.swabr.helper") == String(localized: "Dienst von Swabr", bundle: .module))
+    #expect(reason("com.other.x", program: "/Applications/Swabr.app/Contents/Library/io.github.mkmaps.swabr.agent") != nil)
     #expect(reason("com.crowdstrike.falcon.UserAgent")?.contains("CrowdStrike") == true)
     #expect(reason("com.vendor.agent", program: "/Applications/Cisco Secure Client.app/Contents/MacOS/x")?.contains("Cisco") == true)
     #expect(reason("com.tailscale.ipn.macsys.login-item-helper") == String(localized: "Passwort-, Schlüssel- oder Netzwerkprogramm", bundle: .module))

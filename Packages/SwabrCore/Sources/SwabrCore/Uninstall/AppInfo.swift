@@ -120,7 +120,7 @@ public actor AppInfoService {
     private let cacheURL: URL
     private let catalogURL = URL(string: "https://formulae.brew.sh/api/cask.json")!
 
-    public init(cacheDir: URL = URL(fileURLWithPath: NSHomeDirectory()).appending(path: "Library/Caches/de.knieriem.swabr")) {
+    public init(cacheDir: URL = URL(fileURLWithPath: NSHomeDirectory()).appending(path: "Library/Caches/io.github.mkmaps.swabr")) {
         cacheURL = cacheDir.appending(path: "homebrew-casks.json")
     }
 

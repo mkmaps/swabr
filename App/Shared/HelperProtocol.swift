@@ -9,12 +9,12 @@ import Foundation
 }
 
 enum HelperIdentity {
-    static let machService = "de.knieriem.swabr.helper"
-    static let plistName = "de.knieriem.swabr.helper.plist"
+    static let machService = "io.github.mkmaps.swabr.helper"
+    static let plistName = "io.github.mkmaps.swabr.helper.plist"
     /// Bumped whenever the helper's behaviour changes, so the app re-registers it.
     static let version = "1"
     /// Only Swabr itself, signed by this team, may talk to the helper, and the app talks only to that helper.
     static let team = "Y94QZAZZ45"
-    static let appRequirement = "anchor apple generic and identifier \"de.knieriem.swabr\" and certificate leaf[subject.OU] = \"\(team)\""
-    static let helperRequirement = "anchor apple generic and identifier \"de.knieriem.swabr.helper\" and certificate leaf[subject.OU] = \"\(team)\""
+    static let appRequirement = "anchor apple generic and identifier \"io.github.mkmaps.swabr\" and certificate leaf[subject.OU] = \"\(team)\""
+    static let helperRequirement = "anchor apple generic and identifier \"io.github.mkmaps.swabr.helper\" and certificate leaf[subject.OU] = \"\(team)\""
 }
