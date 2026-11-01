@@ -7,13 +7,19 @@ eingeschränkte Sandbox-Version im Mac App Store.
 **Download:** [Neueste Version (Swabr OP, DMG)](https://github.com/mkmaps/swabr/releases/latest)
 
 ## Bildschirmfotos
+### Deutsch
 | | |
 |---|---|
 | ![Übersicht](docs/appstore/screenshots/de/1-uebersicht.png) | ![Aufräumen](docs/appstore/screenshots/de/2-aufraeumen.png) |
 | ![Apps](docs/appstore/screenshots/de/3-apps.png) | ![Optimieren](docs/appstore/screenshots/de/4-optimieren.png) |
 | ![Status](docs/appstore/screenshots/de/5-status.png) | |
 
-English screenshots: [`docs/appstore/screenshots/en`](docs/appstore/screenshots/en)
+### English
+| | |
+|---|---|
+| ![Overview](docs/appstore/screenshots/en/1-overview.png) | ![Clean up](docs/appstore/screenshots/en/2-clean-up.png) |
+| ![Apps](docs/appstore/screenshots/en/3-apps.png) | ![Optimize](docs/appstore/screenshots/en/4-optimize.png) |
+| ![Status](docs/appstore/screenshots/en/5-status.png) | |
 
 ## Lizenz
 **MIT** (siehe `LICENSE`), © 2026 mkmaps. Der gesamte Code ist eigenständig entwickelt. Der
