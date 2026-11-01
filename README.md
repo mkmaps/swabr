@@ -4,6 +4,17 @@
 Speicher analysieren, Optimieren und Überwachen. Kostenlos, in zwei Varianten: Vollversion über GitHub,
 eingeschränkte Sandbox-Version im Mac App Store.
 
+**Download:** [Neueste Version (Swabr OP, DMG)](https://github.com/mkmaps/swabr/releases/latest)
+
+## Bildschirmfotos
+| | |
+|---|---|
+| ![Übersicht](docs/appstore/screenshots/de/1-uebersicht.png) | ![Aufräumen](docs/appstore/screenshots/de/2-aufraeumen.png) |
+| ![Apps](docs/appstore/screenshots/de/3-apps.png) | ![Optimieren](docs/appstore/screenshots/de/4-optimieren.png) |
+| ![Status](docs/appstore/screenshots/de/5-status.png) | |
+
+English screenshots: [`docs/appstore/screenshots/en`](docs/appstore/screenshots/en)
+
 ## Lizenz
 **MIT** (siehe `LICENSE`), © 2026 mkmaps. Der gesamte Code ist eigenständig entwickelt. Der
 Lizenzhinweis steht in der App unter Über → Lizenzhinweise.
