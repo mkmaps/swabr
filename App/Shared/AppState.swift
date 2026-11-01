@@ -31,9 +31,14 @@ final class ScanSummary {
     static let shared = ScanSummary()
 
     struct Entry: Codable, Equatable {
+        /// What is ticked on the page (the sidebar shows this).
         var bytes: Int64
         var count: Int
         var date: Date
+        /// Everything the scan found that could go, ticked or not (the overview and the menu bar show this).
+        var found: Int64? = nil
+
+        var foundBytes: Int64 { found ?? bytes }
     }
 
     private(set) var entries: [String: Entry] = [:]
@@ -46,8 +51,8 @@ final class ScanSummary {
         }
     }
 
-    func record(_ module: Module, bytes: Int64, count: Int) {
-        entries[module.rawValue] = Entry(bytes: max(bytes, 0), count: count, date: Date())
+    func record(_ module: Module, bytes: Int64, count: Int, found: Int64? = nil) {
+        entries[module.rawValue] = Entry(bytes: max(bytes, 0), count: count, date: Date(), found: found.map { max($0, 0) })
         if let data = try? JSONEncoder().encode(entries) { UserDefaults.standard.set(data, forKey: key) }
     }
 
@@ -55,9 +60,13 @@ final class ScanSummary {
 
     /// Areas whose finds can be removed, in the order the overview lists them.
     static let reclaimable: [Module] = [.clean, .purge, .installer, .slim]
+    /// What "Prüfen & aufräumen" and the overview total are about: caches, build folders and installers.
+    /// Slimming is a change to apps, not clean-up, so it has its own tile only.
+    static let cleanup: [Module] = [.clean, .purge, .installer]
 
+    /// Everything found in the clean-up areas, ticked or not.
     var reclaimableBytes: Int64 {
-        Self.reclaimable.filter(\.isAvailable).compactMap { entry($0)?.bytes }.reduce(0, +)
+        Self.cleanup.filter(\.isAvailable).compactMap { entry($0)?.foundBytes }.reduce(0, +)
     }
 
     /// Time of the oldest of the reclaimable scans, nil while one of them never ran.

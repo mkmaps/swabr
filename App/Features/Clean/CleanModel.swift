@@ -147,7 +147,8 @@ final class CleanModel {
 
     private func recordSummary() {
         let s = selection
-        ScanSummary.shared.record(.clean, bytes: s.selectedBytes, count: s.selectedEntries)
+        ScanSummary.shared.record(.clean, bytes: s.selectedBytes, count: s.selectedEntries,
+                                  found: s.categories.filter { !$0.isInformational }.reduce(0) { $0 + $1.total })
     }
 
     /// After a scan: what the setting says, nothing by default.

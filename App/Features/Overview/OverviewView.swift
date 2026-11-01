@@ -131,8 +131,8 @@ struct OverviewView: View {
 
     private var segments: [(Double, Color)] {
         guard total > 0 else { return [] }
-        return ScanSummary.reclaimable.compactMap { m in
-            guard let b = summary.entry(m)?.bytes, b > 0 else { return nil }
+        return ScanSummary.cleanup.filter(\.isAvailable).compactMap { m in
+            guard let b = summary.entry(m)?.foundBytes, b > 0 else { return nil }
             return (Double(b) / Double(total), m.tint)
         }
     }
@@ -202,9 +202,10 @@ struct OverviewView: View {
             : String(localized: "Gerade gibt es nichts Nennenswertes aufzuräumen.")
     }
 
-    /// The area with the most to remove, where "Prüfen & aufräumen" leads.
+    /// The clean-up area with the most found, where "Prüfen & aufräumen" leads (Clean Up when in doubt).
     private var largestArea: Module {
-        ScanSummary.reclaimable.max { (summary.entry($0)?.bytes ?? 0) < (summary.entry($1)?.bytes ?? 0) } ?? .clean
+        let areas = ScanSummary.cleanup.filter(\.isAvailable)
+        return areas.max { (summary.entry($0)?.foundBytes ?? 0) < (summary.entry($1)?.foundBytes ?? 0) } ?? .clean
     }
 
     // MARK: Tiles
@@ -233,9 +234,10 @@ struct OverviewView: View {
         return all.filter { $0.module.isAvailable }
     }
 
+    /// What the last scan found in an area (ticked or not); the area's own page decides what goes.
     private func bytes(_ m: Module) -> String {
         guard let e = summary.entry(m) else { return "–" }
-        return e.bytes > 0 ? DiskSize.format(e.bytes) : "0"
+        return e.foundBytes > 0 ? DiskSize.format(e.foundBytes) : "0"
     }
 }
 

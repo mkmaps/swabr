@@ -15,7 +15,8 @@ final class InstallerModel {
     var chosen: [InstallerFile] { files.filter { selected.contains($0.id) } }
 
     private func recordSummary() {
-        ScanSummary.shared.record(.installer, bytes: chosen.reduce(0) { $0 + $1.bytes }, count: chosen.count)
+        ScanSummary.shared.record(.installer, bytes: chosen.reduce(0) { $0 + $1.bytes }, count: chosen.count,
+                                  found: files.reduce(0) { $0 + $1.bytes })
     }
 
     func scan() async {

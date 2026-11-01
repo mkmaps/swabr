@@ -62,7 +62,8 @@ final class ProjectsModel {
 
 
     private func recordSummary() {
-        ScanSummary.shared.record(.purge, bytes: chosenBytes, count: chosen.count)
+        ScanSummary.shared.record(.purge, bytes: chosenBytes, count: chosen.count,
+                                  found: artifacts.filter { !$0.inUse }.reduce(0) { $0 + $1.bytes })
     }
 }
 
